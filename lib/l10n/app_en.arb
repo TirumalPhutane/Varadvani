@@ -1,0 +1,26 @@
+{
+    "title" : "Varadvani",
+    "@title": {
+        "description" : "The title of the app"
+    },
+    "home" : "Home",
+    "@home": {
+        "description" : "Home screen label"
+    },
+    "p_dada" : "P. Dada",
+    "@p_dada": {
+        "description" : "P. Dada screen label"
+    },
+    "p_appa" : "P. Appa",
+    "@p_appa": {
+        "description" : "P. Appa screen label"
+    },
+    "exams" : "Exams",
+    "@exams": {
+        "description" : "Exams screen label"
+    },
+    "profile" : "Profile",
+    "@profile": {
+        "description" : "Profile screen label"
+    }
+}
