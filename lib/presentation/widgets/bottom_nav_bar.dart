@@ -18,6 +18,7 @@ class BottomNavBar extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory),
       child: BottomNavigationBar(
+        elevation: 10,
         currentIndex: selectedIndex,
         onTap: onItemSelected,
         type: BottomNavigationBarType.fixed,
