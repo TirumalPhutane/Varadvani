@@ -36,7 +36,9 @@ class BottomNavBar extends StatelessWidget {
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: SvgPicture.asset(
-                'assets/svg/home.svg',
+                selectedIndex == 0
+                    ? 'assets/svg/home_fill.svg'
+                    : 'assets/svg/home.svg',
                 colorFilter: ColorFilter.mode(
                   Color(
                     selectedIndex == 0 ? ColorCode.orange : ColorCode.black,
@@ -77,7 +79,9 @@ class BottomNavBar extends StatelessWidget {
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: SvgPicture.asset(
-                'assets/svg/exams.svg',
+                selectedIndex == 3
+                    ? 'assets/svg/exams_fill.svg'
+                    : 'assets/svg/exams.svg',
                 colorFilter: ColorFilter.mode(
                   Color(
                     selectedIndex == 3 ? ColorCode.orange : ColorCode.black,
@@ -92,7 +96,9 @@ class BottomNavBar extends StatelessWidget {
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: SvgPicture.asset(
-                'assets/svg/profile.svg',
+                selectedIndex == 4
+                    ? 'assets/svg/profile_fill.svg'
+                    : 'assets/svg/profile.svg',
                 colorFilter: ColorFilter.mode(
                   Color(
                     selectedIndex == 4 ? ColorCode.orange : ColorCode.black,
