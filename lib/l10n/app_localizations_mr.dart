@@ -12,7 +12,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get title => 'वरदवाणी';
 
   @override
-  String get home => 'मुख्य पान';
+  String get home => 'मुख्यपृष्ठ';
 
   @override
   String get p_dada => 'पू. दादा';

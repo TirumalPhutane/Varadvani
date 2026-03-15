@@ -15,7 +15,6 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.p_dada,
-        isFromHome: true,
         isShowLeading: true,
       ),
       body: Center(child: Text('Welcome to the Dasganu Maharaj Screen')),

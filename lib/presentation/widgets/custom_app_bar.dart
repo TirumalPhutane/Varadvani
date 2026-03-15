@@ -22,14 +22,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       backgroundColor: Color(ColorCode.scaffoldBackground),
       centerTitle: true,
-      leadingWidth: isFromHome! ? 55 : 45,
+      leadingWidth: isFromHome! ? 50 : 50,
       title: Text(
         title,
         style: TextStyle(
-          fontSize: 24,
+          fontSize: isFromHome! ? 24 : 20,
           fontFamily: 'Gotu',
           fontWeight: FontWeight.bold,
-          color: Color(ColorCode.orange),
+          color: isFromHome! ? Color(ColorCode.orange) : Color(ColorCode.black),
         ),
       ),
       leading: isShowLeading!
@@ -46,7 +46,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : InkWell(
               onTap: () => Navigator.pop(context),
               child: Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 20),
                 child: Transform.rotate(
                   angle: 180 * math.pi / 180,
                   child: SvgPicture.asset(
@@ -63,5 +63,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

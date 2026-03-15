@@ -16,7 +16,6 @@ class _VaradanandBharatiScreenState extends State<VaradanandBharatiScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.p_appa,
-        isFromHome: true,
         isShowLeading: true,
       ),
       body: Center(child: Text('Welcome to the Varadanand Bharati Screen')),

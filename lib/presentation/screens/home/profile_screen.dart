@@ -15,7 +15,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.profile,
-        isFromHome: true,
         isShowLeading: true,
       ),
       body: Center(child: Text('Welcome to the Profile Screen')),

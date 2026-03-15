@@ -24,18 +24,20 @@ class BottomNavBar extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
           fontFamily: 'Gotu',
+          fontSize: 12,
           fontWeight: FontWeight.w700,
           color: Color(ColorCode.orange),
         ),
         unselectedLabelStyle: TextStyle(
           fontFamily: 'Gotu',
+          fontSize: 12,
           fontWeight: FontWeight.w700,
           color: Color(ColorCode.black),
         ),
         items: [
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5),
               child: SvgPicture.asset(
                 selectedIndex == 0
                     ? 'assets/svg/home_fill.svg'
@@ -52,7 +54,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5),
               child: Image.asset(
                 selectedIndex == 1
                     ? 'assets/image/dada_selected.PNG'
@@ -65,7 +67,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5),
               child: Image.asset(
                 selectedIndex == 2
                     ? 'assets/image/appa_selected.PNG'
@@ -78,7 +80,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5),
               child: SvgPicture.asset(
                 selectedIndex == 3
                     ? 'assets/svg/exams_fill.svg'
@@ -95,7 +97,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5),
               child: SvgPicture.asset(
                 selectedIndex == 4
                     ? 'assets/svg/profile_fill.svg'

@@ -15,7 +15,6 @@ class _ExamsScreenState extends State<ExamsScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.exams,
-        isFromHome: true,
         isShowLeading: true,
       ),
       body: Center(child: Text('Welcome to the Exams Screen')),
