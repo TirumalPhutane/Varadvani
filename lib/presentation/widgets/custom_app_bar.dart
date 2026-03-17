@@ -33,13 +33,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: isShowLeading!
-          ? Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: SvgPicture.asset(
-                'assets/svg/menu.svg',
-                colorFilter: ColorFilter.mode(
-                  Color(ColorCode.black),
-                  BlendMode.srcIn,
+          ? Builder(
+              builder: (context) => InkWell(
+                onTap: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: SvgPicture.asset(
+                    'assets/svg/menu.svg',
+                    colorFilter: ColorFilter.mode(
+                      Color(ColorCode.black),
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 ),
               ),
             )
