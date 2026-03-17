@@ -51,9 +51,14 @@ class WidgetHelper {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Color(ColorCode.white),
-        // border: Border.all(
-        //   color: Color(ColorCode.black).withValues(alpha: 0.2),
-        // ),
+        boxShadow: [
+          BoxShadow(
+            color: Color(ColorCode.black).withValues(alpha: 0.04),
+            blurRadius: 10,
+            spreadRadius: 1,
+            offset: Offset(0, 3),
+          ),
+        ],
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(20),
           bottomLeft: Radius.circular(20),
@@ -66,13 +71,9 @@ class WidgetHelper {
 
   static Widget buildButtonWithoutText(Widget body) {
     return Container(
-      //width: double.infinity,
       padding: EdgeInsets.only(right: 5, left: 5),
       decoration: BoxDecoration(
         color: Color(ColorCode.orange),
-        // border: Border.all(
-        //   color: Color(ColorCode.black).withValues(alpha: 0.2),
-        // ),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(6),
           topRight: Radius.circular(6),
