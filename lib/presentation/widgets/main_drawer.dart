@@ -111,6 +111,7 @@ class MainDrawer extends StatelessWidget {
                     Row(
                       spacing: 10,
                       mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircleAvatar(
                           radius: 40, // Controls the size — increase for bigger
@@ -130,11 +131,15 @@ class MainDrawer extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SvgPicture.asset(
-                      'assets/svg/close.svg',
-                      colorFilter: ColorFilter.mode(
-                        Color(ColorCode.black),
-                        BlendMode.srcIn,
+                    InkWell(
+                      onTap: () => Navigator.pop(context),
+                      child: SvgPicture.asset(
+                        height: 23,
+                        'assets/svg/close.svg',
+                        colorFilter: ColorFilter.mode(
+                          Color(ColorCode.black),
+                          BlendMode.srcIn,
+                        ),
                       ),
                     ),
                   ],
@@ -173,7 +178,7 @@ class MainDrawer extends StatelessWidget {
                           );
                   },
                   separatorBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                    padding: const EdgeInsets.only(right: 25),
                     child: Divider(
                       thickness: 0.5,
                       color: Color(ColorCode.black).withValues(alpha: 0.2),
@@ -276,7 +281,7 @@ Widget buildExpandableItem(
         );
       },
     ),
-    tilePadding: EdgeInsets.only(right: 10),
+    tilePadding: EdgeInsets.only(right: 20),
     childrenPadding: const EdgeInsets.only(left: 16),
     collapsedBackgroundColor: Colors.transparent,
     backgroundColor: Colors.transparent,
@@ -295,7 +300,7 @@ Widget buildExpandableItem(
               ),
               if (index != expandableItems.length - 1)
                 Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 15),
+                  padding: const EdgeInsets.only(left: 30, right: 25),
                   child: Divider(
                     thickness: 0.5,
                     height: 1,

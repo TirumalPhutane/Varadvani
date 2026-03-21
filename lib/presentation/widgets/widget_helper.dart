@@ -46,6 +46,34 @@ class WidgetHelper {
     );
   }
 
+  static Widget buildStartText() {
+    return Column(
+      spacing: 5,
+      children: [
+        Text(
+          'ॐ श्री 卐',
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Mukta',
+            fontWeight: FontWeight.bold,
+            color: Color(ColorCode.orange),
+            //height: 1.7,
+          ),
+        ),
+        Text(
+          '।। श्रीशंकर ।।',
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Mukta',
+            fontWeight: FontWeight.bold,
+            color: Color(ColorCode.orange),
+            //height: 1.7,
+          ),
+        ),
+      ],
+    );
+  }
+
   static Widget buildCard(Widget body) {
     return Container(
       width: double.infinity,
@@ -69,19 +97,26 @@ class WidgetHelper {
     );
   }
 
-  static Widget buildButtonWithoutText(Widget body) {
-    return Container(
-      padding: EdgeInsets.only(right: 5, left: 5),
-      decoration: BoxDecoration(
-        color: Color(ColorCode.orange),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(6),
-          topRight: Radius.circular(6),
-          bottomLeft: Radius.circular(6),
-          bottomRight: Radius.circular(12),
+  static Widget buildButtonWithoutText(
+    BuildContext context,
+    Widget body,
+    String routeName,
+  ) {
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, routeName),
+      child: Container(
+        padding: EdgeInsets.only(right: 5, left: 5),
+        decoration: BoxDecoration(
+          color: Color(ColorCode.orange),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(6),
+            topRight: Radius.circular(6),
+            bottomLeft: Radius.circular(6),
+            bottomRight: Radius.circular(12),
+          ),
         ),
+        child: Padding(padding: const EdgeInsets.all(5), child: body),
       ),
-      child: Padding(padding: const EdgeInsets.all(5), child: body),
     );
   }
 }

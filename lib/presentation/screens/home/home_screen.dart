@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
+import 'package:varadvani/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: 20,
         ),
         child: Column(
-          spacing: 25,
+          spacing: 30,
           children: [
             Column(
               children: [
@@ -168,6 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: WidgetHelper.buildButtonWithoutText(
+                          context,
                           SvgPicture.asset(
                             'assets/svg/arrow.svg',
                             colorFilter: ColorFilter.mode(
@@ -175,6 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               BlendMode.srcIn,
                             ),
                           ),
+                          AppRoutes.objectivesScreen,
                         ),
                       ),
                     ],
@@ -194,22 +197,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       _buildContactRow(
                         'श्री दासगणू महाराज प्रतिष्ठान, गोरटे, ता. उमरी, जि. नांदेड, महाराष्ट्र - ४३१ ८०७.',
                         ColorCode.black,
+                        'assets/svg/pratishthan.svg',
                       ),
                       _buildContactRow(
                         'santkavidasganu@gmail.com',
                         ColorCode.orange,
+                        'assets/svg/email.svg',
                       ),
                       _buildContactRow(
                         '+९१ ९४२१९०१०९८, ०२४६७-२०२५१४',
                         ColorCode.orange,
+                        'assets/svg/phone.svg',
                       ),
                       _buildContactRow(
                         'www.santkavidasganu.org',
                         ColorCode.orange,
+                        'assets/svg/earth.svg',
                       ),
                       _buildContactRow(
                         'www.radhadamodar.org',
                         ColorCode.orange,
+                        'assets/svg/earth.svg',
                       ),
                     ],
                   ),
@@ -222,21 +230,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildContactRow(String text, int textColor) {
+  Widget _buildContactRow(String text, int textColor, String assetName) {
     return Row(
       spacing: 10,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        //Icon(Icons.location_city),
-        Text(
-          '•',
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: 'Mukta',
-            color: Color(textColor),
-            //height: 1.7,
-          ),
-        ),
+        SvgPicture.asset(assetName, height: 20),
         Flexible(
           child: Text(
             text,
@@ -244,7 +243,6 @@ class _HomeScreenState extends State<HomeScreen> {
               fontSize: 16,
               fontFamily: 'Mukta',
               color: Color(textColor),
-              //height: 1.7,
             ),
           ),
         ),
