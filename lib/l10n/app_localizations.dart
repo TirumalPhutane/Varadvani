@@ -130,6 +130,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// Foundation label
+  ///
+  /// In en, this message translates to:
+  /// **'Foundation'**
+  String get foundation;
+
+  /// Literary Works label
+  ///
+  /// In en, this message translates to:
+  /// **'Literary Works'**
+  String get literary_works;
+
+  /// Book Availability label
+  ///
+  /// In en, this message translates to:
+  /// **'Book Availability'**
+  String get book_availability;
+
+  /// Photo Gallery label
+  ///
+  /// In en, this message translates to:
+  /// **'Photo Gallery'**
+  String get photo_gallery;
+
+  /// Audio & Video label
+  ///
+  /// In en, this message translates to:
+  /// **'Audio & Video'**
+  String get audio_video;
+
+  /// Related Websites label
+  ///
+  /// In en, this message translates to:
+  /// **'Related Websites'**
+  String get related_websites;
+
+  /// Settings label
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// About the Foundation label
+  ///
+  /// In en, this message translates to:
+  /// **'About the Foundation'**
+  String get about_foundation;
+
+  /// Daily Schedule label
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Schedule'**
+  String get daily_schedule;
+
+  /// Festivals label
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals'**
+  String get festivals;
+
+  /// Sanjivan label
+  ///
+  /// In en, this message translates to:
+  /// **'Sanjivan'**
+  String get sanjivan;
+
+  /// Meditation Hall label
+  ///
+  /// In en, this message translates to:
+  /// **'Meditation Hall'**
+  String get meditation_hall;
+
+  /// Board of Trustees label
+  ///
+  /// In en, this message translates to:
+  /// **'Board of Trustees'**
+  String get board_of_trustees;
+
+  /// Heritage Preservation label
+  ///
+  /// In en, this message translates to:
+  /// **'Heritage Preservation'**
+  String get heritage_preservation;
+
+  /// Other Departments label
+  ///
+  /// In en, this message translates to:
+  /// **'Other Departments'**
+  String get other_departments;
+
+  /// How to Reach label
+  ///
+  /// In en, this message translates to:
+  /// **'How to Reach'**
+  String get how_to_reach;
+
+  /// Dasganu Maharaj pratishthan label
+  ///
+  /// In en, this message translates to:
+  /// **'Shri Dasganu\nMaharaj\nFoundation'**
+  String get dasganu_pratishthan;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

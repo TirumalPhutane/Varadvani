@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -18,7 +19,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'प्रतिष्ठान',
+        'title': AppLocalizations.of(context)!.foundation,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -30,7 +31,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'ग्रंथसंपदा',
+        'title': AppLocalizations.of(context)!.literary_works,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -42,7 +43,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'ग्रंथ मिळण्याची ठिकाणे',
+        'title': AppLocalizations.of(context)!.book_availability,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -54,7 +55,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'चित्रदालन',
+        'title': AppLocalizations.of(context)!.photo_gallery,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -66,7 +67,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'ध्वनी व चित्रफिती',
+        'title': AppLocalizations.of(context)!.audio_video,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -78,7 +79,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'संकेतस्थळे',
+        'title': AppLocalizations.of(context)!.related_websites,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -90,7 +91,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'सेटिंग्ज',
+        'title': AppLocalizations.of(context)!.settings,
         //'route': RouteNames.approvalsBodySwitcher
       },
     ];
@@ -104,7 +105,7 @@ class MainDrawer extends StatelessWidget {
             spacing: 20,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -121,7 +122,7 @@ class MainDrawer extends StatelessWidget {
                           backgroundColor: Colors.transparent,
                         ),
                         Text(
-                          'श्री दासगणू \nमहाराज \nप्रतिष्ठान',
+                          AppLocalizations.of(context)!.dasganu_pratishthan,
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Gotu',
@@ -133,12 +134,15 @@ class MainDrawer extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () => Navigator.pop(context),
-                      child: SvgPicture.asset(
-                        height: 23,
-                        'assets/svg/close.svg',
-                        colorFilter: ColorFilter.mode(
-                          Color(ColorCode.black),
-                          BlendMode.srcIn,
+                      child: Container(
+                        width: 7,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color(ColorCode.orange),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomLeft: Radius.circular(12),
+                          ),
                         ),
                       ),
                     ),
@@ -154,6 +158,7 @@ class MainDrawer extends StatelessWidget {
                             index,
                             drawerItems[index]['icon'],
                             drawerItems[index]['title'],
+                            context,
                             // drawerItems[index].containsKey('route')
                             //     ? () => Navigator.pushNamed(
                             //           context,
@@ -222,20 +227,48 @@ Widget buildExpandableItem(
   Widget icon,
   String title,
   //VoidCallback onTap,
+  BuildContext context,
 ) {
   ExpansibleController controller = ExpansibleController();
   final ValueNotifier<bool> isExpanded = ValueNotifier(false);
 
   final List<Map<String, dynamic>> expandableItems = [
-    {'title': 'प्रतिष्ठान विषयी', 'route': AppRoutes.dasganuScreen},
-    {'title': 'दिनक्रम', 'route': AppRoutes.dasganuScreen},
-    {'title': 'उत्सव', 'route': AppRoutes.dasganuScreen},
-    {'title': 'संजीवन', 'route': AppRoutes.dasganuScreen},
-    {'title': 'ध्यानमंदिर', 'route': AppRoutes.dasganuScreen},
-    {'title': 'विश्वस्त मंडळ', 'route': AppRoutes.dasganuScreen},
-    {'title': 'परंंपरा रक्षण', 'route': AppRoutes.dasganuScreen},
-    {'title': 'इतर विभाग', 'route': AppRoutes.dasganuScreen},
-    {'title': 'कसे यावे', 'route': AppRoutes.dasganuScreen},
+    {
+      'title': AppLocalizations.of(context)!.about_foundation,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.daily_schedule,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.foundation,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.sanjivan,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.meditation_hall,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.board_of_trustees,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.heritage_preservation,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.other_departments,
+      'route': AppRoutes.dasganuScreen,
+    },
+    {
+      'title': AppLocalizations.of(context)!.how_to_reach,
+      'route': AppRoutes.dasganuScreen,
+    },
   ];
 
   return ExpansionTile(

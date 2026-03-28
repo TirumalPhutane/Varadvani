@@ -25,7 +25,7 @@ class ObjectivesScreen extends StatelessWidget {
               children: [
                 WidgetHelper.buildStartText(),
                 Text(
-                  'निर्मोह: संयमी योगी शान्तो दान्तो विमत्सर: |\nसोsस्तु मे वरदो नित्यं वरदानंद भारती ||\nसुप्रसन्न: समाधानी निश्चयी च दृढव्रती |\nसोsस्तु मे वरदो नित्यं वरदानंद भारती ||',
+                  'निर्मोह: संयमी योगी शान्तो दान्तो विमत्सर: l\nसोsस्तु मे वरदो नित्यं वरदानंद भारती ll\nसुप्रसन्न: समाधानी निश्चयी च दृढव्रती l\nसोsस्तु मे वरदो नित्यं वरदानंद भारती ll',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
@@ -42,11 +42,7 @@ class ObjectivesScreen extends StatelessWidget {
                       bottomLeft: Radius.circular(13),
                       bottomRight: Radius.circular(13),
                     ),
-                    child: Image.asset(
-                      //width: double.infinity,
-                      'assets/image/appa2.jpeg',
-                      //fit: BoxFit.cover,
-                    ),
+                    child: Image.asset('assets/image/appa2.jpeg'),
                   ),
                 ),
                 Column(
@@ -113,11 +109,9 @@ class ObjectivesScreen extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             primaryText,
-            //textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
               fontFamily: 'Mukta',
-              //fontWeight: FontWeight.bold,
               letterSpacing: 0,
               color: Color(ColorCode.black),
             ),

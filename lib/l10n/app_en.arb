@@ -22,5 +22,73 @@
     "profile" : "Profile",
     "@profile": {
         "description" : "Profile screen label"
+    },
+    "foundation" : "Foundation",
+    "@foundation": {
+        "description" : "Foundation label"
+    },
+    "literary_works" : "Literary Works",
+    "@literary_works": {
+        "description" : "Literary Works label"
+    },
+    "book_availability" : "Book Availability",
+    "@book_availability": {
+        "description" : "Book Availability label"
+    },
+    "photo_gallery" : "Photo Gallery",
+    "@photo_gallery": {
+        "description" : "Photo Gallery label"
+    },
+    "audio_video" : "Audio & Video",
+    "@audio_video": {
+        "description" : "Audio & Video label"
+    },
+    "related_websites" : "Related Websites",
+    "@related_websites": {
+        "description" : "Related Websites label"
+    },
+    "settings" : "Settings",
+    "@settings": {
+        "description" : "Settings label"
+    },
+    "about_foundation" : "About the Foundation",
+    "@about_foundation": {
+        "description" : "About the Foundation label"
+    },
+    "daily_schedule" : "Daily Schedule",
+    "@daily_schedule": {
+        "description" : "Daily Schedule label"
+    },
+    "festivals" : "Festivals",
+    "@festivals": {
+        "description" : "Festivals label"
+    },
+    "sanjivan" : "Sanjivan",
+    "@sanjivan": {
+        "description" : "Sanjivan label"
+    },
+    "meditation_hall" : "Meditation Hall",
+    "@meditation_hall": {
+        "description" : "Meditation Hall label"
+    },
+    "board_of_trustees" : "Board of Trustees",
+    "@board_of_trustees": {
+        "description" : "Board of Trustees label"
+    },
+    "heritage_preservation" : "Heritage Preservation",
+    "@heritage_preservation": {
+        "description" : "Heritage Preservation label"
+    },
+    "other_departments" : "Other Departments",
+    "@other_departments": {
+        "description" : "Other Departments label"
+    },
+    "how_to_reach" : "How to Reach",
+    "@how_to_reach": {
+        "description" : "How to Reach label"
+    },
+    "dasganu_pratishthan" : "Shri Dasganu\nMaharaj\nFoundation",
+    "@dasganu_pratishthan": {
+        "description" : "Dasganu Maharaj pratishthan label"
     }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
 import 'package:varadvani/presentation/screens/home/exams_screen.dart';
@@ -39,17 +40,21 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MainDrawer(),
-      appBar: CustomAppBar(
-        title: _screenTitles(context)[_selectedIndex],
-        isFromHome: _selectedIndex == 0 ? true : false,
-        isShowLeading: true,
-      ),
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemSelected: (index) => setState(() => _selectedIndex = index),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) => SystemNavigator.pop(),
+      child: Scaffold(
+        drawer: MainDrawer(),
+        appBar: CustomAppBar(
+          title: _screenTitles(context)[_selectedIndex],
+          isFromHome: _selectedIndex == 0 ? true : false,
+          isShowLeading: true,
+        ),
+        body: _screens[_selectedIndex],
+        bottomNavigationBar: BottomNavBar(
+          selectedIndex: _selectedIndex,
+          onItemSelected: (index) => setState(() => _selectedIndex = index),
+        ),
       ),
     );
   }

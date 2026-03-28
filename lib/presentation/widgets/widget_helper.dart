@@ -61,7 +61,7 @@ class WidgetHelper {
           ),
         ),
         Text(
-          '।। श्रीशंकर ।।',
+          'll श्रीशंकर ll',
           style: TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta',
@@ -119,4 +119,15 @@ class WidgetHelper {
       ),
     );
   }
+
+  static Widget buildNormalText(String text) => Text(
+    text,
+    style: TextStyle(
+      fontSize: 18,
+      fontFamily: 'Mukta',
+      color: Color(ColorCode.black),
+      letterSpacing: 0,
+      height: 1.5,
+    ),
+  );
 }

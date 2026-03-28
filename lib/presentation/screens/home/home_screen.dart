@@ -27,32 +27,17 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Column(
               children: [
-                WidgetHelper.buildRichText(
-                  'भक्तीत अंतर तुझ्या कधीही नसावे ',
-                  '|',
-                  TextStyle(
-                    fontSize: 20,
+                WidgetHelper.buildStartText(),
+                SizedBox(height: 15),
+                Text(
+                  'भक्तीत अंतर तुझ्या कधीहि नसावे l \nमागे पुढे आमुचिया विठू तू असावे ll',
+                  style: TextStyle(
+                    fontSize: 19,
                     fontFamily: 'Mukta_medium',
+                    fontWeight: FontWeight.w600,
                     color: Color(ColorCode.black),
-                  ),
-                  TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Mukta_medium',
-                    color: Color(ColorCode.orange),
-                  ),
-                ),
-                WidgetHelper.buildRichText(
-                  'मागेपुढे आमुचिया विठू तू असावे ',
-                  '||',
-                  TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Mukta_medium',
-                    color: Color(ColorCode.black),
-                  ),
-                  TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Mukta_medium',
-                    color: Color(ColorCode.orange),
+                    letterSpacing: 0,
+                    height: 1.5,
                   ),
                 ),
               ],
@@ -74,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: Image.asset(
                           width: double.infinity,
-                          'assets/image/appa.jpg',
+                          'assets/image/darshan.jpg',
                           fit: BoxFit.fitWidth,
                         ),
                       ),
@@ -93,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 colors: [
                                   Colors.transparent,
                                   Colors.transparent,
-                                  Color(ColorCode.black).withValues(alpha: 0.7),
+                                  Color(ColorCode.black).withValues(alpha: 0.9),
                                 ],
                               ),
                             ),
@@ -103,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Positioned(
                         bottom: 15,
                         child: Text(
-                          'पू . स्वामी वरदानंद भारती',
+                          'll समर्थ गणूदास हे मजवरी कृपाळू असो ll',
                           style: TextStyle(
                             fontSize: 16,
                             fontFamily: 'Mukta',
@@ -194,11 +179,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     spacing: 5,
                     children: [
-                      _buildContactRow(
+                      Text(
                         'श्री दासगणू महाराज प्रतिष्ठान, गोरटे, ता. उमरी, जि. नांदेड, महाराष्ट्र - ४३१ ८०७.',
-                        ColorCode.black,
-                        'assets/svg/pratishthan.svg',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Mukta',
+                          color: Color(ColorCode.black),
+                        ),
                       ),
+                      // _buildContactRow(
+                      //   'श्री दासगणू महाराज प्रतिष्ठान, गोरटे, ता. उमरी, जि. नांदेड, महाराष्ट्र - ४३१ ८०७.',
+                      //   ColorCode.black,
+                      //   'assets/svg/pratishthan.svg',
+                      // ),
                       _buildContactRow(
                         'santkavidasganu@gmail.com',
                         ColorCode.orange,
