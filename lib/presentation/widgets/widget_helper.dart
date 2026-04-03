@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/data/table_data.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class WidgetHelper {
@@ -130,4 +131,174 @@ class WidgetHelper {
       height: 1.5,
     ),
   );
+
+  static Widget tableHeader(
+    TableData row,
+    double firstWidth,
+    double secondWidth,
+    double thirdWidth,
+  ) {
+    return Table(
+      columnWidths: {
+        0: FlexColumnWidth(firstWidth),
+        1: FlexColumnWidth(secondWidth),
+        2: FlexColumnWidth(thirdWidth),
+      },
+      children: [
+        TableRow(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(ColorCode.darkGray).withValues(alpha: 0.2),
+                  strokeAlign: BorderSide.strokeAlignOutside,
+                  width: 0.8,
+                ),
+                color: Color(ColorCode.white),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+              child: Center(
+                child: Text(
+                  row.first,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    fontWeight: FontWeight.bold,
+                    color: Color(ColorCode.black),
+                    //height: 1.7,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color(ColorCode.white),
+                border: Border.all(
+                  color: Color(ColorCode.darkGray).withValues(alpha: 0.2),
+                  strokeAlign: BorderSide.strokeAlignOutside,
+                  width: 0.8,
+                ),
+              ),
+              // color: context.colorScheme.onSecondary,
+              //margin: const EdgeInsets.only(right: 4, left: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+              child: Center(
+                child: Text(
+                  row.second,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    fontWeight: FontWeight.bold,
+                    color: Color(ColorCode.black),
+                    //height: 1.7,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(ColorCode.darkGray).withValues(alpha: 0.2),
+                  strokeAlign: BorderSide.strokeAlignOutside,
+                  width: 0.8,
+                ),
+                color: Color(ColorCode.white),
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(5),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+              child: Center(
+                child: Text(
+                  row.third,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    fontWeight: FontWeight.bold,
+                    color: Color(ColorCode.black),
+                    //height: 1.7,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  static Widget buildTable(
+    TableData row,
+    double firstWidth,
+    double secondWidth,
+    double thirdWidth,
+  ) {
+    return Table(
+      defaultVerticalAlignment: TableCellVerticalAlignment.top,
+      columnWidths: {
+        0: FlexColumnWidth(firstWidth),
+        1: FlexColumnWidth(secondWidth),
+        2: FlexColumnWidth(thirdWidth),
+      },
+      children: [
+        TableRow(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: Text(
+                  row.first,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    color: Color(ColorCode.black),
+                    letterSpacing: 0,
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ),
+
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 5, left: 15),
+                child: Text(
+                  row.second,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    color: Color(ColorCode.black),
+                    letterSpacing: 0,
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ),
+
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  row.third,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Mukta',
+                    color: Color(ColorCode.black),
+                    letterSpacing: 0,
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 }

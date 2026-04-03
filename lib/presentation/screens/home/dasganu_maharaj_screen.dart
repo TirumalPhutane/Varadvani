@@ -13,7 +13,7 @@ class DasganuMaharajScreen extends StatefulWidget {
 
 class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
   final List<Map<String, dynamic>> options = [
-    {'title': 'पू. दादांचा जीवनपट', 'route': AppRoutes.poorvardhaScreen},
+    {'title': 'पू. दादांचा जीवनपट', 'route': AppRoutes.dadaJeevanpatScreen},
     {'title': 'पूर्वार्ध', 'route': AppRoutes.poorvardhaScreen},
     {'title': 'गुरु-शिष्य', 'route': AppRoutes.guruShishyaScreen},
     {'title': 'दादा व अप्पा', 'route': AppRoutes.dadaAppaScreen},

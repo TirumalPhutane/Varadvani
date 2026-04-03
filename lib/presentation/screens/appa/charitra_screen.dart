@@ -87,6 +87,7 @@ class CharitraScreen extends StatelessWidget {
                 ),
                 Text(
                   'मी म्हणजे ना शरीर l मी मद्ग्रंथांचा संभार ll \nत्याचे वाचन चिंतन l यथाशक्ती आचरण ll \nहीच गुरुपूजा खरी l नीट धरावे अंतरी ll',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'Mukta',

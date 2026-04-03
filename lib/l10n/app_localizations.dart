@@ -224,7 +224,7 @@ abstract class AppLocalizations {
   /// How to Reach label
   ///
   /// In en, this message translates to:
-  /// **'How to Reach'**
+  /// **'How to Reach?'**
   String get how_to_reach;
 
   /// Dasganu Maharaj pratishthan label

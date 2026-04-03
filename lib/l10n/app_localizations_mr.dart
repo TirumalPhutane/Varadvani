@@ -57,7 +57,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get festivals => 'उत्सव';
 
   @override
-  String get sanjivan => 'संजीवन';
+  String get sanjivan => 'संजीवन (स्मृतीदालन)';
 
   @override
   String get meditation_hall => 'ध्यानमंदिर';
@@ -72,7 +72,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get other_departments => 'इतर विभाग';
 
   @override
-  String get how_to_reach => 'कसे यावे';
+  String get how_to_reach => 'कसे यावे?';
 
   @override
   String get dasganu_pratishthan => 'श्री दासगणू\nमहाराज\nप्रतिष्ठान';

@@ -235,39 +235,39 @@ Widget buildExpandableItem(
   final List<Map<String, dynamic>> expandableItems = [
     {
       'title': AppLocalizations.of(context)!.about_foundation,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.aboutPratishthanScreen,
     },
     {
       'title': AppLocalizations.of(context)!.daily_schedule,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.dinkramScreen,
     },
     {
-      'title': AppLocalizations.of(context)!.foundation,
-      'route': AppRoutes.dasganuScreen,
+      'title': AppLocalizations.of(context)!.festivals,
+      'route': AppRoutes.festivalsScreen,
     },
     {
       'title': AppLocalizations.of(context)!.sanjivan,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.sanjeevanScreen,
     },
     {
       'title': AppLocalizations.of(context)!.meditation_hall,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.dhyanMandirScreen,
     },
     {
       'title': AppLocalizations.of(context)!.board_of_trustees,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.vishwastaMandalScreen,
     },
     {
       'title': AppLocalizations.of(context)!.heritage_preservation,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.paramparaRakshanScreen,
     },
     {
       'title': AppLocalizations.of(context)!.other_departments,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.otherDepartmentsScreen,
     },
     {
       'title': AppLocalizations.of(context)!.how_to_reach,
-      'route': AppRoutes.dasganuScreen,
+      'route': AppRoutes.howToReachScreen,
     },
   ];
 
@@ -328,6 +328,7 @@ Widget buildExpandableItem(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildExpandableListItem(
+                context,
                 expandableItems[index]['title'],
                 expandableItems[index]['route'],
               ),
@@ -348,18 +349,25 @@ Widget buildExpandableItem(
   );
 }
 
-Widget buildExpandableListItem(String title, String routeName) {
+Widget buildExpandableListItem(
+  BuildContext context,
+  String title,
+  String routeName,
+) {
   return InkWell(
-    //onTap: () => Navigator.pushNamed(context, routeName),
+    onTap: () => Navigator.pushNamed(context, routeName),
     child: Padding(
       padding: const EdgeInsets.only(left: 30, right: 20, top: 16, bottom: 15),
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 18,
-          fontFamily: 'Mukta_medium',
-          color: Color(ColorCode.black),
-          letterSpacing: 0,
+      child: SizedBox(
+        width: double.infinity,
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Mukta_medium',
+            color: Color(ColorCode.black),
+            letterSpacing: 0,
+          ),
         ),
       ),
     ),

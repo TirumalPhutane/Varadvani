@@ -72,7 +72,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get other_departments => 'Other Departments';
 
   @override
-  String get how_to_reach => 'How to Reach';
+  String get how_to_reach => 'How to Reach?';
 
   @override
   String get dasganu_pratishthan => 'Shri Dasganu\nMaharaj\nFoundation';

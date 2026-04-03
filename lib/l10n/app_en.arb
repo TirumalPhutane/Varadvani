@@ -83,7 +83,7 @@
     "@other_departments": {
         "description" : "Other Departments label"
     },
-    "how_to_reach" : "How to Reach",
+    "how_to_reach" : "How to Reach?",
     "@how_to_reach": {
         "description" : "How to Reach label"
     },
