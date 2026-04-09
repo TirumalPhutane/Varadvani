@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/presentation/screens/appa/appa_granth_sampada_screen.dart';
+import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
-import 'package:varadvani/presentation/screens/dada/dada_appa_screen.dart';
+import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
+import 'package:varadvani/presentation/screens/dada/dada_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/dada/dada_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/dada/gajanan_maharaj_screen.dart';
 import 'package:varadvani/presentation/screens/dada/guru_shishya_screen.dart';
@@ -8,6 +11,8 @@ import 'package:varadvani/presentation/screens/dada/kanhya_bhilla_screen.dart';
 import 'package:varadvani/presentation/screens/dada/kavya_parichay_screen.dart';
 import 'package:varadvani/presentation/screens/dada/poorvardha_screen.dart';
 import 'package:varadvani/presentation/screens/dada/uttarardha_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/awards/anantshree_award_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/awards/shree_dasganu_award_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/about_pratishthan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/dhyan_mandir_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/dinkram_screen.dart';
@@ -35,7 +40,10 @@ class AppRoutes {
   static const String profileScreen = '/ProfileScreen';
 
   ///Appa
+  static const String appaJeevanpatScreen = '/AppaJeevanpatScreen';
   static const String charitraScreen = '/CharitraScreen';
+  static const String dadaAppaScreen = '/DadaAppaScreen';
+  static const String appaGranthSampadaScreen = '/AppaGranthSampadaScreen';
 
   ///Dada
   static const String dadaJeevanpatScreen = '/DadaJeevanpatScreen';
@@ -43,9 +51,9 @@ class AppRoutes {
   static const String kavyaParichayScreen = '/KavyaParichayScreen';
   static const String guruShishyaScreen = '/GuruShishyaScreen';
   static const String kanhyaBhillaScreen = '/KanhyaBhillaScreen';
-  static const String dadaAppaScreen = '/DadaAppaScreen';
   static const String uttarardhaScreen = '/UttarardhaScreen';
   static const String gajananMaharajScreen = '/GajananMaharajScreen';
+  static const String dadaGranthSampadaScreen = '/DadaGranthSampadaScreen';
 
   ///Pratishthan
   static const String aboutPratishthanScreen = '/AboutPratishthanScreen';
@@ -57,6 +65,10 @@ class AppRoutes {
   static const String paramparaRakshanScreen = '/ParamparaRakshanScreen';
   static const String otherDepartmentsScreen = '/OtherDepartmentsScreen';
   static const String howToReachScreen = '/HowToReachScreen';
+
+  ///Awards
+  static const String anantshreeAwardScreen = '/AnantshreeAwardScreen';
+  static const String shreeDasganuAwardScreen = '/ShreeDasganuAwardScreen';
 
   ///Drawer Screens
 
@@ -82,6 +94,38 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => ExamsScreen());
       case profileScreen:
         return MaterialPageRoute(builder: (context) => ProfileScreen());
+
+      ///Dada
+      case dadaJeevanpatScreen:
+        return MaterialPageRoute(builder: (context) => DadaJeevanpatScreen());
+      case poorvardhaScreen:
+        return MaterialPageRoute(builder: (context) => PoorvardhaScreen());
+      case kavyaParichayScreen:
+        return MaterialPageRoute(builder: (context) => KavyaParichayScreen());
+      case guruShishyaScreen:
+        return MaterialPageRoute(builder: (context) => GuruShishyaScreen());
+      case kanhyaBhillaScreen:
+        return MaterialPageRoute(builder: (context) => KanhyaBhillaScreen());
+      case uttarardhaScreen:
+        return MaterialPageRoute(builder: (context) => UttarardhaScreen());
+      case gajananMaharajScreen:
+        return MaterialPageRoute(builder: (context) => GajananMaharajScreen());
+      case dadaGranthSampadaScreen:
+        return MaterialPageRoute(
+          builder: (context) => DadaGranthSampadaScreen(),
+        );
+
+      ///Appa
+      case appaJeevanpatScreen:
+        return MaterialPageRoute(builder: (context) => AppaJeevanpatScreen());
+      case charitraScreen:
+        return MaterialPageRoute(builder: (context) => CharitraScreen());
+      case dadaAppaScreen:
+        return MaterialPageRoute(builder: (context) => DadaAppaScreen());
+      case appaGranthSampadaScreen:
+        return MaterialPageRoute(
+          builder: (context) => AppaGranthSampadaScreen(),
+        );
 
       ///Other Screens
       case objectivesScreen:
@@ -113,27 +157,13 @@ class AppRoutes {
       case howToReachScreen:
         return MaterialPageRoute(builder: (context) => HowToReachScreen());
 
-      ///Dada
-      case dadaJeevanpatScreen:
-        return MaterialPageRoute(builder: (context) => DadaJeevanpatScreen());
-      case poorvardhaScreen:
-        return MaterialPageRoute(builder: (context) => PoorvardhaScreen());
-      case kavyaParichayScreen:
-        return MaterialPageRoute(builder: (context) => KavyaParichayScreen());
-      case guruShishyaScreen:
-        return MaterialPageRoute(builder: (context) => GuruShishyaScreen());
-      case kanhyaBhillaScreen:
-        return MaterialPageRoute(builder: (context) => KanhyaBhillaScreen());
-      case dadaAppaScreen:
-        return MaterialPageRoute(builder: (context) => DadaAppaScreen());
-      case uttarardhaScreen:
-        return MaterialPageRoute(builder: (context) => UttarardhaScreen());
-      case gajananMaharajScreen:
-        return MaterialPageRoute(builder: (context) => GajananMaharajScreen());
-
-      ///Appa
-      case charitraScreen:
-        return MaterialPageRoute(builder: (context) => CharitraScreen());
+      ///Awards
+      case anantshreeAwardScreen:
+        return MaterialPageRoute(builder: (context) => AnantshreeAwardScreen());
+      case shreeDasganuAwardScreen:
+        return MaterialPageRoute(
+          builder: (context) => ShreeDasganuAwardScreen(),
+        );
 
       ///Default
       default:

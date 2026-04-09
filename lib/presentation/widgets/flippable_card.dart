@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:varadvani/presentation/screens/dada/dada_jeevanpat_screen.dart';
+import 'package:varadvani/data/timeline_item.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class FlippableCard extends StatefulWidget {
@@ -121,7 +121,7 @@ class _FlippableCardState extends State<FlippableCard>
       children: [
         if (isFront)
           Text(
-            widget.item.year,
+            '${widget.item.year}${widget.item.date != null ? ', (${widget.item.date})' : ''}',
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,

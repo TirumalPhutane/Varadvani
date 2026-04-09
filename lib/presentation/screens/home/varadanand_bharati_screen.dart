@@ -14,11 +14,11 @@ class VaradanandBharatiScreen extends StatefulWidget {
 
 class _VaradanandBharatiScreenState extends State<VaradanandBharatiScreen> {
   final List<Map<String, dynamic>> options = [
-    {'title': 'पू. अप्पांचा जीवनपट', 'route': AppRoutes.charitraScreen},
+    {'title': 'पू. अप्पांचा जीवनपट', 'route': AppRoutes.appaJeevanpatScreen},
     {'title': 'संक्षिप्त चरित्र', 'route': AppRoutes.charitraScreen},
-    {'title': 'अनंतश्री पुरस्कार', 'route': AppRoutes.charitraScreen},
+    {'title': 'दादा व अप्पा', 'route': AppRoutes.dadaAppaScreen},
     {'title': 'संजीवक चरित्र सारामृत', 'route': AppRoutes.charitraScreen},
-    {'title': 'ग्रंथसंपदा', 'route': AppRoutes.charitraScreen},
+    {'title': 'ग्रंथसंपदा', 'route': AppRoutes.appaGranthSampadaScreen},
   ];
 
   @override

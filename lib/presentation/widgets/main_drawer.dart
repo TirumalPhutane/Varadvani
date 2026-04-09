@@ -72,6 +72,18 @@ class MainDrawer extends StatelessWidget {
       },
       {
         'icon': SvgPicture.asset(
+          'assets/svg/award.svg',
+          //height: 20,
+          colorFilter: ColorFilter.mode(
+            Color(ColorCode.black),
+            BlendMode.srcIn,
+          ),
+        ),
+        'title': 'पुरस्कार',
+        //'route': RouteNames.approvalsBodySwitcher
+      },
+      {
+        'icon': SvgPicture.asset(
           'assets/svg/link.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
@@ -100,12 +112,12 @@ class MainDrawer extends StatelessWidget {
       backgroundColor: Color(ColorCode.scaffoldBackground),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 25, top: 20),
+          padding: const EdgeInsets.only(left: 0, top: 20),
           child: Column(
-            spacing: 20,
+            spacing: 0,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 0),
+                padding: const EdgeInsets.only(left: 25, right: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -149,11 +161,18 @@ class MainDrawer extends StatelessWidget {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 5),
+                child: Divider(
+                  thickness: 0.5,
+                  color: Color(ColorCode.black).withValues(alpha: 0.4),
+                ),
+              ),
               Expanded(
                 child: ListView.separated(
                   itemCount: drawerItems.length,
                   itemBuilder: (context, index) {
-                    return index == 0
+                    return index == 0 || index == 5
                         ? buildExpandableItem(
                             index,
                             drawerItems[index]['icon'],
@@ -183,7 +202,7 @@ class MainDrawer extends StatelessWidget {
                           );
                   },
                   separatorBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(right: 25),
+                    padding: const EdgeInsets.only(left: 25, right: 25),
                     child: Divider(
                       thickness: 0.5,
                       color: Color(ColorCode.black).withValues(alpha: 0.2),
@@ -202,7 +221,7 @@ class MainDrawer extends StatelessWidget {
 Widget buildListItem(int index, Widget icon, String title) {
   //, VoidCallback ontap) {
   return ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 0),
+    contentPadding: EdgeInsets.only(left: 25),
     leading: CircleAvatar(
       radius: 15,
       backgroundColor: Color(ColorCode.black).withValues(alpha: 0.06),
@@ -232,44 +251,55 @@ Widget buildExpandableItem(
   ExpansibleController controller = ExpansibleController();
   final ValueNotifier<bool> isExpanded = ValueNotifier(false);
 
-  final List<Map<String, dynamic>> expandableItems = [
-    {
-      'title': AppLocalizations.of(context)!.about_foundation,
-      'route': AppRoutes.aboutPratishthanScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.daily_schedule,
-      'route': AppRoutes.dinkramScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.festivals,
-      'route': AppRoutes.festivalsScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.sanjivan,
-      'route': AppRoutes.sanjeevanScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.meditation_hall,
-      'route': AppRoutes.dhyanMandirScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.board_of_trustees,
-      'route': AppRoutes.vishwastaMandalScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.heritage_preservation,
-      'route': AppRoutes.paramparaRakshanScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.other_departments,
-      'route': AppRoutes.otherDepartmentsScreen,
-    },
-    {
-      'title': AppLocalizations.of(context)!.how_to_reach,
-      'route': AppRoutes.howToReachScreen,
-    },
-  ];
+  final List<Map<String, dynamic>> expandableItems = index == 0
+      ? [
+          {
+            'title': AppLocalizations.of(context)!.about_foundation,
+            'route': AppRoutes.aboutPratishthanScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.daily_schedule,
+            'route': AppRoutes.dinkramScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.festivals,
+            'route': AppRoutes.festivalsScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.sanjivan,
+            'route': AppRoutes.sanjeevanScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.meditation_hall,
+            'route': AppRoutes.dhyanMandirScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.board_of_trustees,
+            'route': AppRoutes.vishwastaMandalScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.heritage_preservation,
+            'route': AppRoutes.paramparaRakshanScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.other_departments,
+            'route': AppRoutes.otherDepartmentsScreen,
+          },
+          {
+            'title': AppLocalizations.of(context)!.how_to_reach,
+            'route': AppRoutes.howToReachScreen,
+          },
+        ]
+      : [
+          {
+            'title': 'श्रीदासगणू पुरस्कार',
+            'route': AppRoutes.shreeDasganuAwardScreen,
+          },
+          {
+            'title': 'अनंतश्री पुरस्कार',
+            'route': AppRoutes.anantshreeAwardScreen,
+          },
+        ];
 
   return ExpansionTile(
     splashColor: Colors.transparent,
@@ -314,7 +344,7 @@ Widget buildExpandableItem(
         );
       },
     ),
-    tilePadding: EdgeInsets.only(right: 20),
+    tilePadding: EdgeInsets.only(left: 25, right: 20),
     childrenPadding: const EdgeInsets.only(left: 16),
     collapsedBackgroundColor: Colors.transparent,
     backgroundColor: Colors.transparent,
@@ -334,7 +364,7 @@ Widget buildExpandableItem(
               ),
               if (index != expandableItems.length - 1)
                 Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 25),
+                  padding: const EdgeInsets.only(left: 55, right: 25),
                   child: Divider(
                     thickness: 0.5,
                     height: 1,
@@ -357,7 +387,7 @@ Widget buildExpandableListItem(
   return InkWell(
     onTap: () => Navigator.pushNamed(context, routeName),
     child: Padding(
-      padding: const EdgeInsets.only(left: 30, right: 20, top: 16, bottom: 15),
+      padding: const EdgeInsets.only(left: 55, right: 20, top: 16, bottom: 15),
       child: SizedBox(
         width: double.infinity,
         child: Text(

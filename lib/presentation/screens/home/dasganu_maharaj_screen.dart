@@ -16,9 +16,8 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
     {'title': 'पू. दादांचा जीवनपट', 'route': AppRoutes.dadaJeevanpatScreen},
     {'title': 'पूर्वार्ध', 'route': AppRoutes.poorvardhaScreen},
     {'title': 'गुरु-शिष्य', 'route': AppRoutes.guruShishyaScreen},
-    {'title': 'दादा व अप्पा', 'route': AppRoutes.dadaAppaScreen},
     {'title': 'उत्तरार्ध', 'route': AppRoutes.uttarardhaScreen},
-    {'title': 'ग्रंथसंपदा', 'route': AppRoutes.poorvardhaScreen},
+    {'title': 'ग्रंथसंपदा', 'route': AppRoutes.dadaGranthSampadaScreen},
   ];
 
   @override
