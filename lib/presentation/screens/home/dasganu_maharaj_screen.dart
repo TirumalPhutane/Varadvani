@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
-import 'package:varadvani/routes/app_routes.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class DasganuMaharajScreen extends StatefulWidget {

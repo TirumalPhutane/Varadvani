@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
-import 'package:varadvani/routes/app_routes.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class MainDrawer extends StatelessWidget {

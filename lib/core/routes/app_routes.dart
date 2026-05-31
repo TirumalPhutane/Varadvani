@@ -29,7 +29,7 @@ import 'package:varadvani/presentation/screens/home/profile_screen.dart';
 import 'package:varadvani/presentation/screens/home/varadanand_bharati_screen.dart';
 import 'package:varadvani/presentation/main_screen.dart';
 import 'package:varadvani/presentation/screens/other/objectives_screen.dart';
-import 'package:varadvani/presentation/screens/signin/sign_up_screen.dart';
+import 'package:varadvani/presentation/screens/auth/sign_up_screen.dart';
 
 class AppRoutes {
   ///Home Screen

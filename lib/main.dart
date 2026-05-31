@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/localization/locale_manager.dart';
-import 'package:varadvani/routes/app_routes.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/theme.dart';
 
 //final ThemeManager themeManager = ThemeManager();

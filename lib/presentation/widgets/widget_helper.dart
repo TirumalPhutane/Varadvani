@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:varadvani/data/table_data.dart';
+import 'package:varadvani/core/common/models/table_data.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class WidgetHelper {
