@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:varadvani/data/timeline_item.dart';
+import 'package:varadvani/core/common/models/timeline_item.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class FlippableCard extends StatefulWidget {

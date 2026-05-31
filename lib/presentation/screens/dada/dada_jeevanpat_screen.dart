@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:varadvani/data/timeline_item.dart';
+import 'package:varadvani/core/common/models/timeline_item.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/flippable_card.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
