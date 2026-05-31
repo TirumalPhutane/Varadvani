@@ -232,6 +232,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Shri Dasganu\nMaharaj\nFoundation'**
   String get dasganu_pratishthan;
+
+  /// Mobile Number label
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobile_number;
+
+  /// Mobile Number hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. 8392239075'**
+  String get mobile_number_hint;
+
+  /// Registration label
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// Message for sign up
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your mobile number and password to register.'**
+  String get sign_up_message;
+
+  /// Password label
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// Proceed label
+  ///
+  /// In en, this message translates to:
+  /// **'Proceed'**
+  String get proceed;
+
+  /// Message for sign in to existing account
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to your existing account'**
+  String get existing_sign_in;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

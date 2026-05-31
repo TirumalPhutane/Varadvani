@@ -90,5 +90,33 @@
     "dasganu_pratishthan" : "Shri Dasganu\nMaharaj\nFoundation",
     "@dasganu_pratishthan": {
         "description" : "Dasganu Maharaj pratishthan label"
+    },
+    "mobile_number" : "Mobile Number",
+    "@mobile_number": {
+        "description" : "Mobile Number label"
+    },
+    "mobile_number_hint" : "Ex. 8392239075",
+    "@mobile_number_hint": {
+        "description" : "Mobile Number hint"
+    },
+    "registration" : "Registration",
+    "@registration": {
+        "description" : "Registration label"
+    },
+    "sign_up_message" : "Enter your mobile number and password to register.",
+    "@sign_up_message": {
+        "description" : "Message for sign up"
+    },
+    "password" : "Password",
+    "@password": {
+        "description" : "Password label"
+    },
+    "proceed" : "Proceed",
+    "@proceed": {
+        "description" : "Proceed label"
+    },
+    "existing_sign_in" : "Sign in to your existing account",
+    "@existing_sign_in": {
+        "description" : "Message for sign in to existing account"
     }
 }

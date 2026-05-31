@@ -76,4 +76,25 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get dasganu_pratishthan => 'श्री दासगणू\nमहाराज\nप्रतिष्ठान';
+
+  @override
+  String get mobile_number => 'मोबाईल नंबर';
+
+  @override
+  String get mobile_number_hint => 'उदा. ८३९२२३९०७५';
+
+  @override
+  String get registration => 'नोंदणी';
+
+  @override
+  String get sign_up_message => 'नोंदणी करण्यासाठी आपला मोबाईल नंबर आणि पासवर्ड प्रविष्ट करा.';
+
+  @override
+  String get password => 'पासवर्ड';
+
+  @override
+  String get proceed => 'पुढे जा';
+
+  @override
+  String get existing_sign_in => 'आधीचे खाते साइन इन करा';
 }

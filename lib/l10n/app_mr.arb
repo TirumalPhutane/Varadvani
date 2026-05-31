@@ -21,5 +21,12 @@
     "heritage_preservation": "परंपरा रक्षण",
     "other_departments": "इतर विभाग",
     "how_to_reach": "कसे यावे?",
-    "dasganu_pratishthan" : "श्री दासगणू\nमहाराज\nप्रतिष्ठान"
+    "dasganu_pratishthan" : "श्री दासगणू\nमहाराज\nप्रतिष्ठान",
+    "mobile_number" : "मोबाईल नंबर",
+    "mobile_number_hint" : "उदा. ८३९२२३९०७५",
+    "registration" : "नोंदणी",
+    "sign_up_message" : "नोंदणी करण्यासाठी आपला मोबाईल नंबर आणि पासवर्ड प्रविष्ट करा.",
+    "password" : "पासवर्ड",
+    "proceed" : "पुढे जा",
+    "existing_sign_in" : "आधीचे खाते साइन इन करा"
 }

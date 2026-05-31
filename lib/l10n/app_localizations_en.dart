@@ -76,4 +76,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dasganu_pratishthan => 'Shri Dasganu\nMaharaj\nFoundation';
+
+  @override
+  String get mobile_number => 'Mobile Number';
+
+  @override
+  String get mobile_number_hint => 'Ex. 8392239075';
+
+  @override
+  String get registration => 'Registration';
+
+  @override
+  String get sign_up_message => 'Enter your mobile number and password to register.';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get proceed => 'Proceed';
+
+  @override
+  String get existing_sign_in => 'Sign in to your existing account';
 }

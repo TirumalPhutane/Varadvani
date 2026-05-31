@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/localization/locale_manager.dart';
 import 'package:varadvani/routes/app_routes.dart';
@@ -32,16 +33,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Varadvani',
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      locale: localeManager.locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateRoute: AppRoutes.generateRoute,
-      initialRoute: AppRoutes.mainScreen,
-      //home: const MyHomePage(title: 'Varadvani'),
+    return ProviderScope(
+      child: MaterialApp(
+        title: 'Varadvani',
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        locale: localeManager.locale,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateRoute: AppRoutes.generateRoute,
+        initialRoute: AppRoutes.signUpScreen,
+        //home: const MyHomePage(title: 'Varadvani'),
+      ),
     );
   }
 }

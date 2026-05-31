@@ -29,6 +29,7 @@ import 'package:varadvani/presentation/screens/home/profile_screen.dart';
 import 'package:varadvani/presentation/screens/home/varadanand_bharati_screen.dart';
 import 'package:varadvani/presentation/main_screen.dart';
 import 'package:varadvani/presentation/screens/other/objectives_screen.dart';
+import 'package:varadvani/presentation/screens/signin/sign_up_screen.dart';
 
 class AppRoutes {
   ///Home Screen
@@ -74,6 +75,9 @@ class AppRoutes {
 
   ///Other Screens
   static const String objectivesScreen = '/ObjectivesScreen';
+
+  ///Signin-Signup Flow
+  static const String signUpScreen = '/SignUpScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     //final Object? argument = settings.arguments;
@@ -164,6 +168,10 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => ShreeDasganuAwardScreen(),
         );
+
+      ///Signin-Signup Flow
+      case signUpScreen:
+        return MaterialPageRoute(builder: (context) => SignUpScreen());
 
       ///Default
       default:
