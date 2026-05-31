@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
+import 'package:varadvani/presentation/widgets/snackbar_helper.dart';
 import 'package:varadvani/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:varadvani/presentation/widgets/text_fields/mobile_text_field.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -24,6 +27,42 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
   CountryCode _selectedCountryCode = CountryCode(dialCode: '+91', code: 'IN');
 
+  bool validateFields() {
+    final mobileNumber = _mobileController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (mobileNumber.isEmpty) {
+      SnackbarHelper.show(
+        context: context,
+        message: 'Please enter mobile number',
+      );
+      return false;
+    }
+
+    if (!RegExp(r'^[0-9]{10}$').hasMatch(mobileNumber)) {
+      SnackbarHelper.show(
+        context: context,
+        message: 'Please enter a valid mobile number',
+      );
+      return false;
+    }
+
+    if (password.isEmpty) {
+      SnackbarHelper.show(context: context, message: 'Please enter a password');
+      return false;
+    }
+
+    if (password.length < 6) {
+      SnackbarHelper.show(
+        context: context,
+        message: 'Password must be at least 6 characters long',
+      );
+      return false;
+    }
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +81,20 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    if (!validateFields()) return;
+
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.profileInfoScreen,
+                      arguments: SignUpData(
+                        countryCode: _selectedCountryCode.code ?? '+91',
+                        mobileNumber: _mobileController.text.trim(),
+                        password: _passwordController.text.trim(),
+                      ),
+                    );
+                  },
                   title: AppLocalizations.of(context)!.proceed,
                 ),
                 CustomButton(
@@ -137,6 +189,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                             SizedBox(height: 20),
                             MobileTextField(
                               context: context,
+                              keyboardType: TextInputType.phone,
                               labelText: AppLocalizations.of(
                                 context,
                               )!.mobile_number,

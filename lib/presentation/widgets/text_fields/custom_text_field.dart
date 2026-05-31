@@ -51,10 +51,15 @@ class CustomTextField extends StatelessWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(left: 2, right: 2, top: 14, bottom: 5),
+          padding: EdgeInsets.only(
+            left: 2,
+            right: 2,
+            top: suffixIcon != null ? 14 : 5,
+            bottom: 5,
+          ),
           height: 60,
           decoration: BoxDecoration(
-            color: Color(ColorCode.orange).withValues(alpha: 0.2),
+            color: Color(ColorCode.orange).withValues(alpha: 0.17),
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           child: TextFormField(

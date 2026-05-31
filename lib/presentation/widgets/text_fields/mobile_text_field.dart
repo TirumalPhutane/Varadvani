@@ -134,6 +134,7 @@ class MobileTextField extends StatelessWidget {
                   validator: validator,
                   onTap: onTap,
                   readOnly: readOnly,
+                  maxLength: maxLength,
                   style: TextStyle(
                     color: Color(ColorCode.black),
                     fontSize: 16,

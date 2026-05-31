@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
 import 'package:varadvani/presentation/screens/appa/appa_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
 import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
+import 'package:varadvani/presentation/screens/auth/profile_info_screen.dart';
 import 'package:varadvani/presentation/screens/dada/dada_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/dada/dada_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/dada/gajanan_maharaj_screen.dart';
@@ -76,11 +78,12 @@ class AppRoutes {
   ///Other Screens
   static const String objectivesScreen = '/ObjectivesScreen';
 
-  ///Signin-Signup Flow
+  ///Auth
   static const String signUpScreen = '/SignUpScreen';
+  static const String profileInfoScreen = '/ProfileInfoScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    //final Object? argument = settings.arguments;
+    final Object? argument = settings.arguments;
 
     switch (settings.name) {
       ///Home Screen
@@ -169,9 +172,16 @@ class AppRoutes {
           builder: (context) => ShreeDasganuAwardScreen(),
         );
 
-      ///Signin-Signup Flow
+      ///Auth
       case signUpScreen:
         return MaterialPageRoute(builder: (context) => SignUpScreen());
+      case profileInfoScreen:
+        final data = argument == null
+            ? SignUpData.empty()
+            : argument as SignUpData;
+        return MaterialPageRoute(
+          builder: (context) => ProfileInfoScreen(signUpData: data),
+        );
 
       ///Default
       default:
