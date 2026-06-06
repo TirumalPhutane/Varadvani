@@ -6,7 +6,7 @@ class SnackbarHelper {
     required BuildContext context,
     required String message,
     Color backgroundColor = const Color(ColorCode.orange),
-    Duration duration = const Duration(seconds: 2),
+    Duration duration = const Duration(seconds: 3),
   }) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
 

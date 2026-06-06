@@ -5,6 +5,7 @@ import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
 import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
 import 'package:varadvani/presentation/screens/auth/profile_info_screen.dart';
+import 'package:varadvani/presentation/screens/auth/sign_in_screen.dart';
 import 'package:varadvani/presentation/screens/dada/dada_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/dada/dada_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/dada/gajanan_maharaj_screen.dart';
@@ -81,6 +82,7 @@ class AppRoutes {
   ///Auth
   static const String signUpScreen = '/SignUpScreen';
   static const String profileInfoScreen = '/ProfileInfoScreen';
+  static const String signInScreen = '/SignInScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final Object? argument = settings.arguments;
@@ -182,6 +184,8 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => ProfileInfoScreen(signUpData: data),
         );
+      case signInScreen:
+        return MaterialPageRoute(builder: (context) => SignInScreen());
 
       ///Default
       default:
