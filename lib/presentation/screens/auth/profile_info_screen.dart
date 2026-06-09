@@ -155,7 +155,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'प्रोफाइल माहिती',
+                              AppLocalizations.of(context)!.profile_info,
                               style: TextStyle(
                                 fontSize: 24,
                                 fontFamily: 'Mukta',
@@ -167,17 +167,25 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                               spacing: 10,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                _groupTitle('वैयक्तिक'),
+                                _groupTitle(
+                                  AppLocalizations.of(context)!.personal,
+                                ),
                                 CustomTextField(
                                   controller: _nameController,
-                                  hintText: 'Ex. Varad Vani',
-                                  labelText: 'Name',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.name_hint,
+                                  labelText: AppLocalizations.of(context)!.name,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _emailController,
-                                  hintText: 'Ex. abc@gmail.com',
-                                  labelText: 'Email',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.email_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.email,
                                 ),
                               ],
                             ),
@@ -185,42 +193,66 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                               spacing: 10,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                _groupTitle('पत्ता'),
+                                _groupTitle(
+                                  AppLocalizations.of(context)!.address,
+                                ),
                                 CustomTextField(
                                   controller: _address1Controller,
-                                  hintText: 'Floor/Building/Apartment',
-                                  labelText: 'Floor/Building/Apartment',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.floor_apartment_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.floor_building,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _address2Controller,
-                                  hintText: 'Street/Landmark',
-                                  labelText: 'Street/Landmark',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.street_landmark_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.street_landmark,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _cityController,
-                                  hintText: 'City',
-                                  labelText: 'City',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.city_hint,
+                                  labelText: AppLocalizations.of(context)!.city,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _stateController,
-                                  hintText: 'State',
-                                  labelText: 'State',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.state_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.state,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _countryController,
-                                  hintText: 'Country',
-                                  labelText: 'Country',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.country_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.country,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _pincodeController,
                                   keyboardType: TextInputType.number,
-                                  hintText: 'Pincode',
-                                  labelText: 'Pincode',
+                                  hintText: AppLocalizations.of(
+                                    context,
+                                  )!.pincode_hint,
+                                  labelText: AppLocalizations.of(
+                                    context,
+                                  )!.pincode,
                                 ),
                               ],
                             ),
@@ -230,7 +262,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 onPressed: signUpState.isLoading
                                     ? null
                                     : _onRegister,
-                                title: 'नोंद करा',
+                                title: AppLocalizations.of(context)!.register,
                               ),
                             ),
                           ],
@@ -298,7 +330,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
         pincode.isEmpty) {
       SnackbarHelper.show(
         context: context,
-        message: 'All fields are mandatory.',
+        message: AppLocalizations.of(context)!.all_are_mandatory,
       );
       return false;
     }
@@ -306,7 +338,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
     if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
       SnackbarHelper.show(
         context: context,
-        message: 'Please enter a valid email',
+        message: AppLocalizations.of(context)!.email_validation,
       );
       return false;
     }
@@ -314,7 +346,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
     if (name.length < 7) {
       SnackbarHelper.show(
         context: context,
-        message: 'Name must be at least 7 characters long',
+        message: AppLocalizations.of(context)!.name_validation,
       );
       return false;
     }
@@ -322,7 +354,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
     if (address1.length + address2.length < 5) {
       SnackbarHelper.show(
         context: context,
-        message: 'Address must be at least 5 characters long',
+        message: AppLocalizations.of(context)!.address_validation,
       );
       return false;
     }

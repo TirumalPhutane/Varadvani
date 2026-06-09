@@ -34,7 +34,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     if (mobileNumber.isEmpty) {
       SnackbarHelper.show(
         context: context,
-        message: 'Please enter mobile number',
+        message: AppLocalizations.of(context)!.empty_mobile,
       );
       return false;
     }
@@ -42,20 +42,23 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     if (!RegExp(r'^[0-9]{10}$').hasMatch(mobileNumber)) {
       SnackbarHelper.show(
         context: context,
-        message: 'Please enter a valid mobile number',
+        message: AppLocalizations.of(context)!.mobile_validation,
       );
       return false;
     }
 
     if (password.isEmpty) {
-      SnackbarHelper.show(context: context, message: 'Please enter a password');
+      SnackbarHelper.show(
+        context: context,
+        message: AppLocalizations.of(context)!.empty_password,
+      );
       return false;
     }
 
     if (password.length < 6) {
       SnackbarHelper.show(
         context: context,
-        message: 'Password must be at least 6 characters long',
+        message: AppLocalizations.of(context)!.password_validation,
       );
       return false;
     }
@@ -98,7 +101,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   title: AppLocalizations.of(context)!.proceed,
                 ),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    AppRoutes.signInScreen,
+                    (_) => false,
+                  ),
                   title: AppLocalizations.of(context)!.existing_sign_in,
                   color: ColorCode.white,
                   borderColor: Color(ColorCode.orange),

@@ -97,4 +97,103 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get existing_sign_in => 'आधीचे खाते साइन इन करा';
+
+  @override
+  String get empty_mobile => 'कृपया मोबाईल नंबर टाका';
+
+  @override
+  String get mobile_validation => 'कृपया वैध मोबाईल नंबर टाका';
+
+  @override
+  String get empty_password => 'कृपया पासवर्ड टाका';
+
+  @override
+  String get password_validation => 'पासवर्ड किमान ६ अक्षरांचा असणे आवश्यक आहे';
+
+  @override
+  String get profile_info => 'प्रोफाईल माहिती';
+
+  @override
+  String get personal => 'वैयक्तिक';
+
+  @override
+  String get name => 'नाव';
+
+  @override
+  String get email => 'ईमेल';
+
+  @override
+  String get address => 'पत्ता';
+
+  @override
+  String get floor_building => 'मजला/इमारत/अपार्टमेंट';
+
+  @override
+  String get street_landmark => 'रस्ता/जवळची खूण (Landmark)';
+
+  @override
+  String get city => 'शहर';
+
+  @override
+  String get state => 'राज्य';
+
+  @override
+  String get country => 'देश';
+
+  @override
+  String get pincode => 'पिनकोड';
+
+  @override
+  String get register => 'नोंदणी करा';
+
+  @override
+  String get all_are_mandatory => 'सर्व रकाने भरणे अनिवार्य आहे.';
+
+  @override
+  String get email_validation => 'कृपया वैध ईमेल टाका';
+
+  @override
+  String get name_validation => 'नाव किमान ७ अक्षरांचे असणे आवश्यक आहे';
+
+  @override
+  String get address_validation => 'पत्ता किमान ५ अक्षरांचा असणे आवश्यक आहे';
+
+  @override
+  String get sign_in => 'साइन इन';
+
+  @override
+  String get sign_in_message => 'साईन इन करण्यासाठी आपला मोबाईल नंबर आणि पासवर्ड प्रविष्ट करा.';
+
+  @override
+  String get do_sign_in => 'साइन इन करा';
+
+  @override
+  String get create_account => 'नवीन खाते तयार करा';
+
+  @override
+  String get forgot_password => 'पासवर्ड विसरलात?';
+
+  @override
+  String get name_hint => 'उदा. वरद वाणी';
+
+  @override
+  String get email_hint => 'उदा. abc@gmail.com';
+
+  @override
+  String get floor_apartment_hint => 'उदा. चिंतामणी अपार्टमेंट';
+
+  @override
+  String get street_landmark_hint => 'उदा. चिंतामणी नगर';
+
+  @override
+  String get city_hint => 'उदा. पुणे';
+
+  @override
+  String get state_hint => 'उदा. महाराष्ट्र';
+
+  @override
+  String get country_hint => 'उदा. भारत';
+
+  @override
+  String get pincode_hint => 'उदा. 431401';
 }

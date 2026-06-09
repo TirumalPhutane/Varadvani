@@ -274,6 +274,204 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign in to your existing account'**
   String get existing_sign_in;
+
+  /// Validation message for empty mobile no
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter mobile number'**
+  String get empty_mobile;
+
+  /// Validation message for wrong mobile no
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid mobile number'**
+  String get mobile_validation;
+
+  /// Validation message for empty password
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a password'**
+  String get empty_password;
+
+  /// Validation message for password
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters long'**
+  String get password_validation;
+
+  /// Profile Information label
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Information'**
+  String get profile_info;
+
+  /// Personal label
+  ///
+  /// In en, this message translates to:
+  /// **'Personal'**
+  String get personal;
+
+  /// Name label
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// Email label
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// Address label
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// Floor/Building/Apartment label
+  ///
+  /// In en, this message translates to:
+  /// **'Floor/Building/Apartment'**
+  String get floor_building;
+
+  /// Street/Landmark label
+  ///
+  /// In en, this message translates to:
+  /// **'Street/Landmark'**
+  String get street_landmark;
+
+  /// City label
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// State label
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get state;
+
+  /// Country label
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// Pincode label
+  ///
+  /// In en, this message translates to:
+  /// **'Pincode'**
+  String get pincode;
+
+  /// Register label
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// Validation message for empty mobile no
+  ///
+  /// In en, this message translates to:
+  /// **'All fields are mandatory.'**
+  String get all_are_mandatory;
+
+  /// Validation message for email
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get email_validation;
+
+  /// Validation message for name
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be at least 7 characters long'**
+  String get name_validation;
+
+  /// Validation message for address
+  ///
+  /// In en, this message translates to:
+  /// **'Address must be at least 5 characters long'**
+  String get address_validation;
+
+  /// Sign in label
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get sign_in;
+
+  /// Message for sign in
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your mobile number and password to sign in.'**
+  String get sign_in_message;
+
+  /// Sign in label
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get do_sign_in;
+
+  /// Create Account label
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get create_account;
+
+  /// Forgot Password label
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgot_password;
+
+  /// Name hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. Varad Vani'**
+  String get name_hint;
+
+  /// Email hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. abc@gmail.com'**
+  String get email_hint;
+
+  /// Floor/Building/Apartment hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. Chintamani Apartment'**
+  String get floor_apartment_hint;
+
+  /// Street/Landmark hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. Chintamani Nagar'**
+  String get street_landmark_hint;
+
+  /// City hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. Pune'**
+  String get city_hint;
+
+  /// State hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. Maharashtra'**
+  String get state_hint;
+
+  /// Country hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. India'**
+  String get country_hint;
+
+  /// Pincode hint
+  ///
+  /// In en, this message translates to:
+  /// **'Ex. 431401'**
+  String get pincode_hint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

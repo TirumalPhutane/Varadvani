@@ -118,5 +118,141 @@
     "existing_sign_in" : "Sign in to your existing account",
     "@existing_sign_in": {
         "description" : "Message for sign in to existing account"
+    },
+    "empty_mobile" : "Please enter mobile number",
+    "@empty_mobile": {
+        "description" : "Validation message for empty mobile no"
+    },
+    "mobile_validation" : "Please enter a valid mobile number",
+    "@mobile_validation": {
+        "description" : "Validation message for wrong mobile no"
+    },
+    "empty_password" : "Please enter a password",
+    "@empty_password": {
+        "description" : "Validation message for empty password"
+    },
+    "password_validation" : "Password must be at least 6 characters long",
+    "@password_validation": {
+        "description" : "Validation message for password"
+    },
+    "profile_info" : "Profile Information",
+    "@profile_info": {
+        "description" : "Profile Information label"
+    },
+    "personal" : "Personal",
+    "@personal": {
+        "description" : "Personal label"
+    },
+    "name" : "Name",
+    "@name": {
+        "description" : "Name label"
+    },
+    "email" : "Email",
+    "@email": {
+        "description" : "Email label"
+    },
+    "address" : "Address",
+    "@address": {
+        "description" : "Address label"
+    },
+    "floor_building" : "Floor/Building/Apartment",
+    "@floor_building": {
+        "description" : "Floor/Building/Apartment label"
+    },
+    "street_landmark" : "Street/Landmark",
+    "@street_landmark": {
+        "description" : "Street/Landmark label"
+    },
+    "city" : "City",
+    "@city": {
+        "description" : "City label"
+    },
+    "state" : "State",
+    "@state": {
+        "description" : "State label"
+    },
+    "country" : "Country",
+    "@country": {
+        "description" : "Country label"
+    },
+    "pincode" : "Pincode",
+    "@pincode": {
+        "description" : "Pincode label"
+    },
+    "register" : "Register",
+    "@register": {
+        "description" : "Register label"
+    },
+    "all_are_mandatory" : "All fields are mandatory.",
+    "@all_are_mandatory": {
+        "description" : "Validation message for empty mobile no"
+    },
+    "email_validation" : "Please enter a valid email",
+    "@email_validation": {
+        "description" : "Validation message for email"
+    },
+    "name_validation" : "Name must be at least 7 characters long",
+    "@name_validation": {
+        "description" : "Validation message for name"
+    },
+    "address_validation" : "Address must be at least 5 characters long",
+    "@address_validation": {
+        "description" : "Validation message for address"
+    },
+    "empty_mobile" : "Please enter mobile number",
+    "@empty_mobile": {
+        "description" : "Validation message for empty mobile no"
+    },
+    "sign_in" : "Sign in",
+    "@sign_in": {
+        "description" : "Sign in label"
+    },
+    "sign_in_message" : "Enter your mobile number and password to sign in.",
+    "@sign_in_message": {
+        "description" : "Message for sign in"
+    },
+    "do_sign_in" : "Sign in",
+    "@do_sign_in": {
+        "description" : "Sign in label"
+    },
+    "create_account" : "Create Account",
+    "@create_account": {
+        "description" : "Create Account label"
+    },
+    "forgot_password" : "Forgot Password?",
+    "@forgot_password": {
+        "description" : "Forgot Password label"
+    },
+    "name_hint" : "Ex. Varad Vani",
+    "@name_hint": {
+        "description" : "Name hint"
+    },
+    "email_hint" : "Ex. abc@gmail.com",
+    "@email_hint": {
+        "description" : "Email hint"
+    },
+    "floor_apartment_hint" : "Ex. Chintamani Apartment",
+    "@floor_apartment_hint": {
+        "description" : "Floor/Building/Apartment hint"
+    },
+    "street_landmark_hint" : "Ex. Chintamani Nagar",
+    "@street_landmark_hint": {
+        "description" : "Street/Landmark hint"
+    },
+    "city_hint" : "Ex. Pune",
+    "@city_hint": {
+        "description" : "City hint"
+    },
+    "state_hint" : "Ex. Maharashtra",
+    "@state_hint": {
+        "description" : "State hint"
+    },
+    "country_hint" : "Ex. India",
+    "@country_hint": {
+        "description" : "Country hint"
+    },
+    "pincode_hint" : "Ex. 431401",
+    "@pincode_hint": {
+        "description" : "Pincode hint"
     }
 }

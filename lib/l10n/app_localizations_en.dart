@@ -97,4 +97,103 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get existing_sign_in => 'Sign in to your existing account';
+
+  @override
+  String get empty_mobile => 'Please enter mobile number';
+
+  @override
+  String get mobile_validation => 'Please enter a valid mobile number';
+
+  @override
+  String get empty_password => 'Please enter a password';
+
+  @override
+  String get password_validation => 'Password must be at least 6 characters long';
+
+  @override
+  String get profile_info => 'Profile Information';
+
+  @override
+  String get personal => 'Personal';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get floor_building => 'Floor/Building/Apartment';
+
+  @override
+  String get street_landmark => 'Street/Landmark';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get state => 'State';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get pincode => 'Pincode';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get all_are_mandatory => 'All fields are mandatory.';
+
+  @override
+  String get email_validation => 'Please enter a valid email';
+
+  @override
+  String get name_validation => 'Name must be at least 7 characters long';
+
+  @override
+  String get address_validation => 'Address must be at least 5 characters long';
+
+  @override
+  String get sign_in => 'Sign in';
+
+  @override
+  String get sign_in_message => 'Enter your mobile number and password to sign in.';
+
+  @override
+  String get do_sign_in => 'Sign in';
+
+  @override
+  String get create_account => 'Create Account';
+
+  @override
+  String get forgot_password => 'Forgot Password?';
+
+  @override
+  String get name_hint => 'Ex. Varad Vani';
+
+  @override
+  String get email_hint => 'Ex. abc@gmail.com';
+
+  @override
+  String get floor_apartment_hint => 'Ex. Chintamani Apartment';
+
+  @override
+  String get street_landmark_hint => 'Ex. Chintamani Nagar';
+
+  @override
+  String get city_hint => 'Ex. Pune';
+
+  @override
+  String get state_hint => 'Ex. Maharashtra';
+
+  @override
+  String get country_hint => 'Ex. India';
+
+  @override
+  String get pincode_hint => 'Ex. 431401';
 }

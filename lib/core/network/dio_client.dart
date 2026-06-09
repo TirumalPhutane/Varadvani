@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/constants/api_constants.dart';
 import 'package:varadvani/core/error/failures.dart';
+import 'package:varadvani/core/network/log_interceptor.dart';
 
 final dioClientProvider = Provider<DioClient>((ref) => DioClient());
 
 class DioClient {
   late final Dio _dio;
-  String? _authToken; // ✅ stored after login
+  String? _authToken;
 
   DioClient() {
     _dio = Dio(
@@ -22,16 +24,13 @@ class DioClient {
       ),
     );
 
-    _dio.interceptors.add(
+    _dio.interceptors.addAll([
+      if (kDebugMode) AppLogInterceptor(),
       InterceptorsWrapper(
-        onRequest: (options, handler) {
-          handler.next(options);
-        },
-        onError: (DioException e, handler) {
-          handler.next(e);
-        },
+        onRequest: (options, handler) => handler.next(options),
+        onError: (DioException e, handler) => handler.next(e),
       ),
-    );
+    ]);
   }
 
   /// Call this after login to store token globally
