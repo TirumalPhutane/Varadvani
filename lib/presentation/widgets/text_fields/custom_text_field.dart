@@ -18,6 +18,11 @@ class CustomTextField extends StatelessWidget {
     this.readOnly = false,
     this.contentPadding,
     this.maxLength,
+    this.containerColor,
+    this.borderColor,
+    this.borderWidth,
+    this.labelColor,
+    this.isFromProfile = false,
   });
 
   final String hintText;
@@ -34,6 +39,11 @@ class CustomTextField extends StatelessWidget {
   final bool readOnly;
   final EdgeInsetsGeometry? contentPadding;
   final int? maxLength;
+  final Color? containerColor;
+  final Color? borderColor;
+  final double? borderWidth;
+  final Color? labelColor;
+  final bool isFromProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +57,30 @@ class CustomTextField extends StatelessWidget {
             fontSize: 14,
             fontFamily: 'Mukta_medium',
             fontWeight: FontWeight.normal,
-            color: Color(ColorCode.black),
+            color: labelColor != null
+                ? labelColor!.withValues(alpha: 0.7)
+                : Color(ColorCode.black),
           ),
         ),
         Container(
           padding: EdgeInsets.only(
             left: 2,
             right: 2,
-            top: suffixIcon != null ? 14 : 5,
+            top: suffixIcon != null ? 10.5 : 2,
             bottom: 5,
           ),
-          height: 60,
+          height: isFromProfile ? 50 : 55,
           decoration: BoxDecoration(
-            color: Color(ColorCode.orange).withValues(alpha: 0.17),
+            color:
+                containerColor ??
+                Color(ColorCode.orange).withValues(alpha: 0.17),
             borderRadius: BorderRadius.all(Radius.circular(12)),
+            border: Border.all(
+              color: borderColor != null
+                  ? borderColor!.withValues(alpha: 0.4)
+                  : Colors.transparent,
+              width: borderWidth ?? 0,
+            ),
           ),
           child: TextFormField(
             controller: controller,
@@ -76,6 +96,7 @@ class CustomTextField extends StatelessWidget {
               fontSize: 16,
               fontFamily: 'Mukta',
               fontWeight: FontWeight.w500,
+              letterSpacing: 0,
             ),
             decoration: InputDecoration(
               border: InputBorder.none,

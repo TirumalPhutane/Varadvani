@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
         opacity: isDisabled ? 0.5 : 1.0,
         child: Container(
           width: double.infinity,
-          height: 60,
+          height: 50,
           decoration: BoxDecoration(
             color: Color(color ?? ColorCode.orange),
             borderRadius: BorderRadius.all(Radius.circular(12)),

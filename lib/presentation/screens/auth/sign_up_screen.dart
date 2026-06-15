@@ -92,7 +92,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       context,
                       AppRoutes.profileInfoScreen,
                       arguments: SignUpData(
-                        countryCode: _selectedCountryCode.code ?? '+91',
+                        countryCode: _selectedCountryCode.dialCode ?? '+91',
                         mobileNumber: _mobileController.text.trim(),
                         password: _passwordController.text.trim(),
                       ),
@@ -240,9 +240,9 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                               !passwordVisible,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                          left: 10,
-                                          right: 10,
-                                          bottom: 10,
+                                          left: 12,
+                                          right: 12,
+                                          bottom: 2,
                                         ),
                                         child: SvgPicture.asset(
                                           colorFilter: ColorFilter.mode(

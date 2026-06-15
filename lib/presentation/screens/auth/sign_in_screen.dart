@@ -85,7 +85,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           SignInParams(
             phoneNumber: _mobileController.text.trim(),
             password: _passwordController.text.trim(),
-            //countryCode: _selectedCountryCode.code ?? '+91',
+            countryCode: _selectedCountryCode.dialCode ?? '+91',
           ),
         );
   }
@@ -281,9 +281,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                                   !passwordVisible,
                                           child: Padding(
                                             padding: const EdgeInsets.only(
-                                              left: 10,
-                                              right: 10,
-                                              bottom: 10,
+                                              left: 12,
+                                              right: 12,
+                                              bottom: 2,
                                             ),
                                             child: SvgPicture.asset(
                                               colorFilter: ColorFilter.mode(

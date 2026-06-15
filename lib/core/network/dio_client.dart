@@ -100,4 +100,25 @@ class DioClient {
       );
     }
   }
+
+  Future<Response> patch(
+    String path, {
+    Map<String, dynamic>? data,
+    bool requiresAuth = false, // pass true for protected APIs
+  }) async {
+    try {
+      return await _dio.patch(
+        path,
+        data: data,
+        options: Options(headers: _buildHeaders(requiresAuth: requiresAuth)),
+      );
+    } on DioException catch (e) {
+      final err = _parseError(e);
+      throw ServerException(
+        message: err['message'],
+        statusCode: e.response?.statusCode,
+        errors: err['errors'],
+      );
+    }
+  }
 }

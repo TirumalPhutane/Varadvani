@@ -4,4 +4,5 @@ class ColorCode {
   static const int white = 0xFFFFFFFF;
   static const int black = 0xFF1E1E1E;
   static const int darkGray = 0xFF434343;
+  static const int red = 0xFFFF1500;
 }

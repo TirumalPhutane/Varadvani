@@ -276,7 +276,9 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
           ),
           if (signUpState.isLoading)
             Container(
-              color: Colors.white.withValues(alpha: 0.5), // dim background
+              color: Color(
+                ColorCode.white,
+              ).withValues(alpha: 0.5), // dim background
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/loading.json',

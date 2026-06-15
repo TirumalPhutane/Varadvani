@@ -59,7 +59,7 @@ class MobileTextField extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-          height: 60,
+          height: 55,
           decoration: BoxDecoration(
             color: Color(ColorCode.orange).withValues(alpha: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(12)),
