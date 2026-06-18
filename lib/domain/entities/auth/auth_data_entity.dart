@@ -1,15 +1,17 @@
 import 'package:varadvani/domain/entities/auth/user_entity.dart';
 
 class AuthDataEntity {
-  const AuthDataEntity({
+  AuthDataEntity({
     required this.message,
     required this.user,
     required this.accessToken,
     required this.refreshToken,
   });
 
-  final String message;
-  final UserEntity user;
-  final String accessToken;
-  final String refreshToken;
+  AuthDataEntity.empty();
+
+  String message = '';
+  UserEntity user = UserEntity.empty();
+  String accessToken = '';
+  String refreshToken = '';
 }

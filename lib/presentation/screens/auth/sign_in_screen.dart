@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lottie/lottie.dart';
 import 'package:varadvani/core/resources/params/auth/sign_in_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/providers/auth/sign_in_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
+import 'package:varadvani/presentation/widgets/loader_dialog.dart';
 import 'package:varadvani/presentation/widgets/snackbar_helper.dart';
 import 'package:varadvani/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:varadvani/presentation/widgets/text_fields/mobile_text_field.dart';
@@ -95,6 +95,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     final signInState = ref.watch(signInProvider);
 
     ref.listen<SignInState>(signInProvider, (previous, next) {
+      if (next.isLoading) {
+        LoaderDialog.show(context, message: 'साइन इन होत आहे...');
+      }
       if (next.error != null) {
         // Show API-level validation errors as a list if present
         final message = next.validationErrors.isNotEmpty
@@ -329,18 +332,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               ],
             ),
           ),
-          if (signInState.isLoading)
-            Container(
-              color: Color(ColorCode.white).withValues(alpha: 0.5),
-              child: Center(
-                child: Lottie.asset(
-                  'assets/lottie/loading.json',
-                  width: 300,
-                  height: 300,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
         ],
       ),
     );

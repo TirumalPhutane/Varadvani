@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class LoaderDialog {
@@ -40,7 +41,18 @@ class _LoaderDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(strokeCap: StrokeCap.round),
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: LoadingIndicator(
+                    indicatorType: Indicator.ballSpinFadeLoader,
+                    strokeWidth: 2,
+                    colors: const [
+                      Color(ColorCode.orange),
+                      Color(ColorCode.red),
+                    ],
+                  ),
+                ),
                 if (message != null && message!.isNotEmpty) ...[
                   Text(
                     message!,

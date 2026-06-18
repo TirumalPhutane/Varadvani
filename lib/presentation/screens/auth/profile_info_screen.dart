@@ -7,6 +7,7 @@ import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/providers/auth/sign_up_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
+import 'package:varadvani/presentation/widgets/loader_dialog.dart';
 import 'package:varadvani/presentation/widgets/snackbar_helper.dart';
 import 'package:varadvani/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -76,6 +77,9 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
     final signUpState = ref.watch(signUpProvider);
 
     ref.listen<SignUpState>(signUpProvider, (previous, next) {
+      if (next.isLoading) {
+        LoaderDialog.show(context, message: 'नोंदणी होत आहे...');
+      }
       if (next.error != null) {
         // Show API-level validation errors as a list if present
         final message = next.validationErrors.isNotEmpty

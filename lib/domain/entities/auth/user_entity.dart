@@ -1,5 +1,5 @@
 class UserEntity {
-  const UserEntity({
+  UserEntity({
     required this.id,
     required this.name,
     required this.email,
@@ -18,20 +18,22 @@ class UserEntity {
     required this.updatedAt,
   });
 
-  final String id;
-  final String name;
-  final String email;
-  final String phoneNumber;
-  final String address;
-  final String password;
-  final String personalCustomId;
-  final String familyCustomId;
-  final String role;
-  final bool isFamilyHead;
-  final String city;
-  final String state;
-  final String country;
-  final String pincode;
-  final String createdAt;
-  final String updatedAt;
+  UserEntity.empty();
+
+  String id = '';
+  String name = '';
+  String email = '';
+  String phoneNumber = '';
+  String address = '';
+  String password = '';
+  String personalCustomId = '';
+  String familyCustomId = '';
+  String role = '';
+  bool isFamilyHead = false;
+  String city = '';
+  String state = '';
+  String country = '';
+  String pincode = '';
+  String createdAt = '';
+  String updatedAt = '';
 }

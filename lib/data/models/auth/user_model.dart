@@ -1,7 +1,7 @@
 import 'package:varadvani/domain/entities/auth/user_entity.dart';
 
 class UserModel extends UserEntity {
-  const UserModel({
+  UserModel({
     required super.id,
     required super.name,
     required super.email,
@@ -19,6 +19,8 @@ class UserModel extends UserEntity {
     required super.createdAt,
     required super.updatedAt,
   });
+
+  UserModel.empty() : super.empty();
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
     id: json['id']?.toString() ?? '',

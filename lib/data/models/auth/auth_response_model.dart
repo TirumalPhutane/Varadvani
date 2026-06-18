@@ -13,7 +13,9 @@ class AuthResponseModel extends AuthResponseEntity {
       AuthResponseModel(
         success: json['success'] as bool? ?? false,
         message: json['message']?.toString() ?? '',
-        data: AuthDataModel.fromJson(json['data']),
+        data: json['data'] != null
+            ? AuthDataModel.fromJson(json['data'] as Map<String, dynamic>)
+            : AuthDataModel.empty(),
         error: json['error']?.toString() ?? '',
       );
 }
