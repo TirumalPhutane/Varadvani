@@ -19,6 +19,14 @@ class StorageService {
     await authBox.put(AppConstants.userId, userId);
   }
 
+  Future<void> updateAuthTokens({
+    required String accessToken,
+    required String refreshToken,
+  }) async {
+    await authBox.put(AppConstants.accessTokenKey, accessToken);
+    await authBox.put(AppConstants.refreshTokenKey, refreshToken);
+  }
+
   String? getAccessToken() => authBox.get(AppConstants.accessTokenKey);
 
   String? getRefreshToken() => authBox.get(AppConstants.refreshTokenKey);

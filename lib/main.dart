@@ -10,6 +10,7 @@ import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/theme.dart';
 
 //final ThemeManager themeManager = ThemeManager();
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final LocaleManager localeManager = LocaleManager();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,6 +62,7 @@ class _MyAppState extends ConsumerState<MyApp> {
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: AppRoutes.generateRoute,
       initialRoute: initialRoute,
+      navigatorKey: navigatorKey,
       //home: const MyHomePage(title: 'Varadvani'),
     );
   }

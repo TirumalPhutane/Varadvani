@@ -3,11 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/core/service/storage_service.dart';
 import 'package:varadvani/domain/entities/auth/user_entity.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
+import 'package:varadvani/presentation/providers/auth/sign_out_provider.dart';
+import 'package:varadvani/presentation/providers/profile/delete_profile_provider.dart';
 import 'package:varadvani/presentation/providers/profile/get_profile_provider.dart';
 import 'package:varadvani/presentation/providers/profile/update_profile_provider.dart';
+import 'package:varadvani/presentation/widgets/comman_dialog.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
 import 'package:varadvani/presentation/widgets/loader_dialog.dart';
 import 'package:varadvani/presentation/widgets/snackbar_helper.dart';
@@ -125,7 +129,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         if (previous?.isLoading == true) {
           LoaderDialog.hide(context);
         }
-        SnackbarHelper.show(context: context, message: next.error!);
+
+        final error = next.error!;
+
+        if (!error.contains('TOKEN_EXPIRED') &&
+            !error.contains('Access token expired')) {
+          SnackbarHelper.show(context: context, message: error);
+        }
       }
     });
 
@@ -148,6 +158,46 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           LoaderDialog.hide(context);
         }
         SnackbarHelper.show(context: context, message: next.error!);
+      }
+    });
+
+    ref.listen<SignOutState>(signOutProvider, (previous, next) {
+      if (next.isLoading) {
+        LoaderDialog.show(context, message: 'लॉग आउट होत आहे...');
+      }
+      if (next.error != null) {
+        final message = next.validationErrors.isNotEmpty
+            ? next.validationErrors.join('\n')
+            : next.error!;
+        SnackbarHelper.show(context: context, message: message);
+      }
+      if (next.data != null) {
+        SnackbarHelper.show(context: context, message: next.data!.message);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          AppRoutes.signInScreen,
+          (_) => false,
+        );
+      }
+    });
+
+    ref.listen<DeleteProfileState>(deleteProfileProvider, (previous, next) {
+      if (next.isLoading) {
+        LoaderDialog.show(context, message: 'हटवत आहे...');
+      }
+      if (next.error != null) {
+        final message = next.validationErrors.isNotEmpty
+            ? next.validationErrors.join('\n')
+            : next.error!;
+        SnackbarHelper.show(context: context, message: message);
+      }
+      if (next.data != null) {
+        SnackbarHelper.show(context: context, message: next.data!.message);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          AppRoutes.signUpScreen,
+          (_) => false,
+        );
       }
     });
 
@@ -344,48 +394,74 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   Column(
                     spacing: 30,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          border: Border.all(
-                            color: Color(ColorCode.orange),
-                            width: 1,
+                      InkWell(
+                        onTap: () => CommanDialog.show(
+                          context,
+                          message: 'Are you sure you want to log out?',
+                          positiveButtonText: 'Logout',
+                          negativeButtonText: 'Cancel',
+                          onPositivePressed: () =>
+                              ref.read(signOutProvider.notifier).signOut(),
+                          onNegativePressed: () => Navigator.pop(context),
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            border: Border.all(
+                              color: Color(ColorCode.orange),
+                              width: 1,
+                            ),
                           ),
+                          child: Row(
+                            spacing: 10,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset('assets/svg/logout.svg'),
+                              Text(
+                                'Log Out',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Mukta_medium',
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(ColorCode.orange),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: () => CommanDialog.show(
+                          context,
+                          message: 'Are you sure you want to delete account?',
+                          positiveButtonText: 'Delete',
+                          negativeButtonText: 'Cancel',
+                          onPositivePressed: () => ref
+                              .read(deleteProfileProvider.notifier)
+                              .deleteProfile(),
+                          onNegativePressed: () => Navigator.pop(context),
+                          positiveButtonColor: ColorCode.red,
+                          negativeButtonColor: Color(ColorCode.red),
                         ),
                         child: Row(
                           spacing: 10,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset('assets/svg/logout.svg'),
+                            SvgPicture.asset('assets/svg/delete.svg'),
                             Text(
-                              'Log Out',
+                              'Delete Account',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: 'Mukta_medium',
                                 fontWeight: FontWeight.w500,
-                                color: Color(ColorCode.orange),
+                                color: Color(ColorCode.red),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Row(
-                        spacing: 10,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/svg/delete.svg'),
-                          Text(
-                            'Delete Account',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'Mukta_medium',
-                              fontWeight: FontWeight.w500,
-                              color: Color(ColorCode.red),
-                            ),
-                          ),
-                        ],
                       ),
                     ],
                   ),

@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
     this.titleColor,
     this.borderColor,
     this.borderWidth,
+    this.borderRadius,
   });
 
   final GestureTapCallback? onPressed;
@@ -18,6 +19,7 @@ class CustomButton extends StatelessWidget {
   final Color? titleColor;
   final Color? borderColor;
   final double? borderWidth;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class CustomButton extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
           color: Color(color ?? ColorCode.orange),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 12)),
           border: Border.all(
             color: borderColor ?? Colors.transparent,
             width: borderWidth ?? 0,

@@ -280,8 +280,8 @@ List<TimelineItem> timeline = [
     year: '04/05/1993',
     date: 'वैशाख शु.१३, १९१५',
     age: 'वय - 73',
-    description: 'समाधी मंदिर कलशारोहन',
-    backContent: 'समाधी मंदिर कलशारोहन',
+    description: 'समाधी मंदिर कलशारोहण',
+    backContent: 'समाधी मंदिर कलशारोहण',
   ),
   TimelineItem(
     year: '1995',

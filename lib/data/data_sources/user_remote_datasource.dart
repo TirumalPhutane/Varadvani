@@ -11,6 +11,7 @@ final userRemoteDatasourceProvider = Provider<UserRemoteDatasource>(
 abstract class UserRemoteDatasource {
   Future<AuthResponseModel> getProfile(String id);
   Future<AuthResponseModel> updateProfile(UpdateProfileParams params);
+  Future<AuthResponseModel> deleteProfile(String id);
 }
 
 class UserRemoteDatasourceImpl implements UserRemoteDatasource {
@@ -31,6 +32,15 @@ class UserRemoteDatasourceImpl implements UserRemoteDatasource {
     final response = await _dioClient.patch(
       ApiConstants.updateProfile,
       data: params.toJson(),
+      requiresAuth: true,
+    );
+    return AuthResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<AuthResponseModel> deleteProfile(String id) async {
+    final response = await _dioClient.delete(
+      '${ApiConstants.deleteProfile}$id',
       requiresAuth: true,
     );
     return AuthResponseModel.fromJson(response.data);

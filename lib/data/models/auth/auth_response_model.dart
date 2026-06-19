@@ -7,6 +7,7 @@ class AuthResponseModel extends AuthResponseEntity {
     required super.message,
     required super.data,
     required super.error,
+    required super.code,
   });
 
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -17,5 +18,6 @@ class AuthResponseModel extends AuthResponseEntity {
             ? AuthDataModel.fromJson(json['data'] as Map<String, dynamic>)
             : AuthDataModel.empty(),
         error: json['error']?.toString() ?? '',
+        code: json['code']?.toString() ?? '',
       );
 }

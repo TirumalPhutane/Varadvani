@@ -99,7 +99,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         LoaderDialog.show(context, message: 'साइन इन होत आहे...');
       }
       if (next.error != null) {
-        // Show API-level validation errors as a list if present
         final message = next.validationErrors.isNotEmpty
             ? next.validationErrors.join('\n')
             : next.error!;
@@ -107,7 +106,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
       }
       if (next.data != null) {
         SnackbarHelper.show(context: context, message: next.data!.message);
-        // Navigate to login
         Navigator.pushNamedAndRemoveUntil(
           context,
           AppRoutes.mainScreen,

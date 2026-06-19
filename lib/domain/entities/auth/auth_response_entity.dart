@@ -6,10 +6,12 @@ class AuthResponseEntity {
     required this.message,
     required this.data,
     required this.error,
+    required this.code,
   });
 
   final bool success;
   final String message;
   final AuthDataEntity data;
   final String? error;
+  final String code;
 }

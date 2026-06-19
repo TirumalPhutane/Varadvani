@@ -6,4 +6,5 @@ abstract class UserRepository {
   Future<AuthResponseEntity> updateProfile({
     required UpdateProfileParams params,
   });
+  Future<AuthResponseEntity> deleteProfile({required String id});
 }

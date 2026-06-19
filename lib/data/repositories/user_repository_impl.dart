@@ -36,4 +36,15 @@ class UserRepositoryImpl implements UserRepository {
       throw AppException(message: 'Unexpected error: $e');
     }
   }
+
+  @override
+  Future<AuthResponseEntity> deleteProfile({required String id}) async {
+    try {
+      return await _datasource.deleteProfile(id);
+    } on AppException {
+      rethrow;
+    } catch (e) {
+      throw AppException(message: 'Unexpected error: $e');
+    }
+  }
 }
