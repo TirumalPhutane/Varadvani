@@ -14,6 +14,7 @@ abstract class AuthRemoteDatasource {
   Future<AuthResponseModel> signUp(SignUpParams params);
   Future<AuthResponseModel> signIn(SignInParams params);
   Future<AuthResponseModel> signOut(SignOutParams params);
+  Future<AuthResponseModel> forgotPassword(SignInParams params);
 }
 
 class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
@@ -42,6 +43,15 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<AuthResponseModel> signOut(SignOutParams params) async {
     final response = await _dioClient.post(
       ApiConstants.signOut,
+      data: params.toJson(),
+    );
+    return AuthResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<AuthResponseModel> forgotPassword(SignInParams params) async {
+    final response = await _dioClient.patch(
+      ApiConstants.forgotPassword,
       data: params.toJson(),
     );
     return AuthResponseModel.fromJson(response.data);

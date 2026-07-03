@@ -10,6 +10,7 @@ class ApiConstants {
   static const String signUp = '/api/user/sign_up';
   static const String signIn = '/api/user/sign_in';
   static const String signOut = '/api/user/logout';
+  static const String forgotPassword = '/api/user/forgot_password';
 
   /// Profile
   static const String userProfile = '/api/user/user_profile/';

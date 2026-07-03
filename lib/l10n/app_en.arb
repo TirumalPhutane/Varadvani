@@ -254,5 +254,77 @@
     "pincode_hint" : "Ex. 431401",
     "@pincode_hint": {
         "description" : "Pincode hint"
+    },
+    "registering" : "Registering...",
+    "@registering": {
+        "description" : "Registering label"
+    },
+    "signing_in" : "Signing in...",
+    "@signing_in": {
+        "description" : "Signing in label"
+    },
+    "loading_profile" : "Loading profile...",
+    "@loading_profile": {
+        "description" : "Loading profile label"
+    },
+    "updating_profile" : "Updating profile...",
+    "@updating_profile": {
+        "description" : "Updating profile label"
+    },
+    "logging_out" : "Logging out...",
+    "@logging_out": {
+        "description" : "Logging out label"
+    },
+    "deleting_account" : "Deleting account...",
+    "@deleting_account": {
+        "description" : "Deleting account label"
+    },
+    "profile_details" : "Profile Details",
+    "@profile_details": {
+        "description" : "Profile Details label"
+    },
+    "cancel" : "Cancel",
+    "@cancel": {
+        "description" : "Cancel label"
+    },
+    "personal_id" : "Personal Id",
+    "@personal_id": {
+        "description" : "Personal Id label"
+    },
+    "family_id" : "Family Id",
+    "@family_id": {
+        "description" : "Family Id label"
+    },
+    "update" : "Update",
+    "@update": {
+        "description" : "Update label"
+    },
+    "logout" : "Log Out",
+    "@logout": {
+        "description" : "Logout label"
+    },
+    "delete" : "Delete",
+    "@delete": {
+        "description" : "Delete label"
+    },
+    "delete_account" : "Delete Account",
+    "@delete_account": {
+        "description" : "Delete Account label"
+    },
+    "logout_message" : "Are you sure you want to log out?",
+    "@logout_message": {
+        "description" : "Logout dialog message"
+    },
+    "delete_account_message" : "Are you sure you want to delete account?",
+    "@delete_account_message": {
+        "description" : "Delete account dialog message"
+    },
+    "confirm_password" : "Confirm Password",
+    "@confirm_password": {
+        "description" : "Confirm Password label"
+    },
+    "change_password" : "Change Password",
+    "@change_password": {
+        "description" : "Change Password label"
     }
 }

@@ -96,21 +96,28 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
     ref.listen<SignInState>(signInProvider, (previous, next) {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'साइन इन होत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.signing_in,
+        );
       }
-      if (next.error != null) {
+      if (next.error != null && previous?.isLoading == true) {
         final message = next.validationErrors.isNotEmpty
             ? next.validationErrors.join('\n')
             : next.error!;
         SnackbarHelper.show(context: context, message: message);
+        LoaderDialog.hide(context);
       }
-      if (next.data != null) {
+      if (next.data != null && previous?.isLoading == true) {
         SnackbarHelper.show(context: context, message: next.data!.message);
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          AppRoutes.mainScreen,
-          (_) => false,
-        );
+        LoaderDialog.hide(context);
+        if (next.data!.success) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.mainScreen,
+            (_) => false,
+          );
+        }
       }
     });
 
@@ -303,19 +310,27 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                   },
                                 ),
                                 SizedBox(height: 10),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.forgot_password,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'Mukta',
-                                      fontWeight: FontWeight.w600,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Color(ColorCode.orange),
-                                      color: Color(ColorCode.orange),
+                                GestureDetector(
+                                  onTap: () => Navigator.pushNamed(
+                                    context,
+                                    AppRoutes.changePasswordScreen,
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      AppLocalizations.of(
+                                        context,
+                                      )!.forgot_password,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'Mukta',
+                                        fontWeight: FontWeight.w600,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: Color(
+                                          ColorCode.orange,
+                                        ),
+                                        color: Color(ColorCode.orange),
+                                      ),
                                     ),
                                   ),
                                 ),

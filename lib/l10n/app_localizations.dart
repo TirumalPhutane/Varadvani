@@ -472,6 +472,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ex. 431401'**
   String get pincode_hint;
+
+  /// Registering label
+  ///
+  /// In en, this message translates to:
+  /// **'Registering...'**
+  String get registering;
+
+  /// Signing in label
+  ///
+  /// In en, this message translates to:
+  /// **'Signing in...'**
+  String get signing_in;
+
+  /// Loading profile label
+  ///
+  /// In en, this message translates to:
+  /// **'Loading profile...'**
+  String get loading_profile;
+
+  /// Updating profile label
+  ///
+  /// In en, this message translates to:
+  /// **'Updating profile...'**
+  String get updating_profile;
+
+  /// Logging out label
+  ///
+  /// In en, this message translates to:
+  /// **'Logging out...'**
+  String get logging_out;
+
+  /// Deleting account label
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting account...'**
+  String get deleting_account;
+
+  /// Profile Details label
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Details'**
+  String get profile_details;
+
+  /// Cancel label
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Personal Id label
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Id'**
+  String get personal_id;
+
+  /// Family Id label
+  ///
+  /// In en, this message translates to:
+  /// **'Family Id'**
+  String get family_id;
+
+  /// Update label
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// Logout label
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logout;
+
+  /// Delete label
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// Delete Account label
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get delete_account;
+
+  /// Logout dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
+  String get logout_message;
+
+  /// Delete account dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete account?'**
+  String get delete_account_message;
+
+  /// Confirm Password label
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirm_password;
+
+  /// Change Password label
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get change_password;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

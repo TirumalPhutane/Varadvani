@@ -196,4 +196,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pincode_hint => 'Ex. 431401';
+
+  @override
+  String get registering => 'Registering...';
+
+  @override
+  String get signing_in => 'Signing in...';
+
+  @override
+  String get loading_profile => 'Loading profile...';
+
+  @override
+  String get updating_profile => 'Updating profile...';
+
+  @override
+  String get logging_out => 'Logging out...';
+
+  @override
+  String get deleting_account => 'Deleting account...';
+
+  @override
+  String get profile_details => 'Profile Details';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get personal_id => 'Personal Id';
+
+  @override
+  String get family_id => 'Family Id';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get logout => 'Log Out';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get delete_account => 'Delete Account';
+
+  @override
+  String get logout_message => 'Are you sure you want to log out?';
+
+  @override
+  String get delete_account_message => 'Are you sure you want to delete account?';
+
+  @override
+  String get confirm_password => 'Confirm Password';
+
+  @override
+  String get change_password => 'Change Password';
 }

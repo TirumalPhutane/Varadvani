@@ -66,7 +66,7 @@ class CustomTextField extends StatelessWidget {
           padding: EdgeInsets.only(
             left: 2,
             right: 2,
-            top: suffixIcon != null ? 10.5 : 2,
+            top: suffixIcon != null ? 11 : 2,
             bottom: 5,
           ),
           height: isFromProfile ? 50 : 55,
@@ -77,7 +77,7 @@ class CustomTextField extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(12)),
             border: Border.all(
               color: borderColor != null
-                  ? borderColor!.withValues(alpha: 0.4)
+                  ? borderColor!.withValues(alpha: 0.2)
                   : Colors.transparent,
               width: borderWidth ?? 0,
             ),

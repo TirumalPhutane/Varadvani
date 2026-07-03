@@ -196,4 +196,58 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get pincode_hint => 'उदा. 431401';
+
+  @override
+  String get registering => 'नोंदणी होत आहे...';
+
+  @override
+  String get signing_in => 'साइन इन होत आहे...';
+
+  @override
+  String get loading_profile => 'प्रोफाईल लोड होत आहे...';
+
+  @override
+  String get updating_profile => 'अद्ययावत होत आहे...';
+
+  @override
+  String get logging_out => 'लॉग आउट होत आहे...';
+
+  @override
+  String get deleting_account => 'खाते हटवले जात आहे...';
+
+  @override
+  String get profile_details => 'प्रोफाईल तपशील';
+
+  @override
+  String get cancel => 'रद्द करा';
+
+  @override
+  String get personal_id => 'वैयक्तिक ओळख क्रमांक';
+
+  @override
+  String get family_id => 'कौटुंबिक ओळख क्रमांक';
+
+  @override
+  String get update => 'अद्ययावत करा';
+
+  @override
+  String get logout => 'लॉग आउट';
+
+  @override
+  String get delete => 'हटवा';
+
+  @override
+  String get delete_account => 'खाते हटवा';
+
+  @override
+  String get logout_message => 'आपण खात्रीने लॉग आउट करू इच्छिता?';
+
+  @override
+  String get delete_account_message => 'आपण खात्रीने खाते हटवू इच्छिता?';
+
+  @override
+  String get confirm_password => 'पासवर्डची पुष्टी करा';
+
+  @override
+  String get change_password => 'पासवर्ड बदला';
 }

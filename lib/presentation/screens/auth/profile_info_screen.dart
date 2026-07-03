@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lottie/lottie.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
 import 'package:varadvani/core/resources/params/auth/sign_up_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
@@ -78,23 +77,29 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
 
     ref.listen<SignUpState>(signUpProvider, (previous, next) {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'नोंदणी होत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.registering,
+        );
       }
-      if (next.error != null) {
+      if (next.error != null && previous?.isLoading == true) {
         // Show API-level validation errors as a list if present
         final message = next.validationErrors.isNotEmpty
             ? next.validationErrors.join('\n')
             : next.error!;
         SnackbarHelper.show(context: context, message: message);
+        LoaderDialog.hide(context);
       }
-      if (next.data != null) {
+      if (next.data != null && previous?.isLoading == true) {
         SnackbarHelper.show(context: context, message: next.data!.message);
-        // Navigate to login
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          AppRoutes.signInScreen,
-          (_) => false,
-        );
+        LoaderDialog.hide(context);
+        if (next.data!.success) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.signInScreen,
+            (_) => false,
+          );
+        }
       }
     });
 
@@ -278,20 +283,6 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
               ),
             ),
           ),
-          if (signUpState.isLoading)
-            Container(
-              color: Color(
-                ColorCode.white,
-              ).withValues(alpha: 0.5), // dim background
-              child: Center(
-                child: Lottie.asset(
-                  'assets/lottie/loading.json',
-                  width: 300,
-                  height: 300,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
         ],
       ),
     );

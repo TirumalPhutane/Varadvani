@@ -7,4 +7,5 @@ abstract class AuthRepository {
   Future<AuthResponseEntity> signUp({required SignUpParams params});
   Future<AuthResponseEntity> signIn({required SignInParams params});
   Future<AuthResponseEntity> signOut({required SignOutParams params});
+  Future<AuthResponseEntity> forgotPassword({required SignInParams params});
 }

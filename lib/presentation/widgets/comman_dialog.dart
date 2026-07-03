@@ -13,9 +13,11 @@ class CommanDialog {
     int? positiveButtonColor,
     Color? negativeButtonColor,
   }) {
-    showDialog(
+    showModalBottomSheet(
       context: context,
-      barrierDismissible: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+      ),
       builder: (context) => _CommanDialog(
         message: message,
         positiveButtonText: positiveButtonText,
@@ -54,55 +56,47 @@ class _CommanDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
+    return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 35),
-        child: AlertDialog(
-          backgroundColor: Color(ColorCode.white),
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          content: Column(
-            spacing: 20,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                message,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Mukta_medium',
-                  fontWeight: FontWeight.w500,
-                  color: Color(ColorCode.black),
-                  letterSpacing: 0,
-                ),
+        padding: const EdgeInsets.only(
+          top: 25,
+          left: 20,
+          right: 20,
+          bottom: 20,
+        ),
+        child: Column(
+          spacing: 25,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                fontFamily: 'Mukta',
+                fontWeight: FontWeight.w700,
+                color: Color(ColorCode.black),
+                letterSpacing: 0,
               ),
-            ],
-          ),
-          actions: [
-            Row(
-              spacing: 25,
+            ),
+            Column(
+              spacing: 15,
               children: [
-                Expanded(
-                  child: CustomButton(
-                    borderColor: negativeButtonColor ?? Color(ColorCode.orange),
-                    borderWidth: 1,
-                    color: ColorCode.white,
-                    onPressed: onNegativePressed,
-                    title: negativeButtonText,
-                    titleColor: negativeButtonColor ?? Color(ColorCode.orange),
-                    borderRadius: 6,
-                  ),
+                CustomButton(
+                  color: positiveButtonColor,
+                  borderRadius: 15,
+                  onPressed: onPositivePressed,
+                  title: positiveButtonText,
                 ),
-                Expanded(
-                  child: CustomButton(
-                    color: positiveButtonColor,
-                    borderRadius: 6,
-                    onPressed: onPositivePressed,
-                    title: positiveButtonText,
-                  ),
+                CustomButton(
+                  borderColor: negativeButtonColor ?? Color(ColorCode.orange),
+                  borderWidth: 1,
+                  color: ColorCode.white,
+                  onPressed: onNegativePressed,
+                  title: negativeButtonText,
+                  titleColor: negativeButtonColor ?? Color(ColorCode.orange),
+                  borderRadius: 15,
                 ),
               ],
             ),

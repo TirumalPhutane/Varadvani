@@ -47,4 +47,17 @@ class AuthRepositoryImpl implements AuthRepository {
       throw AppException(message: 'Unexpected error: $e');
     }
   }
+
+  @override
+  Future<AuthResponseEntity> forgotPassword({
+    required SignInParams params,
+  }) async {
+    try {
+      return await _datasource.forgotPassword(params);
+    } on AppException {
+      rethrow;
+    } catch (e) {
+      throw AppException(message: 'Unexpected error: $e');
+    }
+  }
 }

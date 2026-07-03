@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/network/dio_client.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
+import 'package:varadvani/core/service/sign_out_service.dart';
 import 'package:varadvani/core/service/storage_service.dart';
 import 'package:varadvani/domain/entities/auth/user_entity.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
+import 'package:varadvani/presentation/providers/auth/sign_in_provider.dart';
 import 'package:varadvani/presentation/providers/auth/sign_out_provider.dart';
 import 'package:varadvani/presentation/providers/profile/delete_profile_provider.dart';
 import 'package:varadvani/presentation/providers/profile/get_profile_provider.dart';
@@ -79,6 +82,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   }
 
   void _resetControllers(UserEntity user) {
+    _familyIdController.text = user.familyCustomId;
     _phoneController.text = user.phoneNumber;
     _emailController.text = user.email;
     _addressController.text = user.address;
@@ -108,6 +112,17 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         );
   }
 
+  void signOut(WidgetRef ref) {
+    ref.invalidate(signInProvider);
+    ref.invalidate(getProfileProvider);
+    ref.invalidate(updateProfileProvider);
+    // invalidate any other providers that hold user data
+
+    // Clear storage and token
+    ref.read(storageServiceProvider).clearTokens();
+    ref.read(dioClientProvider).clearAuthToken();
+  }
+
   @override
   Widget build(BuildContext context) {
     final profileState = ref.watch(getProfileProvider);
@@ -116,7 +131,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     ref.listen<ProfileState>(getProfileProvider, (previous, next) {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'प्रोफाईल लोड होत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.loading_profile,
+        );
       }
       if (next.data != null) {
         if (previous?.isLoading == true) {
@@ -141,7 +159,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     ref.listen<UpdateProfileState>(updateProfileProvider, (previous, next) {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'अद्ययावत होत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.updating_profile,
+        );
       }
       if (next.data != null && previous?.isLoading == true) {
         LoaderDialog.hide(context);
@@ -161,9 +182,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       }
     });
 
-    ref.listen<SignOutState>(signOutProvider, (previous, next) {
+    ref.listen<SignOutState>(signOutProvider, (previous, next) async {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'लॉग आउट होत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.logging_out,
+        );
       }
       if (next.error != null) {
         final message = next.validationErrors.isNotEmpty
@@ -173,17 +197,21 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       }
       if (next.data != null) {
         SnackbarHelper.show(context: context, message: next.data!.message);
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          AppRoutes.signInScreen,
-          (_) => false,
-        );
+        await ref.read(signOutServiceProvider).signOut(context);
+        // Navigator.pushNamedAndRemoveUntil(
+        //   context,
+        //   AppRoutes.signInScreen,
+        //   (_) => false,
+        // );
       }
     });
 
     ref.listen<DeleteProfileState>(deleteProfileProvider, (previous, next) {
       if (next.isLoading) {
-        LoaderDialog.show(context, message: 'हटवत आहे...');
+        LoaderDialog.show(
+          context,
+          message: AppLocalizations.of(context)!.deleting_account,
+        );
       }
       if (next.error != null) {
         final message = next.validationErrors.isNotEmpty
@@ -240,15 +268,17 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           ),
                         ],
                       ),
-                      Text(
-                        profileState.data == null
-                            ? ''
-                            : profileState.data!.data.user.name,
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontFamily: 'Mukta_medium',
-                          color: Color(ColorCode.black),
-                          letterSpacing: 0,
+                      Expanded(
+                        child: Text(
+                          profileState.data == null
+                              ? ''
+                              : profileState.data!.data.user.name,
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontFamily: 'Mukta_medium',
+                            color: Color(ColorCode.black),
+                            letterSpacing: 0,
+                          ),
                         ),
                       ),
                     ],
@@ -258,7 +288,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Profile Details',
+                        AppLocalizations.of(context)!.profile_details,
                         style: TextStyle(
                           fontSize: 20,
                           fontFamily: 'Mukta_medium',
@@ -279,7 +309,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         },
                         child: isEditing
                             ? Text(
-                                'Cancel',
+                                AppLocalizations.of(context)!.cancel,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'Mukta',
@@ -299,8 +329,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         controller: _personalIdController,
                         hintText: '',
                         readOnly: true,
-                        labelText: 'वैयक्तिक ओळख क्रमांक',
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        labelText: AppLocalizations.of(context)!.personal_id,
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -309,8 +339,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         controller: _familyIdController,
                         hintText: '',
                         readOnly: !isEditing,
-                        labelText: 'कौटुंबिक ओळख क्रमांक',
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        labelText: AppLocalizations.of(context)!.family_id,
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -320,7 +350,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.mobile_number,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -330,7 +360,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.email,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -340,7 +370,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.address,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -350,7 +380,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.city,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -360,7 +390,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.state,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -370,7 +400,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.country,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -380,7 +410,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         hintText: '',
                         readOnly: !isEditing,
                         labelText: AppLocalizations.of(context)!.pincode,
-                        containerColor: Color(ColorCode.scaffoldBackground),
+                        containerColor: Color(ColorCode.white),
                         borderColor: Color(ColorCode.black),
                         borderWidth: 1,
                         labelColor: Color(ColorCode.black),
@@ -389,7 +419,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
                   SizedBox(height: 20),
                   if (isEditing)
-                    CustomButton(onPressed: _onSave, title: 'Update'),
+                    CustomButton(
+                      onPressed: _onSave,
+                      title: AppLocalizations.of(context)!.update,
+                    ),
                   SizedBox(height: 40),
                   Column(
                     spacing: 30,
@@ -397,9 +430,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       InkWell(
                         onTap: () => CommanDialog.show(
                           context,
-                          message: 'Are you sure you want to log out?',
-                          positiveButtonText: 'Logout',
-                          negativeButtonText: 'Cancel',
+                          message: AppLocalizations.of(context)!.logout_message,
+                          positiveButtonText: AppLocalizations.of(
+                            context,
+                          )!.logout,
+                          negativeButtonText: AppLocalizations.of(
+                            context,
+                          )!.cancel,
                           onPositivePressed: () =>
                               ref.read(signOutProvider.notifier).signOut(),
                           onNegativePressed: () => Navigator.pop(context),
@@ -420,7 +457,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             children: [
                               SvgPicture.asset('assets/svg/logout.svg'),
                               Text(
-                                'Log Out',
+                                AppLocalizations.of(context)!.logout,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'Mukta_medium',
@@ -436,15 +473,21 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         splashColor: Colors.transparent,
                         onTap: () => CommanDialog.show(
                           context,
-                          message: 'Are you sure you want to delete account?',
-                          positiveButtonText: 'Delete',
-                          negativeButtonText: 'Cancel',
+                          message: AppLocalizations.of(
+                            context,
+                          )!.delete_account_message,
+                          positiveButtonText: AppLocalizations.of(
+                            context,
+                          )!.delete,
+                          negativeButtonText: AppLocalizations.of(
+                            context,
+                          )!.cancel,
                           onPositivePressed: () => ref
                               .read(deleteProfileProvider.notifier)
                               .deleteProfile(),
                           onNegativePressed: () => Navigator.pop(context),
-                          positiveButtonColor: ColorCode.red,
-                          negativeButtonColor: Color(ColorCode.red),
+                          positiveButtonColor: ColorCode.orange,
+                          negativeButtonColor: Color(ColorCode.orange),
                         ),
                         child: Row(
                           spacing: 10,
@@ -452,7 +495,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           children: [
                             SvgPicture.asset('assets/svg/delete.svg'),
                             Text(
-                              'Delete Account',
+                              AppLocalizations.of(context)!.delete_account,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: 'Mukta_medium',
