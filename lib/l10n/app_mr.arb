@@ -74,10 +74,16 @@
     "family_id": "कौटुंबिक ओळख क्रमांक",
     "update": "अद्ययावत करा",
     "logout": "लॉग आउट",
-    "delete": "हटवा",
+    "delete": "होय, हटवा",
     "delete_account": "खाते हटवा",
     "logout_message": "आपण खात्रीने लॉग आउट करू इच्छिता?",
-    "delete_account_message": "आपण खात्रीने खाते हटवू इच्छिता?",
+    "delete_account_message": "आपण खात्रीने खाते नेहमीसाठी हटवू इच्छिता?",
     "confirm_password": "पासवर्डची पुष्टी करा",
-    "change_password": "पासवर्ड बदला"
+    "change_password": "पासवर्ड बदला",
+    "updating": "अद्ययावत होत आहे...",
+    "awards": "पुरस्कार",
+    "dasganu_award" : "श्रीदासगणू पुरस्कार",
+    "anantshri_award" : "अनंतश्री पुरस्कार",
+    "no" : "नाही",
+    "yes" : "होय"
 }

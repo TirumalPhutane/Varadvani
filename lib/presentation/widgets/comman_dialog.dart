@@ -67,7 +67,7 @@ class _CommanDialog extends StatelessWidget {
         child: Column(
           spacing: 25,
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               message,

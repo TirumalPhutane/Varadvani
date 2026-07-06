@@ -63,9 +63,9 @@
     "@festivals": {
         "description" : "Festivals label"
     },
-    "sanjivan" : "Sanjivan",
+    "sanjivan" : "Sanjeevan",
     "@sanjivan": {
-        "description" : "Sanjivan label"
+        "description" : "Sanjeevan label"
     },
     "meditation_hall" : "Meditation Hall",
     "@meditation_hall": {
@@ -303,7 +303,7 @@
     "@logout": {
         "description" : "Logout label"
     },
-    "delete" : "Delete",
+    "delete" : "Yes, Delete",
     "@delete": {
         "description" : "Delete label"
     },
@@ -315,7 +315,7 @@
     "@logout_message": {
         "description" : "Logout dialog message"
     },
-    "delete_account_message" : "Are you sure you want to delete account?",
+    "delete_account_message" : "Are you sure you want to delete account permanently?",
     "@delete_account_message": {
         "description" : "Delete account dialog message"
     },
@@ -326,5 +326,29 @@
     "change_password" : "Change Password",
     "@change_password": {
         "description" : "Change Password label"
+    },
+    "updating" : "Updating...",
+    "@updating": {
+        "description" : "Updating label"
+    },
+    "awards" : "Awards",
+    "@awards": {
+        "description" : "Awards label"
+    },
+    "dasganu_award" : "Shree Dasganu Award",
+    "@dasganu_award": {
+        "description" : "Shree Dasganu Award label"
+    },
+    "anantshri_award" : "Anantshree Award",
+    "@anantshri_award": {
+        "description" : "Anantshree Award label"
+    },
+    "no" : "No",
+    "@no": {
+        "description" : "No label"
+    },
+    "yes" : "Yes",
+    "@yes": {
+        "description" : "Yes label"
     }
 }

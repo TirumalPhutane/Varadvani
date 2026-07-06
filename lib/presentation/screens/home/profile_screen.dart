@@ -479,15 +479,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           positiveButtonText: AppLocalizations.of(
                             context,
                           )!.delete,
-                          negativeButtonText: AppLocalizations.of(
-                            context,
-                          )!.cancel,
+                          negativeButtonText: AppLocalizations.of(context)!.no,
                           onPositivePressed: () => ref
                               .read(deleteProfileProvider.notifier)
                               .deleteProfile(),
                           onNegativePressed: () => Navigator.pop(context),
-                          positiveButtonColor: ColorCode.orange,
-                          negativeButtonColor: Color(ColorCode.orange),
+                          positiveButtonColor: ColorCode.red,
+                          negativeButtonColor: Color(ColorCode.red),
                         ),
                         child: Row(
                           spacing: 10,

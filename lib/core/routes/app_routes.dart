@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
 import 'package:varadvani/presentation/screens/appa/appa_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
+import 'package:varadvani/presentation/screens/appa/charitra_saramruta_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
 import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
 import 'package:varadvani/presentation/screens/auth/change_password_screen.dart';
@@ -48,6 +49,7 @@ class AppRoutes {
   static const String appaJeevanpatScreen = '/AppaJeevanpatScreen';
   static const String charitraScreen = '/CharitraScreen';
   static const String dadaAppaScreen = '/DadaAppaScreen';
+  static const String charitraSaramrutaScreen = '/CharitraSaramrutaScreen';
   static const String appaGranthSampadaScreen = '/AppaGranthSampadaScreen';
 
   ///Dada
@@ -133,6 +135,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => CharitraScreen());
       case dadaAppaScreen:
         return MaterialPageRoute(builder: (context) => DadaAppaScreen());
+      case charitraSaramrutaScreen:
+        return MaterialPageRoute(
+          builder: (context) => CharitraSaramrutaScreen(),
+        );
       case appaGranthSampadaScreen:
         return MaterialPageRoute(
           builder: (context) => AppaGranthSampadaScreen(),

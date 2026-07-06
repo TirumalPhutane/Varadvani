@@ -79,7 +79,7 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': 'पुरस्कार',
+        'title': AppLocalizations.of(context)!.awards,
         //'route': RouteNames.approvalsBodySwitcher
       },
       {
@@ -292,11 +292,11 @@ Widget buildExpandableItem(
         ]
       : [
           {
-            'title': 'श्रीदासगणू पुरस्कार',
+            'title': AppLocalizations.of(context)!.dasganu_award,
             'route': AppRoutes.shreeDasganuAwardScreen,
           },
           {
-            'title': 'अनंतश्री पुरस्कार',
+            'title': AppLocalizations.of(context)!.anantshri_award,
             'route': AppRoutes.anantshreeAwardScreen,
           },
         ];

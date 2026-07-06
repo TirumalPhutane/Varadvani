@@ -112,7 +112,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
       if (next.isLoading) {
         LoaderDialog.show(
           context,
-          message: 'Updating...', //AppLocalizations.of(context)!.signing_in,
+          message: AppLocalizations.of(context)!.updating,
         );
       }
       if (next.error != null && previous?.isLoading == true) {

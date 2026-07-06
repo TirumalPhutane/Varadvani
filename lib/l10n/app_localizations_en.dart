@@ -57,7 +57,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get festivals => 'Festivals';
 
   @override
-  String get sanjivan => 'Sanjivan';
+  String get sanjivan => 'Sanjeevan';
 
   @override
   String get meditation_hall => 'Meditation Hall';
@@ -234,7 +234,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logout => 'Log Out';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'Yes, Delete';
 
   @override
   String get delete_account => 'Delete Account';
@@ -243,11 +243,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logout_message => 'Are you sure you want to log out?';
 
   @override
-  String get delete_account_message => 'Are you sure you want to delete account?';
+  String get delete_account_message => 'Are you sure you want to delete account permanently?';
 
   @override
   String get confirm_password => 'Confirm Password';
 
   @override
   String get change_password => 'Change Password';
+
+  @override
+  String get updating => 'Updating...';
+
+  @override
+  String get awards => 'Awards';
+
+  @override
+  String get dasganu_award => 'Shree Dasganu Award';
+
+  @override
+  String get anantshri_award => 'Anantshree Award';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get yes => 'Yes';
 }

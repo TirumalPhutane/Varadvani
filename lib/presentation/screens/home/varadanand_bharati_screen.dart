@@ -17,7 +17,10 @@ class _VaradanandBharatiScreenState extends State<VaradanandBharatiScreen> {
     {'title': 'पू. अप्पांचा जीवनपट', 'route': AppRoutes.appaJeevanpatScreen},
     {'title': 'संक्षिप्त चरित्र', 'route': AppRoutes.charitraScreen},
     {'title': 'दादा व अप्पा', 'route': AppRoutes.dadaAppaScreen},
-    {'title': 'संजीवक चरित्र सारामृत', 'route': AppRoutes.charitraScreen},
+    {
+      'title': 'संजीवक चरित्र सारामृत',
+      'route': AppRoutes.charitraSaramrutaScreen,
+    },
     {'title': 'ग्रंथसंपदा', 'route': AppRoutes.appaGranthSampadaScreen},
   ];
 

@@ -234,7 +234,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get logout => 'लॉग आउट';
 
   @override
-  String get delete => 'हटवा';
+  String get delete => 'होय, हटवा';
 
   @override
   String get delete_account => 'खाते हटवा';
@@ -243,11 +243,29 @@ class AppLocalizationsMr extends AppLocalizations {
   String get logout_message => 'आपण खात्रीने लॉग आउट करू इच्छिता?';
 
   @override
-  String get delete_account_message => 'आपण खात्रीने खाते हटवू इच्छिता?';
+  String get delete_account_message => 'आपण खात्रीने खाते नेहमीसाठी हटवू इच्छिता?';
 
   @override
   String get confirm_password => 'पासवर्डची पुष्टी करा';
 
   @override
   String get change_password => 'पासवर्ड बदला';
+
+  @override
+  String get updating => 'अद्ययावत होत आहे...';
+
+  @override
+  String get awards => 'पुरस्कार';
+
+  @override
+  String get dasganu_award => 'श्रीदासगणू पुरस्कार';
+
+  @override
+  String get anantshri_award => 'अनंतश्री पुरस्कार';
+
+  @override
+  String get no => 'नाही';
+
+  @override
+  String get yes => 'होय';
 }

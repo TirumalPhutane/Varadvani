@@ -191,10 +191,10 @@ abstract class AppLocalizations {
   /// **'Festivals'**
   String get festivals;
 
-  /// Sanjivan label
+  /// Sanjeevan label
   ///
   /// In en, this message translates to:
-  /// **'Sanjivan'**
+  /// **'Sanjeevan'**
   String get sanjivan;
 
   /// Meditation Hall label
@@ -548,7 +548,7 @@ abstract class AppLocalizations {
   /// Delete label
   ///
   /// In en, this message translates to:
-  /// **'Delete'**
+  /// **'Yes, Delete'**
   String get delete;
 
   /// Delete Account label
@@ -566,7 +566,7 @@ abstract class AppLocalizations {
   /// Delete account dialog message
   ///
   /// In en, this message translates to:
-  /// **'Are you sure you want to delete account?'**
+  /// **'Are you sure you want to delete account permanently?'**
   String get delete_account_message;
 
   /// Confirm Password label
@@ -580,6 +580,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Change Password'**
   String get change_password;
+
+  /// Updating label
+  ///
+  /// In en, this message translates to:
+  /// **'Updating...'**
+  String get updating;
+
+  /// Awards label
+  ///
+  /// In en, this message translates to:
+  /// **'Awards'**
+  String get awards;
+
+  /// Shree Dasganu Award label
+  ///
+  /// In en, this message translates to:
+  /// **'Shree Dasganu Award'**
+  String get dasganu_award;
+
+  /// Anantshree Award label
+  ///
+  /// In en, this message translates to:
+  /// **'Anantshree Award'**
+  String get anantshri_award;
+
+  /// No label
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// Yes label
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

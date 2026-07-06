@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/models/table_data.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -11,7 +12,9 @@ class AnantshreeAwardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'अनंतश्री पुरस्कार'),
+      appBar: CustomAppBar(
+        title: AppLocalizations.of(context)!.anantshri_award,
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
