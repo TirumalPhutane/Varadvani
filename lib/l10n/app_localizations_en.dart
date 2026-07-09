@@ -39,7 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get photo_gallery => 'Photo Gallery';
 
   @override
-  String get audio_video => 'Audio & Video';
+  String get video => 'Videos';
 
   @override
   String get related_websites => 'Related Websites';
@@ -268,4 +268,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get yes => 'Yes';
+
+  @override
+  String get audio => 'Audios';
 }

@@ -55,12 +55,11 @@ class BottomNavBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: Image.asset(
+              child: SvgPicture.asset(
                 selectedIndex == 1
-                    ? 'assets/image/dada_selected.PNG'
-                    : 'assets/image/dada.PNG',
-                width: 26,
-                height: 26,
+                    ? 'assets/svg/dada_fill.svg'
+                    : 'assets/svg/dada.svg',
+                width: 24,
               ),
             ),
             label: AppLocalizations.of(context)!.p_dada,
@@ -68,12 +67,11 @@ class BottomNavBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: Image.asset(
+              child: SvgPicture.asset(
                 selectedIndex == 2
-                    ? 'assets/image/appa_selected.PNG'
-                    : 'assets/image/appa.PNG',
-                width: 26,
-                height: 26,
+                    ? 'assets/svg/appa_fill.svg'
+                    : 'assets/svg/appa.svg',
+                width: 24,
               ),
             ),
             label: AppLocalizations.of(context)!.p_appa,
@@ -83,17 +81,11 @@ class BottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: SvgPicture.asset(
                 selectedIndex == 3
-                    ? 'assets/svg/exams_fill.svg'
-                    : 'assets/svg/exams.svg',
-                colorFilter: ColorFilter.mode(
-                  Color(
-                    selectedIndex == 3 ? ColorCode.orange : ColorCode.black,
-                  ),
-                  BlendMode.srcIn,
-                ),
+                    ? 'assets/svg/music_fill.svg'
+                    : 'assets/svg/music.svg',
               ),
             ),
-            label: AppLocalizations.of(context)!.exams,
+            label: AppLocalizations.of(context)!.audio,
           ),
           BottomNavigationBarItem(
             icon: Padding(

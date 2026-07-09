@@ -20,7 +20,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.foundation,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -32,7 +32,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.literary_works,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -44,7 +44,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.book_availability,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -56,7 +56,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.photo_gallery,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -67,8 +67,20 @@ class MainDrawer extends StatelessWidget {
             BlendMode.srcIn,
           ),
         ),
-        'title': AppLocalizations.of(context)!.audio_video,
-        //'route': RouteNames.approvalsBodySwitcher
+        'title': AppLocalizations.of(context)!.video,
+        'route': AppRoutes.relatedWebsitesScreen,
+      },
+      {
+        'icon': SvgPicture.asset(
+          'assets/svg/exams.svg',
+          //height: 20,
+          colorFilter: ColorFilter.mode(
+            Color(ColorCode.black),
+            BlendMode.srcIn,
+          ),
+        ),
+        'title': AppLocalizations.of(context)!.exams,
+        'route': AppRoutes.examsScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -80,7 +92,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.awards,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -92,7 +104,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.related_websites,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -104,7 +116,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.settings,
-        //'route': RouteNames.approvalsBodySwitcher
+        'route': AppRoutes.relatedWebsitesScreen,
       },
     ];
 
@@ -172,7 +184,7 @@ class MainDrawer extends StatelessWidget {
                 child: ListView.separated(
                   itemCount: drawerItems.length,
                   itemBuilder: (context, index) {
-                    return index == 0 || index == 5
+                    return index == 0 || index == 6
                         ? buildExpandableItem(
                             index,
                             drawerItems[index]['icon'],
@@ -191,14 +203,10 @@ class MainDrawer extends StatelessWidget {
                             index,
                             drawerItems[index]['icon'],
                             drawerItems[index]['title'],
-                            // drawerItems[index].containsKey('route')
-                            //     ? () => Navigator.pushNamed(
-                            //           context,
-                            //           drawerItems[index]['route'],
-                            //           arguments: drawerItems[index]['args'],
-                            //         )
-                            //     : () => Fluttertoast.showToast(
-                            //         msg: drawerItems[index]['toast']),
+                            () => Navigator.pushNamed(
+                              context,
+                              drawerItems[index]['route'],
+                            ),
                           );
                   },
                   separatorBuilder: (context, index) => Padding(
@@ -218,8 +226,7 @@ class MainDrawer extends StatelessWidget {
   }
 }
 
-Widget buildListItem(int index, Widget icon, String title) {
-  //, VoidCallback ontap) {
+Widget buildListItem(int index, Widget icon, String title, VoidCallback ontap) {
   return ListTile(
     contentPadding: EdgeInsets.only(left: 25),
     leading: CircleAvatar(
@@ -236,7 +243,7 @@ Widget buildListItem(int index, Widget icon, String title) {
         letterSpacing: 0,
       ),
     ),
-    //onTap: ontap,
+    onTap: ontap,
     splashColor: Colors.transparent,
   );
 }

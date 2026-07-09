@@ -9,7 +9,7 @@
     "literary_works": "ग्रंथसंपदा",
     "book_availability": "ग्रंथ मिळण्याची ठिकाणे",
     "photo_gallery": "चित्रदालन",
-    "audio_video": "ध्वनी व चित्रफिती",
+    "video": "चित्रफिती",
     "related_websites": "संकेतस्थळे",
     "settings": "सेटिंग्ज",
     "about_foundation": "प्रतिष्ठान विषयी",
@@ -85,5 +85,6 @@
     "dasganu_award" : "श्रीदासगणू पुरस्कार",
     "anantshri_award" : "अनंतश्री पुरस्कार",
     "no" : "नाही",
-    "yes" : "होय"
+    "yes" : "होय",
+    "audio" : "श्राव्य"
 }

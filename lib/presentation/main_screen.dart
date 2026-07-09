@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
-import 'package:varadvani/presentation/screens/home/exams_screen.dart';
 import 'package:varadvani/presentation/screens/home/home_screen.dart';
+import 'package:varadvani/presentation/screens/home/audios_screen.dart';
 import 'package:varadvani/presentation/screens/home/profile_screen.dart';
 import 'package:varadvani/presentation/screens/home/varadanand_bharati_screen.dart';
 import 'package:varadvani/presentation/widgets/bottom_nav_bar.dart';
@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     DasganuMaharajScreen(),
     VaradanandBharatiScreen(),
-    ExamsScreen(),
+    AudiosScreen(),
     ProfileScreen(),
   ];
 
@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
       AppLocalizations.of(context)!.title,
       AppLocalizations.of(context)!.p_dada,
       AppLocalizations.of(context)!.p_appa,
-      AppLocalizations.of(context)!.exams,
+      AppLocalizations.of(context)!.audio,
       AppLocalizations.of(context)!.profile,
     ];
   }

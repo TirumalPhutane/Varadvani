@@ -155,11 +155,11 @@ abstract class AppLocalizations {
   /// **'Photo Gallery'**
   String get photo_gallery;
 
-  /// Audio & Video label
+  /// Videos label
   ///
   /// In en, this message translates to:
-  /// **'Audio & Video'**
-  String get audio_video;
+  /// **'Videos'**
+  String get video;
 
   /// Related Websites label
   ///
@@ -616,6 +616,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Yes'**
   String get yes;
+
+  /// Audios label
+  ///
+  /// In en, this message translates to:
+  /// **'Audios'**
+  String get audio;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -39,7 +39,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get photo_gallery => 'चित्रदालन';
 
   @override
-  String get audio_video => 'ध्वनी व चित्रफिती';
+  String get video => 'चित्रफिती';
 
   @override
   String get related_websites => 'संकेतस्थळे';
@@ -268,4 +268,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get yes => 'होय';
+
+  @override
+  String get audio => 'श्राव्य';
 }

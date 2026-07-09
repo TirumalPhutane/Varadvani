@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/helper/helper.dart';
-import 'package:varadvani/data/data_sources/local/charitra_local_datasource.dart';
+import 'package:varadvani/data/data_sources/local/local_datasource.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -12,9 +12,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final episodeList = ref
-        .watch(charitraLocalDataSourceProvider)
-        .getEpisodes();
+    final episodeList = ref.watch(localDataSourceProvider).getEpisodes();
 
     return Scaffold(
       appBar: CustomAppBar(title: 'संजीवक चरित्र सारामृत'),

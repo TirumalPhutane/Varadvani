@@ -1,15 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/domain/entities/appa/charitra_episode_entity.dart';
 
-final charitraLocalDataSourceProvider = Provider<CharitraLocalDataSource>(
-  (ref) => CharitraLocalDataSourceImpl(),
+final localDataSourceProvider = Provider<LocalDataSource>(
+  (ref) => LocalDataSourceImpl(),
 );
 
-abstract class CharitraLocalDataSource {
+abstract class LocalDataSource {
   List<CharitraEpisodeEntity> getEpisodes();
+  List<CharitraEpisodeEntity> getLinks();
 }
 
-class CharitraLocalDataSourceImpl implements CharitraLocalDataSource {
+class LocalDataSourceImpl implements LocalDataSource {
   @override
   List<CharitraEpisodeEntity> getEpisodes() => const [
     CharitraEpisodeEntity(
@@ -314,6 +315,62 @@ class CharitraLocalDataSourceImpl implements CharitraLocalDataSource {
       title: 'आम्ही जातो आमुच्या गावा आमचा रामराम घ्यावा…',
       duration: '25:47',
       videoUrl: 'https://www.youtube.com/watch?v=cx17ZLHr7AQ',
+    ),
+  ];
+
+  @override
+  List<CharitraEpisodeEntity> getLinks() => const [
+    CharitraEpisodeEntity(
+      title:
+          'सद्गुरू श्री साईनाथ महाराज संस्थान, शिर्डी, यांचे अधिकृत संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.sai.org.in',
+    ),
+    CharitraEpisodeEntity(
+      title: 'श्री गजानन महाराज संस्थान, शेगाव, यांचे अधिकृत संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.gajananmaharaj.org',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'श्री ब्रह्मचैतन्य गोंदवलेकर महाराज संस्थान, गोंदवले, यांचे अधिकृत संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.shrigondavalekarmaharaj.org',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'सर्व वेद, आरण्यक, उपनिषद, ब्राह्मण, संहिता इ. एकत्रित पाहण्यासाठी शासकीय संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.vedicheritage.gov.in',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'श्रीमद्भगवद्गीता, ब्रह्मसूत्र, उपनिषद, योगसूत्र, वाल्मिकी रामायण, रामचरित मानस इत्यादींचे आसामी, बंगाली, देवनागरी, गुजराती, कन्नड, मल्याळम, उडिया, पंजाबी, रोमन, तमिळ आणि तेलगू या ११ भारतीय भाषांच्या लिपीत on line रूपांतरण करण्यासाठी आय. आय. टी., कानपूर, यांनी तयार केलेले संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.gitasupersite.iitk.ac.in',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'वेद, उपनिषद आणि हिंदू परंपरेच्या संदर्भात अध्यात्म, संस्कृत व निसर्ग आणि त्यांचे परस्पर संबंध या तीन गोष्टींवर आधारित एक उपयुक्त संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.greenmesg.org',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'विविध संस्कृत सुभाषित, श्लोक, नीती वचने, इत्यादींचे हिंदी भाषांतर असलेले संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.sanskritslokas.com',
+    ),
+    CharitraEpisodeEntity(
+      title:
+          'भरपूर संस्कृत स्तोत्रे व त्यांचे विविध भाषेत भाषांतर उपलब्ध असलेले संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.sanskritdocuments.org',
+    ),
+    CharitraEpisodeEntity(
+      title: 'आद्य शंकराचार्य रचित स्तोत्रे उपलब्ध असलेले संकेतस्थळ',
+      duration: '',
+      videoUrl: 'https://www.kamakoti.org',
     ),
   ];
 }

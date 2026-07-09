@@ -39,9 +39,9 @@
     "@photo_gallery": {
         "description" : "Photo Gallery label"
     },
-    "audio_video" : "Audio & Video",
-    "@audio_video": {
-        "description" : "Audio & Video label"
+    "video" : "Videos",
+    "@video": {
+        "description" : "Videos label"
     },
     "related_websites" : "Related Websites",
     "@related_websites": {
@@ -350,5 +350,9 @@
     "yes" : "Yes",
     "@yes": {
         "description" : "Yes label"
+    },
+    "audio" : "Audios",
+    "@audio": {
+        "description" : "Audios label"
     }
 }

@@ -27,8 +27,10 @@ import 'package:varadvani/presentation/screens/drawer/pratishthan/other_departme
 import 'package:varadvani/presentation/screens/drawer/pratishthan/parampara_rakshan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/sanjeevan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/vishwasta_mandal_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/related_websites_screen.dart';
+import 'package:varadvani/presentation/screens/home/audios_screen.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
-import 'package:varadvani/presentation/screens/home/exams_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/exams_screen.dart';
 import 'package:varadvani/presentation/screens/home/home_screen.dart';
 import 'package:varadvani/presentation/screens/home/profile_screen.dart';
 import 'package:varadvani/presentation/screens/home/varadanand_bharati_screen.dart';
@@ -42,7 +44,7 @@ class AppRoutes {
   static const String homeScreen = '/HomeScreen';
   static const String dasganuScreen = '/DasganuScreen';
   static const String varadanandScreen = '/VaradanandScreen';
-  static const String examsScreen = '/ExamsScreen';
+  static const String audiosScreen = '/AudiosScreen';
   static const String profileScreen = '/ProfileScreen';
 
   ///Appa
@@ -78,6 +80,8 @@ class AppRoutes {
   static const String shreeDasganuAwardScreen = '/ShreeDasganuAwardScreen';
 
   ///Drawer Screens
+  static const String relatedWebsitesScreen = '/RelatedWebsitesScreen';
+  static const String examsScreen = '/ExamsScreen';
 
   ///Other Screens
   static const String objectivesScreen = '/ObjectivesScreen';
@@ -103,8 +107,8 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => VaradanandBharatiScreen(),
         );
-      case examsScreen:
-        return MaterialPageRoute(builder: (context) => ExamsScreen());
+      case audiosScreen:
+        return MaterialPageRoute(builder: (context) => AudiosScreen());
       case profileScreen:
         return MaterialPageRoute(builder: (context) => ProfileScreen());
 
@@ -181,6 +185,12 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => ShreeDasganuAwardScreen(),
         );
+
+      ///Drawer Screens
+      case relatedWebsitesScreen:
+        return MaterialPageRoute(builder: (context) => RelatedWebsitesScreen());
+      case examsScreen:
+        return MaterialPageRoute(builder: (context) => ExamsScreen());
 
       ///Auth
       case signUpScreen:
