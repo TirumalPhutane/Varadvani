@@ -16,4 +16,7 @@ class ApiConstants {
   static const String userProfile = '/api/user/user_profile/';
   static const String updateProfile = '/api/user/update_profile';
   static const String deleteProfile = '/api/user/delete_profile/';
+
+  ///Audio
+  static const String getAudios = '/api/media/categoryData';
 }

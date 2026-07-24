@@ -271,4 +271,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get audio => 'श्राव्य';
+
+  @override
+  String get other => 'इतर';
 }

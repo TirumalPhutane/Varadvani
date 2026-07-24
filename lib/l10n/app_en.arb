@@ -354,5 +354,9 @@
     "audio" : "Audios",
     "@audio": {
         "description" : "Audios label"
+    },
+    "other" : "Other",
+    "@other": {
+        "description" : "Other label"
     }
 }

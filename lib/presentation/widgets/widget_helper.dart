@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:varadvani/core/common/models/table_data.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -301,4 +302,14 @@ class WidgetHelper {
       ],
     );
   }
+
+  static Widget buildLoader() => SizedBox(
+    height: 60,
+    width: 60,
+    child: LoadingIndicator(
+      indicatorType: Indicator.ballSpinFadeLoader,
+      strokeWidth: 2,
+      colors: const [Color(ColorCode.orange), Color(ColorCode.red)],
+    ),
+  );
 }

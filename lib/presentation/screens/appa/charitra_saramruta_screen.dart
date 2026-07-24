@@ -52,7 +52,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     final episode = episodeList[index];
                     return Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(top: 15),
                       child: buildCard(
                         episode.title,
                         episode.duration,

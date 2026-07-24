@@ -271,4 +271,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get audio => 'Audios';
+
+  @override
+  String get other => 'Other';
 }

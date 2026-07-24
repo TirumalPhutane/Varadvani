@@ -139,7 +139,6 @@ class RelatedWebsitesScreen extends ConsumerWidget {
                   child: SvgPicture.asset(
                     'assets/svg/arrow.svg',
                     width: 18,
-
                     colorFilter: ColorFilter.mode(
                       Color(ColorCode.orange),
                       BlendMode.srcIn,

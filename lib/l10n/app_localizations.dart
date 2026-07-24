@@ -622,6 +622,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Audios'**
   String get audio;
+
+  /// Other label
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

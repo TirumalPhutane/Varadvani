@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
+import 'package:varadvani/domain/entities/audio/audio_entity.dart';
+import 'package:varadvani/domain/entities/audio/category_entity.dart';
 import 'package:varadvani/presentation/screens/appa/appa_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_saramruta_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
 import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
+import 'package:varadvani/presentation/screens/audio/audio_list_screen.dart';
+import 'package:varadvani/presentation/screens/audio/player_screen.dart';
 import 'package:varadvani/presentation/screens/auth/change_password_screen.dart';
 import 'package:varadvani/presentation/screens/auth/profile_info_screen.dart';
 import 'package:varadvani/presentation/screens/auth/sign_in_screen.dart';
@@ -91,6 +95,10 @@ class AppRoutes {
   static const String profileInfoScreen = '/ProfileInfoScreen';
   static const String signInScreen = '/SignInScreen';
   static const String changePasswordScreen = '/ChangePasswordScreen';
+
+  ///Audio
+  static const String audioListScreen = '/AudioListScreen';
+  static const String playerScreen = '/PlayerScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final Object? argument = settings.arguments;
@@ -206,6 +214,23 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => SignInScreen());
       case changePasswordScreen:
         return MaterialPageRoute(builder: (context) => ChangePasswordScreen());
+
+      ///Audio
+      case audioListScreen:
+        final data = argument == null
+            ? CategoryEntity.empty()
+            : argument as CategoryEntity;
+        return MaterialPageRoute(
+          builder: (context) =>
+              AudioListScreen(category: data.category, items: data.items),
+        );
+      case playerScreen:
+        final data = argument == null
+            ? AudioEntity.empty()
+            : argument as AudioEntity;
+        return MaterialPageRoute(
+          builder: (context) => PlayerScreen(audio: data),
+        );
 
       ///Default
       default:
