@@ -3,18 +3,13 @@ import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/theme/color_code.dart';
 
-class ExamsScreen extends StatefulWidget {
-  const ExamsScreen({super.key});
+class PhotoGallaryScreen extends StatelessWidget {
+  const PhotoGallaryScreen({super.key});
 
-  @override
-  State<ExamsScreen> createState() => _ExamsScreenState();
-}
-
-class _ExamsScreenState extends State<ExamsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: AppLocalizations.of(context)!.exams),
+      appBar: CustomAppBar(title: AppLocalizations.of(context)!.photo_gallery),
       body: SafeArea(
         child: Center(
           child: Text(

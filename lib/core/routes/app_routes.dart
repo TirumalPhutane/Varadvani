@@ -22,6 +22,9 @@ import 'package:varadvani/presentation/screens/dada/poorvardha_screen.dart';
 import 'package:varadvani/presentation/screens/dada/uttarardha_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/awards/anantshree_award_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/awards/shree_dasganu_award_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/book_availability_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/literary_works_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/photo_gallary_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/about_pratishthan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/dhyan_mandir_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/dinkram_screen.dart';
@@ -32,6 +35,7 @@ import 'package:varadvani/presentation/screens/drawer/pratishthan/parampara_raks
 import 'package:varadvani/presentation/screens/drawer/pratishthan/sanjeevan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/vishwasta_mandal_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/related_websites_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/videos_screen.dart';
 import 'package:varadvani/presentation/screens/home/audios_screen.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/exams_screen.dart';
@@ -84,6 +88,10 @@ class AppRoutes {
   static const String shreeDasganuAwardScreen = '/ShreeDasganuAwardScreen';
 
   ///Drawer Screens
+  static const String literaryWorksScreen = '/LiteraryWorksScreen';
+  static const String bookAvailabilityScreen = '/BookAvailabilityScreen';
+  static const String photoGallaryScreen = '/PhotoGallaryScreen';
+  static const String videosScreen = '/VideosScreen';
   static const String relatedWebsitesScreen = '/RelatedWebsitesScreen';
   static const String examsScreen = '/ExamsScreen';
 
@@ -195,6 +203,16 @@ class AppRoutes {
         );
 
       ///Drawer Screens
+      case literaryWorksScreen:
+        return MaterialPageRoute(builder: (context) => LiteraryWorksScreen());
+      case bookAvailabilityScreen:
+        return MaterialPageRoute(
+          builder: (context) => BookAvailabilityScreen(),
+        );
+      case photoGallaryScreen:
+        return MaterialPageRoute(builder: (context) => PhotoGallaryScreen());
+      case videosScreen:
+        return MaterialPageRoute(builder: (context) => VideosScreen());
       case relatedWebsitesScreen:
         return MaterialPageRoute(builder: (context) => RelatedWebsitesScreen());
       case examsScreen:

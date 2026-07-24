@@ -32,7 +32,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.literary_works,
-        'route': AppRoutes.relatedWebsitesScreen,
+        'route': AppRoutes.literaryWorksScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -44,7 +44,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.book_availability,
-        'route': AppRoutes.relatedWebsitesScreen,
+        'route': AppRoutes.bookAvailabilityScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -56,7 +56,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.photo_gallery,
-        'route': AppRoutes.relatedWebsitesScreen,
+        'route': AppRoutes.photoGallaryScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -68,7 +68,7 @@ class MainDrawer extends StatelessWidget {
           ),
         ),
         'title': AppLocalizations.of(context)!.video,
-        'route': AppRoutes.relatedWebsitesScreen,
+        'route': AppRoutes.videosScreen,
       },
       {
         'icon': SvgPicture.asset(
@@ -106,18 +106,18 @@ class MainDrawer extends StatelessWidget {
         'title': AppLocalizations.of(context)!.related_websites,
         'route': AppRoutes.relatedWebsitesScreen,
       },
-      {
-        'icon': SvgPicture.asset(
-          'assets/svg/settings.svg',
-          height: 20,
-          colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
-            BlendMode.srcIn,
-          ),
-        ),
-        'title': AppLocalizations.of(context)!.settings,
-        'route': AppRoutes.relatedWebsitesScreen,
-      },
+      // {
+      //   'icon': SvgPicture.asset(
+      //     'assets/svg/settings.svg',
+      //     height: 20,
+      //     colorFilter: ColorFilter.mode(
+      //       Color(ColorCode.black),
+      //       BlendMode.srcIn,
+      //     ),
+      //   ),
+      //   'title': AppLocalizations.of(context)!.settings,
+      //   'route': AppRoutes.relatedWebsitesScreen,
+      // },
     ];
 
     return Drawer(

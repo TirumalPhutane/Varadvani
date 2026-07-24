@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/domain/entities/appa/charitra_episode_entity.dart';
+import 'package:varadvani/domain/entities/drawer/contact.dart';
 
 final localDataSourceProvider = Provider<LocalDataSource>(
   (ref) => LocalDataSourceImpl(),
@@ -8,6 +9,7 @@ final localDataSourceProvider = Provider<LocalDataSource>(
 abstract class LocalDataSource {
   List<CharitraEpisodeEntity> getEpisodes();
   List<CharitraEpisodeEntity> getLinks();
+  List<Contact> getContacts();
 }
 
 class LocalDataSourceImpl implements LocalDataSource {
@@ -371,6 +373,105 @@ class LocalDataSourceImpl implements LocalDataSource {
       title: 'आद्य शंकराचार्य रचित स्तोत्रे उपलब्ध असलेले संकेतस्थळ',
       duration: '',
       videoUrl: 'https://www.kamakoti.org',
+    ),
+  ];
+
+  @override
+  List<Contact> getContacts() => [
+    Contact(
+      title: 'श्री दासगणू महाराज प्रतिष्ठान',
+      address: 'मु.पो. गोरटे, ता. उमरी, जिल्हा नांदेड - 431807',
+      landline: '',
+      mobile: '09421901098',
+      contactPerson: 'श्री. शिवा गोडगे',
+      contactPersonMobile: '9637950619, 9850398643',
+      note:
+          'श्री. शिवा गोडगे आपणास हवी असलेली पुस्तके कुरियर अथवा पोस्टाने पाठविण्याची व्यवस्था करतील. Online Payment चा पर्याय उपलब्ध आहे.',
+    ),
+    Contact(
+      title: 'श्री राधादामोदर प्रतिष्ठान',
+      address: 'प्रतिक, 403/1, शनिवार पेठ, मेहुणपुरा, पुणे - 411030',
+      landline: '',
+      mobile: '',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'मे. यशवंत प्रकाशन',
+      address: '753, सदाशिव पेठ, हौदाजवळ, कुमठेकर रस्ता, पुणे - 411030',
+      landline: '02024470533',
+      mobile: '9422080129',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'मे. न्यू नेर्लेकर बुक सेलर्स',
+      address:
+          '261/1A/1, बुधवार चौक, दगडूशेट गणपती मंदिरासमोर, छ. शिवाजी रस्ता, पुणे - 411002',
+      landline: '',
+      mobile: '9422323600, 8805558813, 9423580837',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'श्री. योगेश काटे',
+      address: '',
+      landline: '',
+      mobile: '7620980880',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note:
+          'श्री. काटे आपणास हवी असलेली पुस्तके कुरियर अथवा पोस्टाने पाठविण्याची व्यवस्था करतील. Online Payment चा पर्याय उपलब्ध आहे.',
+    ),
+    Contact(
+      title: 'सौ. मीना रमेश वाटवे',
+      address:
+          'जयप्रसाद रेसिडेन्सी, ब्लॉक क्र. 17, जुनी पंडित कॉलनी, नाशिक - 422002',
+      landline: '02532313262',
+      mobile: '',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'डॉ. सौ. स्वाती शिरडकर',
+      address:
+          'मानस, 13/1, विनायक नगर, हेडगेवार हॉस्पिटल जवळ, त्रिमूर्ती चौक, छत्रपती संभाजीनगर - 431003',
+      landline: '',
+      mobile: '09890898078',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'श्री. दिगंबर सीतारामपंत शेंदूरवाडकर',
+      address: 'श्रीसाई गजानन, त्रिमूर्ती नगर, परभणी - 431401',
+      landline: '',
+      mobile: '09423958534',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'मे. देबडवार पुस्तक भांडार',
+      address: 'महावीर चौक, नांदेड - 431601',
+      landline: '',
+      mobile: '09423615127',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
+    ),
+    Contact(
+      title: 'श्री. प्रशांत रघुनाथ सबनीस',
+      address: 'मु.पो. सज्जनगड, जि. सातारा - 415013',
+      landline: '',
+      mobile: '09420260514',
+      contactPerson: '',
+      contactPersonMobile: '',
+      note: '',
     ),
   ];
 }
