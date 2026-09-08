@@ -31,6 +31,18 @@ class _OtherAudioScreenState extends ConsumerState<OtherAudioScreen> {
 
     return audiosState.isLoading
         ? Center(child: WidgetHelper.buildLoader())
+        : audiosState.data!.data.isEmpty
+        ? Center(
+            child: Text(
+              'कोणतीही श्रेणी उपलब्ध नाही.',
+              style: TextStyle(
+                fontSize: 18,
+                fontFamily: 'Mukta_light',
+                color: Color(ColorCode.black),
+                letterSpacing: 0,
+              ),
+            ),
+          )
         : Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: ListView.builder(
@@ -87,7 +99,7 @@ class _OtherAudioScreenState extends ConsumerState<OtherAudioScreen> {
                       ),
                     ),
                     Text(
-                      '${categoryData.items.length} Audios',
+                      '• ${categoryData.items.length} Audios',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',

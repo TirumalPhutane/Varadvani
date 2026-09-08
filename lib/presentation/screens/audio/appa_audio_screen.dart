@@ -31,19 +31,80 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
 
     return audiosState.isLoading
         ? Center(child: WidgetHelper.buildLoader())
+        : audiosState.data!.data.isEmpty
+        ? Center(
+            child: Text(
+              'कोणतीही श्रेणी उपलब्ध नाही.',
+              style: TextStyle(
+                fontSize: 18,
+                fontFamily: 'Mukta_light',
+                color: Color(ColorCode.black),
+                letterSpacing: 0,
+              ),
+            ),
+          )
         : Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-            child: ListView.builder(
-              itemCount: audiosState.data!.data.length,
-              itemBuilder: (context, index) {
-                final categoryData = audiosState.data!.data[index];
-                //final items = audiosState.data!.data[index].items;
+            child: Column(
+              spacing: 15,
+              children: [
+                InkWell(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AppRoutes.shravyaGranthScreen,
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(ColorCode.white),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 15,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'श्राव्य ग्रंथ',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Mukta',
+                              color: Color(ColorCode.black),
+                              letterSpacing: 0,
+                              height: 1.5,
+                            ),
+                          ),
+                          SvgPicture.asset(
+                            'assets/svg/arrow.svg',
+                            colorFilter: ColorFilter.mode(
+                              Color(ColorCode.black),
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: audiosState.data!.data.length,
+                    itemBuilder: (context, index) {
+                      final categoryData = audiosState.data!.data[index];
+                      //final items = audiosState.data!.data[index].items;
 
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: buildCard(categoryData),
-                );
-              },
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: buildCard(categoryData),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           );
   }
@@ -87,7 +148,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                       ),
                     ),
                     Text(
-                      '${categoryData.items.length} Audios',
+                      '• ${categoryData.items.length} Audios',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',

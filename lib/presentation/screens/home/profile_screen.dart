@@ -49,7 +49,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(getProfileProvider.notifier).getProfile();
+      final currentState = ref.read(getProfileProvider);
+      if (currentState.data == null) {
+        ref.read(getProfileProvider.notifier).getProfile();
+      } else {
+        // data already exists, just populate the controllers directly
+        _latestUser = currentState.data!.data.user;
+        _initControllers(_latestUser!);
+      }
     });
   }
 
@@ -172,6 +179,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         _controllersInitialized = false;
         _initControllers(_latestUser!);
 
+        ref.read(getProfileProvider.notifier).setProfile(next.data!);
+
         ref.read(textFieldVisibilityProvider.notifier).state = false;
       }
       if (next.error != null) {
@@ -283,6 +292,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 35),
+                  CustomTextField(
+                    controller: _personalIdController,
+                    hintText: '',
+                    isFixed: true,
+                    readOnly: true,
+                    labelText: AppLocalizations.of(context)!.personal_id,
+                    containerColor: Color(ColorCode.lightGray),
+                    borderColor: Color(ColorCode.black),
+                    borderWidth: 1,
+                    labelColor: Color(ColorCode.black),
+                  ),
                   SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -290,8 +311,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       Text(
                         AppLocalizations.of(context)!.profile_details,
                         style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Mukta_medium',
+                          fontSize: 18,
+                          fontFamily: 'Mukta_semibold',
                           fontWeight: FontWeight.normal,
                           color: Color(ColorCode.black),
                           letterSpacing: 0,
@@ -321,20 +342,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                   Column(
                     spacing: 15,
                     children: [
-                      CustomTextField(
-                        controller: _personalIdController,
-                        hintText: '',
-                        readOnly: true,
-                        labelText: AppLocalizations.of(context)!.personal_id,
-                        containerColor: Color(ColorCode.white),
-                        borderColor: Color(ColorCode.black),
-                        borderWidth: 1,
-                        labelColor: Color(ColorCode.black),
-                      ),
                       CustomTextField(
                         controller: _familyIdController,
                         hintText: '',

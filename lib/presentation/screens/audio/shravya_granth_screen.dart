@@ -2,70 +2,75 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
-import 'package:varadvani/domain/entities/audio/category_entity.dart';
-import 'package:varadvani/presentation/providers/audio/get_audios_provider.dart';
+import 'package:varadvani/domain/entities/audio/shravya_entity.dart';
+import 'package:varadvani/presentation/providers/audio/get_shravya_provider.dart';
+import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/theme/color_code.dart';
 
-class DadaAudioScreen extends ConsumerStatefulWidget {
-  const DadaAudioScreen({super.key});
+class ShravyaGranthScreen extends ConsumerStatefulWidget {
+  const ShravyaGranthScreen({super.key});
 
   @override
-  ConsumerState<DadaAudioScreen> createState() => _DadaAudioScreenState();
+  ConsumerState<ShravyaGranthScreen> createState() =>
+      _ShravyaGranthScreenState();
 }
 
-class _DadaAudioScreenState extends ConsumerState<DadaAudioScreen> {
-  bool isLoading = true;
+class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
+  bool isLoading = false;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(getAudiosProvider.notifier).getAudios('Dada');
+      ref.read(getShravyaProvider.notifier).getShravyaGranth();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final audiosState = ref.watch(getAudiosProvider);
+    final shravyaGranthState = ref.watch(getShravyaProvider);
 
-    return audiosState.isLoading || audiosState.data == null
-        ? Center(child: WidgetHelper.buildLoader())
-        : audiosState.data!.data.isEmpty
-        ? Center(
-            child: Text(
-              'कोणतीही श्रेणी उपलब्ध नाही.',
-              style: TextStyle(
-                fontSize: 18,
-                fontFamily: 'Mukta_light',
-                color: Color(ColorCode.black),
-                letterSpacing: 0,
+    return Scaffold(
+      appBar: CustomAppBar(title: 'श्राव्य ग्रंथ'),
+      body: shravyaGranthState.isLoading || shravyaGranthState.data == null
+          ? Center(child: WidgetHelper.buildLoader())
+          : shravyaGranthState.data!.data.isEmpty
+          ? Center(
+              child: Text(
+                'कोणतेही ग्रंथ उपलब्ध नाहीत.',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Mukta_light',
+                  color: Color(ColorCode.black),
+                  letterSpacing: 0,
+                ),
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: ListView.builder(
+                itemCount: shravyaGranthState.data!.data.length,
+                itemBuilder: (context, index) {
+                  final granthData = shravyaGranthState.data!.data[index];
+                  //final items = audiosState.data!.data[index].items;
+
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: buildCard(granthData),
+                  );
+                },
               ),
             ),
-          )
-        : Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-            child: ListView.builder(
-              itemCount: audiosState.data!.data.length,
-              itemBuilder: (context, index) {
-                final categoryData = audiosState.data!.data[index];
-                //final items = audiosState.data!.data[index].items;
-
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: buildCard(categoryData),
-                );
-              },
-            ),
-          );
+    );
   }
 
-  Widget buildCard(CategoryEntity categoryData) {
+  Widget buildCard(ShravyaEntity granthData) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(
         context,
-        AppRoutes.audioListScreen,
-        arguments: categoryData,
+        AppRoutes.granthListScreen,
+        arguments: granthData,
       ),
       child: Container(
         width: double.infinity,
@@ -89,7 +94,7 @@ class _DadaAudioScreenState extends ConsumerState<DadaAudioScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      categoryData.category,
+                      granthData.granth,
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta',
@@ -99,7 +104,7 @@ class _DadaAudioScreenState extends ConsumerState<DadaAudioScreen> {
                       ),
                     ),
                     Text(
-                      '• ${categoryData.items.length} Audios',
+                      '${granthData.items.length} Audios',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',

@@ -1,7 +1,7 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'https://seva-ulhz.onrender.com';
+  static const String baseUrl = 'https://seva-2vgn.onrender.com';
 
   ///Token
   static const String refreshToken = '/api/user/refresh_token';
@@ -19,4 +19,5 @@ class ApiConstants {
 
   ///Audio
   static const String getAudios = '/api/media/categoryData';
+  static const String getShravyaGranth = '/api/media/shravyaGranthData';
 }

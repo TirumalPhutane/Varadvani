@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/constants/api_constants.dart';
 import 'package:varadvani/core/network/dio_client.dart';
 import 'package:varadvani/data/models/audio/audio_response_model.dart';
+import 'package:varadvani/data/models/audio/shravya_response_model.dart';
 
 final audioRemoteDatasourceProvider = Provider<AudioRemoteDatasource>(
   (ref) => AudioRemoteDatasourceImpl(ref.read(dioClientProvider)),
@@ -9,6 +10,7 @@ final audioRemoteDatasourceProvider = Provider<AudioRemoteDatasource>(
 
 abstract class AudioRemoteDatasource {
   Future<AudioResponseModel> getAudios(String category);
+  Future<ShravyaResponseModel> getShravyaGranth();
 }
 
 class AudioRemoteDatasourceImpl implements AudioRemoteDatasource {
@@ -24,5 +26,16 @@ class AudioRemoteDatasourceImpl implements AudioRemoteDatasource {
     );
 
     return AudioResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<ShravyaResponseModel> getShravyaGranth() async {
+    final response = await _dioClient.get(
+      ApiConstants.getShravyaGranth,
+      queryParams: {'category': 'Appa'},
+      requiresAuth: true,
+    );
+
+    return ShravyaResponseModel.fromJson(response.data);
   }
 }

@@ -55,11 +55,12 @@ class BottomNavBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: SvgPicture.asset(
+              child: Image.asset(
                 selectedIndex == 1
-                    ? 'assets/svg/dada_fill.svg'
-                    : 'assets/svg/dada.svg',
-                width: 24,
+                    ? 'assets/image/dada_selected.PNG'
+                    : 'assets/image/dada.PNG',
+                width: 26,
+                height: 26,
               ),
             ),
             label: AppLocalizations.of(context)!.p_dada,
@@ -67,11 +68,12 @@ class BottomNavBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: SvgPicture.asset(
+              child: Image.asset(
                 selectedIndex == 2
-                    ? 'assets/svg/appa_fill.svg'
-                    : 'assets/svg/appa.svg',
-                width: 24,
+                    ? 'assets/image/appa_selected.PNG'
+                    : 'assets/image/appa.PNG',
+                width: 26,
+                height: 26,
               ),
             ),
             label: AppLocalizations.of(context)!.p_appa,

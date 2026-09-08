@@ -61,6 +61,10 @@ class GetProfileNotifier extends StateNotifier<ProfileState> {
     }
   }
 
+  void setProfile(AuthResponseEntity data) {
+    state = state.copyWith(data: data);
+  }
+
   void reset() => state = const ProfileState();
 }
 

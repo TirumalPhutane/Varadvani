@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/error/failures.dart';
 import 'package:varadvani/data/data_sources/audio_remote_datasource.dart';
+import 'package:varadvani/data/models/audio/shravya_response_model.dart';
 import 'package:varadvani/domain/entities/audio/audio_response_entity.dart';
 import 'package:varadvani/domain/repositories/audio_repository.dart';
 
@@ -16,6 +17,17 @@ class AudioRepositoryImpl implements AudioRepository {
   Future<AudioResponseEntity> getAudios({required String category}) async {
     try {
       return await _datasource.getAudios(category);
+    } on AppException {
+      rethrow;
+    } catch (e) {
+      throw AppException(message: 'Unexpected error: $e');
+    }
+  }
+
+  @override
+  Future<ShravyaResponseModel> getShravyaGranth() async {
+    try {
+      return await _datasource.getShravyaGranth();
     } on AppException {
       rethrow;
     } catch (e) {

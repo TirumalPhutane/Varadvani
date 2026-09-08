@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
 import 'package:varadvani/domain/entities/audio/category_entity.dart';
+import 'package:varadvani/domain/entities/audio/shravya_entity.dart';
 import 'package:varadvani/presentation/screens/appa/appa_granth_sampada_screen.dart';
 import 'package:varadvani/presentation/screens/appa/appa_jeevanpat_screen.dart';
 import 'package:varadvani/presentation/screens/appa/charitra_saramruta_screen.dart';
@@ -9,6 +10,7 @@ import 'package:varadvani/presentation/screens/appa/charitra_screen.dart';
 import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
 import 'package:varadvani/presentation/screens/audio/audio_list_screen.dart';
 import 'package:varadvani/presentation/screens/audio/player_screen.dart';
+import 'package:varadvani/presentation/screens/audio/shravya_granth_screen.dart';
 import 'package:varadvani/presentation/screens/auth/change_password_screen.dart';
 import 'package:varadvani/presentation/screens/auth/profile_info_screen.dart';
 import 'package:varadvani/presentation/screens/auth/sign_in_screen.dart';
@@ -107,6 +109,8 @@ class AppRoutes {
   ///Audio
   static const String audioListScreen = '/AudioListScreen';
   static const String playerScreen = '/PlayerScreen';
+  static const String shravyaGranthScreen = '/ShravyaGranthScreen';
+  static const String granthListScreen = '/GranthListScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final Object? argument = settings.arguments;
@@ -248,6 +252,16 @@ class AppRoutes {
             : argument as AudioEntity;
         return MaterialPageRoute(
           builder: (context) => PlayerScreen(audio: data),
+        );
+      case shravyaGranthScreen:
+        return MaterialPageRoute(builder: (context) => ShravyaGranthScreen());
+      case granthListScreen:
+        final data = argument == null
+            ? ShravyaEntity.empty()
+            : argument as ShravyaEntity;
+        return MaterialPageRoute(
+          builder: (context) =>
+              AudioListScreen(category: data.granth, items: data.items),
         );
 
       ///Default

@@ -23,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.borderWidth,
     this.labelColor,
     this.isFromProfile = false,
+    this.isFixed = false,
   });
 
   final String hintText;
@@ -44,6 +45,7 @@ class CustomTextField extends StatelessWidget {
   final double? borderWidth;
   final Color? labelColor;
   final bool isFromProfile;
+  final bool isFixed;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +94,9 @@ class CustomTextField extends StatelessWidget {
             onTap: onTap,
             readOnly: readOnly,
             style: TextStyle(
-              color: Color(ColorCode.black),
+              color: isFixed
+                  ? Color(ColorCode.black).withValues(alpha: 0.7)
+                  : Color(ColorCode.black),
               fontSize: 16,
               fontFamily: 'Mukta',
               fontWeight: FontWeight.w500,
