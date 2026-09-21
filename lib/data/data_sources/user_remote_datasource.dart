@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/constants/api_constants.dart';
 import 'package:varadvani/core/network/dio_client.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
 import 'package:varadvani/data/models/auth/auth_response_model.dart';
+import 'package:varadvani/data/models/profile/update_image_response_model.dart';
 
 final userRemoteDatasourceProvider = Provider<UserRemoteDatasource>(
   (ref) => UserRemoteDatasourceImpl(ref.read(dioClientProvider)),
@@ -12,6 +14,10 @@ abstract class UserRemoteDatasource {
   Future<AuthResponseModel> getProfile(String id);
   Future<AuthResponseModel> updateProfile(UpdateProfileParams params);
   Future<AuthResponseModel> deleteProfile(String id);
+  Future<UpdateImageResponseModel> updateProfileImage(
+    FormData formData,
+    String id,
+  );
 }
 
 class UserRemoteDatasourceImpl implements UserRemoteDatasource {
@@ -44,5 +50,18 @@ class UserRemoteDatasourceImpl implements UserRemoteDatasource {
       requiresAuth: true,
     );
     return AuthResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<UpdateImageResponseModel> updateProfileImage(
+    FormData formData,
+    String id,
+  ) async {
+    final response = await _dioClient.multipart(
+      '${ApiConstants.updateProfileImage}$id',
+      formData: formData,
+      requiresAuth: true,
+    );
+    return UpdateImageResponseModel.fromJson(response.data);
   }
 }

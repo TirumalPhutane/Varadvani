@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
 import 'package:varadvani/domain/entities/auth/auth_response_entity.dart';
+import 'package:varadvani/domain/entities/profile/update_image_response_entity.dart';
 
 abstract class UserRepository {
   Future<AuthResponseEntity> getProfile({required String id});
@@ -7,4 +9,8 @@ abstract class UserRepository {
     required UpdateProfileParams params,
   });
   Future<AuthResponseEntity> deleteProfile({required String id});
+  Future<UpdateImageResponseEntity> updateProfileImage({
+    required FormData formData,
+    required String id,
+  });
 }

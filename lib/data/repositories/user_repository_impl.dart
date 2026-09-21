@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/error/failures.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
 import 'package:varadvani/data/data_sources/user_remote_datasource.dart';
 import 'package:varadvani/domain/entities/auth/auth_response_entity.dart';
+import 'package:varadvani/domain/entities/profile/update_image_response_entity.dart';
 import 'package:varadvani/domain/repositories/user_repository.dart';
 
 final userRepositoryProvider = Provider<UserRepository>(
@@ -41,6 +43,20 @@ class UserRepositoryImpl implements UserRepository {
   Future<AuthResponseEntity> deleteProfile({required String id}) async {
     try {
       return await _datasource.deleteProfile(id);
+    } on AppException {
+      rethrow;
+    } catch (e) {
+      throw AppException(message: 'Unexpected error: $e');
+    }
+  }
+
+  @override
+  Future<UpdateImageResponseEntity> updateProfileImage({
+    required FormData formData,
+    required String id,
+  }) async {
+    try {
+      return await _datasource.updateProfileImage(formData, id);
     } on AppException {
       rethrow;
     } catch (e) {

@@ -1,10 +1,8 @@
-import 'package:varadvani/domain/entities/audio/audio_entity.dart';
-
 class ShravyaEntity {
-  ShravyaEntity({required this.granth, required this.items});
+  ShravyaEntity({required this.count, required this.subCategory});
 
   ShravyaEntity.empty();
 
-  String granth = '';
-  List<AudioEntity> items = [];
+  int count = 0;
+  String subCategory = '';
 }

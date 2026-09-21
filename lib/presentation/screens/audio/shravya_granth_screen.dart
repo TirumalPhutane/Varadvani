@@ -5,6 +5,7 @@ import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/domain/entities/audio/shravya_entity.dart';
 import 'package:varadvani/presentation/providers/audio/get_shravya_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
+import 'package:varadvani/presentation/widgets/mini_player_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -33,35 +34,34 @@ class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
 
     return Scaffold(
       appBar: CustomAppBar(title: 'श्राव्य ग्रंथ'),
-      body: shravyaGranthState.isLoading || shravyaGranthState.data == null
-          ? Center(child: WidgetHelper.buildLoader())
-          : shravyaGranthState.data!.data.isEmpty
-          ? Center(
-              child: Text(
-                'कोणतेही ग्रंथ उपलब्ध नाहीत.',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
-                  letterSpacing: 0,
-                ),
-              ),
-            )
-          : Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: ListView.builder(
-                itemCount: shravyaGranthState.data!.data.length,
-                itemBuilder: (context, index) {
-                  final granthData = shravyaGranthState.data!.data[index];
-                  //final items = audiosState.data!.data[index].items;
+      body: Column(
+        children: [
+          Expanded(
+            child:
+                shravyaGranthState.isLoading || shravyaGranthState.data == null
+                ? Center(child: WidgetHelper.buildLoader())
+                : Padding(
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      top: 20,
+                    ),
+                    child: ListView.builder(
+                      itemCount: shravyaGranthState.data!.data.length,
+                      itemBuilder: (context, index) {
+                        final granthData = shravyaGranthState.data!.data[index];
 
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: buildCard(granthData),
-                  );
-                },
-              ),
-            ),
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: buildCard(granthData),
+                        );
+                      },
+                    ),
+                  ),
+          ),
+          const MiniPlayerBar(),
+        ],
+      ),
     );
   }
 
@@ -94,7 +94,7 @@ class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      granthData.granth,
+                      granthData.subCategory,
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta',
@@ -104,7 +104,7 @@ class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
                       ),
                     ),
                     Text(
-                      '${granthData.items.length} Audios',
+                      '• ${granthData.count} Audios',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',

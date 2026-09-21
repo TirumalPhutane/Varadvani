@@ -235,4 +235,27 @@ class DioClient {
       );
     }
   }
+
+  Future<Response> multipart(
+    String path, {
+    required FormData formData,
+    bool requiresAuth = false,
+    void Function(int sent, int total)? onSendProgress,
+  }) async {
+    try {
+      return await _dio.put(
+        path,
+        data: formData,
+        options: Options(headers: _buildHeaders(requiresAuth: requiresAuth)),
+        onSendProgress: onSendProgress,
+      );
+    } on DioException catch (e) {
+      final err = _parseError(e);
+      throw ServerException(
+        message: err['message'],
+        statusCode: e.response?.statusCode,
+        errors: err['errors'],
+      );
+    }
+  }
 }

@@ -1,10 +1,8 @@
-// lib/presentation/widgets/mini_player_bar.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/presentation/providers/audio/audio_player_provider.dart';
+import 'package:varadvani/presentation/screens/audio/player_screen.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class MiniPlayerBar extends ConsumerWidget {
@@ -18,9 +16,24 @@ class MiniPlayerBar extends ConsumerWidget {
 
     if (audio == null) return const SizedBox.shrink();
 
-    // final progress = playerState.duration.inSeconds > 0
-    //     ? playerState.position.inSeconds / playerState.duration.inSeconds
-    //     : 0.0;
+    void audioPlayerBottomSheet(BuildContext context) {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        backgroundColor: Color(ColorCode.white),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height,
+          minHeight: MediaQuery.of(context).size.height,
+        ),
+        builder: (context) {
+          return SafeArea(child: PlayerScreen(audio: audio));
+        },
+      );
+    }
 
     return SafeArea(
       child: Container(
@@ -28,31 +41,13 @@ class MiniPlayerBar extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // thin progress line at top of the bar
-            // ClipRRect(
-            //   borderRadius: const BorderRadius.vertical(
-            //     top: Radius.circular(16),
-            //   ),
-            //   child: LinearProgressIndicator(
-            //     value: progress.clamp(0.0, 1.0),
-            //     minHeight: 3,
-            //     backgroundColor: Color(ColorCode.gray),
-            //     valueColor: AlwaysStoppedAnimation<Color>(
-            //       Color(ColorCode.orange),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 children: [
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(
-                        context,
-                        AppRoutes.playerScreen,
-                        arguments: audio,
-                      ),
+                      onTap: () => audioPlayerBottomSheet(context),
                       child: Row(
                         children: [
                           ClipRRect(

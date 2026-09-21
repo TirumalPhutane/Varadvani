@@ -16,6 +16,7 @@ class UserEntity {
     required this.pincode,
     required this.createdAt,
     required this.updatedAt,
+    required this.profileUrl,
   });
 
   UserEntity.empty();
@@ -36,4 +37,5 @@ class UserEntity {
   String pincode = '';
   String createdAt = '';
   String updatedAt = '';
+  String profileUrl = '';
 }

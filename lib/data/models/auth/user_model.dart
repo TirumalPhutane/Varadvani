@@ -18,6 +18,7 @@ class UserModel extends UserEntity {
     required super.pincode,
     required super.createdAt,
     required super.updatedAt,
+    required super.profileUrl,
   });
 
   UserModel.empty() : super.empty();
@@ -39,5 +40,6 @@ class UserModel extends UserEntity {
     pincode: json['pincode']?.toString() ?? '',
     createdAt: json['createdAt']?.toString() ?? '',
     updatedAt: json['updatedAt']?.toString() ?? '',
+    profileUrl: json['profile_url']?.toString() ?? '',
   );
 }

@@ -11,6 +11,7 @@ import 'package:varadvani/presentation/screens/appa/dada_appa_screen.dart';
 import 'package:varadvani/presentation/screens/audio/audio_list_screen.dart';
 import 'package:varadvani/presentation/screens/audio/player_screen.dart';
 import 'package:varadvani/presentation/screens/audio/shravya_granth_screen.dart';
+import 'package:varadvani/presentation/screens/audio/shravya_list_screen.dart';
 import 'package:varadvani/presentation/screens/auth/change_password_screen.dart';
 import 'package:varadvani/presentation/screens/auth/profile_info_screen.dart';
 import 'package:varadvani/presentation/screens/auth/sign_in_screen.dart';
@@ -260,8 +261,7 @@ class AppRoutes {
             ? ShravyaEntity.empty()
             : argument as ShravyaEntity;
         return MaterialPageRoute(
-          builder: (context) =>
-              AudioListScreen(category: data.granth, items: data.items),
+          builder: (context) => ShravyaListScreen(shravyaData: data),
         );
 
       ///Default
