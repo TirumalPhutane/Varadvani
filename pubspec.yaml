@@ -24,6 +24,9 @@ dependencies:
   logger: ^2.7.0
   loading_indicator: ^3.1.1
   just_audio: ^0.9.42
+  image_picker: ^1.2.3
+  flutter_image_compress: ^2.5.1
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
