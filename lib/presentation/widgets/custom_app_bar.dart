@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -20,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Color(ColorCode.scaffoldBackground),
+      backgroundColor: context.theme.scaffoldBackgroundColor,
       centerTitle: true,
       leadingWidth: isFromHome! ? 50 : 50,
       title: Text(
@@ -29,7 +30,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontSize: isFromHome! ? 24 : 20,
           fontFamily: 'Gotu',
           fontWeight: FontWeight.bold,
-          color: isFromHome! ? Color(ColorCode.orange) : Color(ColorCode.black),
+          color: isFromHome!
+              ? Color(ColorCode.orange)
+              : context.colors.onSurface,
         ),
       ),
       leading: isShowLeading!
@@ -43,7 +46,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: SvgPicture.asset(
                     'assets/svg/menu.svg',
                     colorFilter: ColorFilter.mode(
-                      Color(ColorCode.black),
+                      context.colors.onSurface,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -59,7 +62,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: SvgPicture.asset(
                     'assets/svg/arrow.svg',
                     colorFilter: ColorFilter.mode(
-                      Color(ColorCode.black),
+                      context.colors.onSurface,
                       BlendMode.srcIn,
                     ),
                   ),

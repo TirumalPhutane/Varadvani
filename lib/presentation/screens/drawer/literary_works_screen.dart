@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
-import 'package:varadvani/theme/color_code.dart';
 
 class LiteraryWorksScreen extends StatelessWidget {
   const LiteraryWorksScreen({super.key});
@@ -17,7 +17,7 @@ class LiteraryWorksScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontFamily: 'Mukta',
-              color: Color(ColorCode.black),
+              color: context.colors.onSurface,
               fontWeight: FontWeight.w500,
               letterSpacing: 0,
             ),

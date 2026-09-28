@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 19,
                     fontFamily: 'Mukta_medium',
                     fontWeight: FontWeight.w600,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     TextStyle(
                       fontSize: 16,
                       fontFamily: 'Mukta',
-                      color: Color(ColorCode.black),
+                      color: context.colors.onSurface,
                       height: 1.7,
                     ),
                   ),
@@ -147,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         TextStyle(
                           fontSize: 16,
                           fontFamily: 'Mukta',
-                          color: Color(ColorCode.black),
+                          color: context.colors.onSurface,
                           height: 1.7,
                         ),
                       ),
@@ -184,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                           fontSize: 16,
                           fontFamily: 'Mukta',
-                          color: Color(ColorCode.black),
+                          color: context.colors.onSurface,
                         ),
                       ),
                       // _buildContactRow(

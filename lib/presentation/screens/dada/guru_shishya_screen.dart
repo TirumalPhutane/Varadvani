@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
@@ -71,7 +72,7 @@ class GuruShishyaScreen extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(ColorCode.white),
+                      color: context.theme.cardColor,
                       boxShadow: [
                         BoxShadow(
                           color: Color(ColorCode.black).withValues(alpha: 0.04),
@@ -109,7 +110,7 @@ class GuruShishyaScreen extends StatelessWidget {
                             child: SvgPicture.asset(
                               'assets/svg/arrow.svg',
                               colorFilter: ColorFilter.mode(
-                                Color(ColorCode.black),
+                                context.colors.onSurface,
                                 BlendMode.srcIn,
                               ),
                             ),

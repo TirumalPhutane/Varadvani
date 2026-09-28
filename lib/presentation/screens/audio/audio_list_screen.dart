@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
 import 'package:varadvani/presentation/providers/audio/audio_player_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
@@ -40,7 +41,7 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Mukta_light',
-                      color: Color(ColorCode.black),
+                      color: context.colors.onSurface,
                       letterSpacing: 0,
                     ),
                   ),
@@ -81,7 +82,7 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Padding(
@@ -115,7 +116,7 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0,
                       ),
@@ -125,7 +126,7 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         letterSpacing: 0,
                       ),
                     ),

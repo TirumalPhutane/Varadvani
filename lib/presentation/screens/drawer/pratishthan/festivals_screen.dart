@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/models/table_data.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
@@ -33,7 +34,7 @@ class FestivalsScreen extends StatelessWidget {
                     fontSize: 20,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -57,7 +58,9 @@ class FestivalsScreen extends StatelessWidget {
                     child: DottedLine(
                       dashLength: 4,
                       dashColor: Color(
-                        ColorCode.darkGray,
+                        context.colors.brightness == Brightness.dark
+                            ? ColorCode.white
+                            : ColorCode.darkGray,
                       ).withValues(alpha: 0.15),
                     ),
                   ),
@@ -70,7 +73,7 @@ class FestivalsScreen extends StatelessWidget {
                     fontSize: 20,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -82,15 +85,19 @@ class FestivalsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildText(
+                        context,
                         '१. सद्गुरू वामनशास्त्री पुण्यतिथी उत्सव पुणे येथे आणि श्रीज्ञानेश्वर महाराज व सद्गुरू दासगणू महाराज पुण्यतिथी उत्सव पंढरपूर येथे संपन्न होत असतो.',
                       ),
                       _buildText(
+                        context,
                         '२. उर्वरित सर्व उत्सव गोरटे येथेच संपन्न होत असतात.',
                       ),
                       _buildText(
+                        context,
                         '३. गोरटे येथील उत्सवासाठी येणाऱ्या भाविकांसाठी निवासव्यवस्था उपलब्ध आहे.',
                       ),
                       _buildText(
+                        context,
                         '४. प्रतिष्ठानच्या पूर्व परवानगीने व परिवारातील सदस्यांच्या विनंती नुसार काही उत्सव गोरटे व्यतिरिक्त इतर ठिकाणी आयोजित केले जाऊ शकतात.',
                       ),
                     ],
@@ -104,14 +111,14 @@ class FestivalsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildText(String text) {
+  Widget _buildText(BuildContext context, String text) {
     return Text(
       text,
       textAlign: TextAlign.start,
       style: TextStyle(
         fontSize: 18,
         fontFamily: 'Mukta',
-        color: Color(ColorCode.black),
+        color: context.colors.onSurface,
         letterSpacing: 0,
         height: 1.5,
       ),

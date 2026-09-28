@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -15,6 +16,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = context.colors.brightness == Brightness.dark;
     return Theme(
       data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory),
       child: BottomNavigationBar(
@@ -22,17 +24,20 @@ class BottomNavBar extends StatelessWidget {
         currentIndex: selectedIndex,
         onTap: onItemSelected,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: context.theme.cardColor,
+        selectedItemColor: Color(ColorCode.orange),
+        unselectedItemColor: context.colors.onSurface,
         selectedLabelStyle: TextStyle(
           fontFamily: 'Gotu',
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: Color(ColorCode.orange),
+          color: Color(ColorCode.orange), //context.colors.primary,
         ),
         unselectedLabelStyle: TextStyle(
           fontFamily: 'Gotu',
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: Color(ColorCode.black),
+          color: context.colors.onSurface,
         ),
         items: [
           BottomNavigationBarItem(
@@ -43,9 +48,9 @@ class BottomNavBar extends StatelessWidget {
                     ? 'assets/svg/home_fill.svg'
                     : 'assets/svg/home.svg',
                 colorFilter: ColorFilter.mode(
-                  Color(
-                    selectedIndex == 0 ? ColorCode.orange : ColorCode.black,
-                  ),
+                  selectedIndex == 0
+                      ? context.colors.primary
+                      : context.colors.onSurface,
                   BlendMode.srcIn,
                 ),
               ),
@@ -57,8 +62,10 @@ class BottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: Image.asset(
                 selectedIndex == 1
-                    ? 'assets/image/dada_selected.PNG'
-                    : 'assets/image/dada.PNG',
+                    ? 'assets/image/dada_selected.png'
+                    : isDark
+                    ? 'assets/image/dada_dark.png'
+                    : 'assets/image/dada.png',
                 width: 26,
                 height: 26,
               ),
@@ -70,8 +77,10 @@ class BottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: Image.asset(
                 selectedIndex == 2
-                    ? 'assets/image/appa_selected.PNG'
-                    : 'assets/image/appa.PNG',
+                    ? 'assets/image/appa_selected.png'
+                    : isDark
+                    ? 'assets/image/appa_dark.png'
+                    : 'assets/image/appa.png',
                 width: 26,
                 height: 26,
               ),
@@ -85,6 +94,12 @@ class BottomNavBar extends StatelessWidget {
                 selectedIndex == 3
                     ? 'assets/svg/music_fill.svg'
                     : 'assets/svg/music.svg',
+                colorFilter: ColorFilter.mode(
+                  selectedIndex == 3
+                      ? context.colors.primary
+                      : context.colors.onSurface,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
             label: AppLocalizations.of(context)!.audio,
@@ -97,9 +112,9 @@ class BottomNavBar extends StatelessWidget {
                     ? 'assets/svg/profile_fill.svg'
                     : 'assets/svg/profile.svg',
                 colorFilter: ColorFilter.mode(
-                  Color(
-                    selectedIndex == 4 ? ColorCode.orange : ColorCode.black,
-                  ),
+                  selectedIndex == 4
+                      ? context.colors.primary
+                      : context.colors.onSurface,
                   BlendMode.srcIn,
                 ),
               ),

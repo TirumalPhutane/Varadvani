@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/domain/entities/audio/category_entity.dart';
 import 'package:varadvani/presentation/providers/audio/get_audios_provider.dart';
@@ -38,7 +39,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
               style: TextStyle(
                 fontSize: 18,
                 fontFamily: 'Mukta_light',
-                color: Color(ColorCode.black),
+                color: context.colors.onSurface,
                 letterSpacing: 0,
               ),
             ),
@@ -56,7 +57,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(ColorCode.white),
+                      color: context.theme.cardColor,
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                     child: Padding(
@@ -73,7 +74,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                             style: TextStyle(
                               fontSize: 18,
                               fontFamily: 'Mukta',
-                              color: Color(ColorCode.black),
+                              color: context.colors.onSurface,
                               letterSpacing: 0,
                               height: 1.5,
                             ),
@@ -81,7 +82,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                           SvgPicture.asset(
                             'assets/svg/arrow.svg',
                             colorFilter: ColorFilter.mode(
-                              Color(ColorCode.black),
+                              context.colors.onSurface,
                               BlendMode.srcIn,
                             ),
                           ),
@@ -119,7 +120,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Padding(
@@ -142,7 +143,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0,
                       ),
@@ -152,7 +153,7 @@ class _AppaAudioScreenState extends ConsumerState<AppaAudioScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         letterSpacing: 0,
                       ),
                     ),

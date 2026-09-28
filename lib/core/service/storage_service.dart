@@ -8,6 +8,7 @@ final storageServiceProvider = Provider<StorageService>(
 
 class StorageService {
   Box get authBox => Hive.box(AppConstants.authBox);
+  Box get settingsBox => Hive.box(AppConstants.settingsBox);
 
   Future<void> saveTokens({
     required String accessToken,
@@ -34,4 +35,10 @@ class StorageService {
   String? getUserId() => authBox.get(AppConstants.userId);
 
   Future<void> clearTokens() async => await authBox.clear();
+
+  Future<void> saveThemeMode(String mode) async {
+    await settingsBox.put(AppConstants.themeModeKey, mode);
+  }
+
+  String? getThemeMode() => settingsBox.get(AppConstants.themeModeKey);
 }

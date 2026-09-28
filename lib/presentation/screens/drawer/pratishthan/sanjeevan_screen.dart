@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
-import 'package:varadvani/theme/color_code.dart';
 
 class SanjeevanScreen extends StatelessWidget {
   const SanjeevanScreen({super.key});
@@ -126,7 +126,7 @@ class SanjeevanScreen extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -141,7 +141,7 @@ class SanjeevanScreen extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -176,7 +176,7 @@ class SanjeevanScreen extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),

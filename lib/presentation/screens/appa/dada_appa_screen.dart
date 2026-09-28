@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
-import 'package:varadvani/theme/color_code.dart';
 
 class DadaAppaScreen extends StatelessWidget {
   const DadaAppaScreen({super.key});
@@ -64,7 +64,7 @@ class DadaAppaScreen extends StatelessWidget {
                   TextStyle(
                     fontSize: 18,
                     fontFamily: 'Mukta',
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -72,7 +72,7 @@ class DadaAppaScreen extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),

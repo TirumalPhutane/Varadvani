@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/screens/audio/appa_audio_screen.dart';
 import 'package:varadvani/presentation/screens/audio/dada_audio_screen.dart';
@@ -38,11 +39,11 @@ class _AudiosScreenState extends State<AudiosScreen>
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40),
-              color: Color(ColorCode.white),
+              color: context.theme.cardColor,
             ),
             child: TabBar(
               controller: _tabController,
-              unselectedLabelColor: Color(ColorCode.black),
+              unselectedLabelColor: context.colors.onSurface,
               labelColor: Color(ColorCode.white),
               labelStyle: const TextStyle(
                 fontSize: 18,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/helper/helper.dart';
 import 'package:varadvani/data/data_sources/local/local_datasource.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
@@ -54,6 +55,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
                     return Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: buildCard(
+                        context,
                         episode.title,
                         episode.duration,
                         episode.videoUrl,
@@ -69,7 +71,12 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
     );
   }
 
-  Widget buildCard(String title, String duration, String videoUrl) {
+  Widget buildCard(
+    BuildContext context,
+    String title,
+    String duration,
+    String videoUrl,
+  ) {
     return GestureDetector(
       onTap: () {
         Helper.launchUrlFromApp(videoUrl);
@@ -77,7 +84,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Padding(
@@ -101,7 +108,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0,
                       ),
@@ -111,7 +118,7 @@ class CharitraSaramrutaScreen extends ConsumerWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Mukta_light',
-                        color: Color(ColorCode.black),
+                        color: context.colors.onSurface,
                         letterSpacing: 0,
                       ),
                     ),

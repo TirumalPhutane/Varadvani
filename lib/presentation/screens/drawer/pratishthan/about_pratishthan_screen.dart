@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
@@ -111,36 +112,43 @@ class AboutPratishthanScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildVibhag(
+                      context,
                       '१. नित्योपचार विभाग',
                       ' - श्रींच्या समाधीची पूजाअर्चा, अभिषेकादी व्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '२. अन्नछत्र विभाग',
                       ' - साधनेसाठी येणाऱ्या साधकांची व्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '३. उत्सव विभाग',
                       ' - प्रतिष्ठानकडून प्रमुख संतांच्या पुण्यतिथी उत्सवाची व्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '४. आरोग्य विभाग',
                       ' - औषधनिर्मिती, रोगचिकित्सा व मोफत उपचारव्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '५. वास्तू विभाग',
                       ' - वास्तू निर्मितीचे संकल्पपूर्ती व्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '६. वाङ्‌मय विभाग',
                       ' - संतकवी दासगणू महाराज व स्वामी वरदानंद भारती यांच्या वाङ्‌मय प्रसिद्धीची व्यवस्था.',
                     ),
                     _buildVibhag(
+                      context,
                       '७. गोशाळा विभाग',
                       ' - भारतीय वाणाच्या गायींची व गोवंशाची संपूर्ण व्यवस्था.',
                     ),
                   ],
                 ),
-                _buildLastParagraph(),
+                _buildLastParagraph(context),
                 WidgetHelper.buildCard(
                   ClipRRect(
                     borderRadius: BorderRadius.only(
@@ -173,7 +181,7 @@ class AboutPratishthanScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildVibhag(String title, String description) {
+  Widget _buildVibhag(BuildContext context, String title, String description) {
     return WidgetHelper.buildRichText(
       title,
       description,
@@ -181,25 +189,25 @@ class AboutPratishthanScreen extends StatelessWidget {
         fontSize: 18,
         fontFamily: 'Mukta',
         fontWeight: FontWeight.bold,
-        color: Color(ColorCode.black),
+        color: context.colors.onSurface,
         letterSpacing: 0,
         height: 1.5,
       ),
       TextStyle(
         fontSize: 18,
         fontFamily: 'Mukta',
-        color: Color(ColorCode.black),
+        color: context.colors.onSurface,
         letterSpacing: 0,
         height: 1.5,
       ),
     );
   }
 
-  Widget _buildLastParagraph() {
+  Widget _buildLastParagraph(BuildContext context) {
     return RichText(
       text: TextSpan(
         style: TextStyle(
-          color: Color(ColorCode.black),
+          color: context.colors.onSurface,
           fontSize: 18,
           fontFamily: 'Mukta',
           letterSpacing: 0,

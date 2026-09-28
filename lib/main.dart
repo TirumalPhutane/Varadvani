@@ -7,7 +7,8 @@ import 'package:varadvani/core/service/storage_service.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/localization/locale_manager.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
-import 'package:varadvani/theme/theme.dart';
+import 'package:varadvani/theme/app_theme.dart';
+import 'package:varadvani/theme/theme_provider.dart';
 
 //final ThemeManager themeManager = ThemeManager();
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -17,6 +18,7 @@ void main() async {
 
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.authBox);
+  await Hive.openBox(AppConstants.settingsBox);
 
   runApp(ProviderScope(child: const MyApp()));
 }
@@ -44,6 +46,7 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     final storageService = ref.read(storageServiceProvider);
+    final themeMode = ref.watch(themeModeProvider);
     final token = storageService.getAccessToken();
     final isLoggedIn = token != null && token.toString().isNotEmpty;
 
@@ -56,7 +59,9 @@ class _MyAppState extends ConsumerState<MyApp> {
     return MaterialApp(
       title: 'Varadvani',
       debugShowCheckedModeBanner: false,
-      theme: lightTheme,
+      themeMode: themeMode,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       locale: localeManager.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

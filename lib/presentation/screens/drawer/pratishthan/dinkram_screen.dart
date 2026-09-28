@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/models/table_data.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
@@ -45,7 +46,9 @@ class DinkramScreen extends StatelessWidget {
                     child: DottedLine(
                       dashLength: 4,
                       dashColor: Color(
-                        ColorCode.darkGray,
+                        context.colors.brightness == Brightness.dark
+                            ? ColorCode.white
+                            : ColorCode.darkGray,
                       ).withValues(alpha: 0.15),
                     ),
                   ),
@@ -58,7 +61,7 @@ class DinkramScreen extends StatelessWidget {
                     fontSize: 20,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -81,7 +84,7 @@ class DinkramScreen extends StatelessWidget {
                     fontSize: 20,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),

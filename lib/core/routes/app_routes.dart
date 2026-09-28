@@ -38,6 +38,7 @@ import 'package:varadvani/presentation/screens/drawer/pratishthan/parampara_raks
 import 'package:varadvani/presentation/screens/drawer/pratishthan/sanjeevan_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/pratishthan/vishwasta_mandal_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/related_websites_screen.dart';
+import 'package:varadvani/presentation/screens/drawer/settings_screen.dart';
 import 'package:varadvani/presentation/screens/drawer/videos_screen.dart';
 import 'package:varadvani/presentation/screens/home/audios_screen.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
@@ -46,6 +47,7 @@ import 'package:varadvani/presentation/screens/home/home_screen.dart';
 import 'package:varadvani/presentation/screens/home/profile_screen.dart';
 import 'package:varadvani/presentation/screens/home/varadanand_bharati_screen.dart';
 import 'package:varadvani/presentation/main_screen.dart';
+import 'package:varadvani/presentation/screens/other/change_theme_screen.dart';
 import 'package:varadvani/presentation/screens/other/objectives_screen.dart';
 import 'package:varadvani/presentation/screens/auth/sign_up_screen.dart';
 
@@ -97,9 +99,11 @@ class AppRoutes {
   static const String videosScreen = '/VideosScreen';
   static const String relatedWebsitesScreen = '/RelatedWebsitesScreen';
   static const String examsScreen = '/ExamsScreen';
+  static const String settingsScreen = '/SettingsScreen';
 
   ///Other Screens
   static const String objectivesScreen = '/ObjectivesScreen';
+  static const String changeThemeScreen = '/ChangeThemeScreen';
 
   ///Auth
   static const String signUpScreen = '/SignUpScreen';
@@ -172,6 +176,8 @@ class AppRoutes {
       ///Other Screens
       case objectivesScreen:
         return MaterialPageRoute(builder: (context) => ObjectivesScreen());
+      case changeThemeScreen:
+        return MaterialPageRoute(builder: (context) => ChangeThemeScreen());
 
       ///Pratishthan
       case aboutPratishthanScreen:
@@ -222,6 +228,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => RelatedWebsitesScreen());
       case examsScreen:
         return MaterialPageRoute(builder: (context) => ExamsScreen());
+      case settingsScreen:
+        return MaterialPageRoute(builder: (context) => SettingsScreen());
 
       ///Auth
       case signUpScreen:

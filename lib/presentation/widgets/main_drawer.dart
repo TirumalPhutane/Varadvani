@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -15,7 +16,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/pratishthan.svg',
           height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -27,7 +28,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/book.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -39,7 +40,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/map.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -51,7 +52,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/picture.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -63,7 +64,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/video.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -75,7 +76,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/exams.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -87,7 +88,7 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/award.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
@@ -99,29 +100,29 @@ class MainDrawer extends StatelessWidget {
           'assets/svg/link.svg',
           //height: 20,
           colorFilter: ColorFilter.mode(
-            Color(ColorCode.black),
+            context.colors.onSurface,
             BlendMode.srcIn,
           ),
         ),
         'title': AppLocalizations.of(context)!.related_websites,
         'route': AppRoutes.relatedWebsitesScreen,
       },
-      // {
-      //   'icon': SvgPicture.asset(
-      //     'assets/svg/settings.svg',
-      //     height: 20,
-      //     colorFilter: ColorFilter.mode(
-      //       Color(ColorCode.black),
-      //       BlendMode.srcIn,
-      //     ),
-      //   ),
-      //   'title': AppLocalizations.of(context)!.settings,
-      //   'route': AppRoutes.relatedWebsitesScreen,
-      // },
+      {
+        'icon': SvgPicture.asset(
+          'assets/svg/settings.svg',
+          height: 20,
+          colorFilter: ColorFilter.mode(
+            context.colors.onSurface,
+            BlendMode.srcIn,
+          ),
+        ),
+        'title': AppLocalizations.of(context)!.settings,
+        'route': AppRoutes.settingsScreen,
+      },
     ];
 
     return Drawer(
-      backgroundColor: Color(ColorCode.scaffoldBackground),
+      backgroundColor: context.theme.scaffoldBackgroundColor,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 0, top: 20),
@@ -177,7 +178,7 @@ class MainDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20, bottom: 5),
                 child: Divider(
                   thickness: 0.5,
-                  color: Color(ColorCode.black).withValues(alpha: 0.4),
+                  color: context.colors.onSurface.withValues(alpha: 0.4),
                 ),
               ),
               Expanded(
@@ -190,16 +191,9 @@ class MainDrawer extends StatelessWidget {
                             drawerItems[index]['icon'],
                             drawerItems[index]['title'],
                             context,
-                            // drawerItems[index].containsKey('route')
-                            //     ? () => Navigator.pushNamed(
-                            //           context,
-                            //           drawerItems[index]['route'],
-                            //           arguments: drawerItems[index]['args'],
-                            //         )
-                            //     : () => Fluttertoast.showToast(
-                            //         msg: drawerItems[index]['toast']),
                           )
                         : buildListItem(
+                            context,
                             index,
                             drawerItems[index]['icon'],
                             drawerItems[index]['title'],
@@ -213,7 +207,7 @@ class MainDrawer extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 25, right: 25),
                     child: Divider(
                       thickness: 0.5,
-                      color: Color(ColorCode.black).withValues(alpha: 0.2),
+                      color: context.colors.onSurface.withValues(alpha: 0.2),
                     ),
                   ),
                 ),
@@ -226,12 +220,18 @@ class MainDrawer extends StatelessWidget {
   }
 }
 
-Widget buildListItem(int index, Widget icon, String title, VoidCallback ontap) {
+Widget buildListItem(
+  BuildContext context,
+  int index,
+  Widget icon,
+  String title,
+  VoidCallback ontap,
+) {
   return ListTile(
     contentPadding: EdgeInsets.only(left: 25),
     leading: CircleAvatar(
       radius: 15,
-      backgroundColor: Color(ColorCode.black).withValues(alpha: 0.06),
+      backgroundColor: context.colors.onSurface.withValues(alpha: 0.06),
       child: icon,
     ),
     title: Text(
@@ -239,7 +239,7 @@ Widget buildListItem(int index, Widget icon, String title, VoidCallback ontap) {
       style: TextStyle(
         fontSize: 20,
         fontFamily: 'Mukta_medium',
-        color: Color(ColorCode.black),
+        color: context.colors.onSurface,
         letterSpacing: 0,
       ),
     ),
@@ -316,7 +316,7 @@ Widget buildExpandableItem(
       valueListenable: isExpanded,
       builder: (context, expanded, _) => CircleAvatar(
         radius: 15,
-        backgroundColor: Color(ColorCode.black).withValues(alpha: 0.06),
+        backgroundColor: context.colors.onSurface.withValues(alpha: 0.06),
         child: icon,
       ),
     ),
@@ -328,7 +328,7 @@ Widget buildExpandableItem(
           style: TextStyle(
             fontSize: 20,
             fontFamily: 'Mukta_medium',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
           ),
         );
@@ -344,7 +344,7 @@ Widget buildExpandableItem(
           child: SvgPicture.asset(
             'assets/svg/add.svg',
             colorFilter: ColorFilter.mode(
-              Color(expanded ? ColorCode.orange : ColorCode.black),
+              expanded ? context.colors.primary : context.colors.onSurface,
               BlendMode.srcIn,
             ),
           ),
@@ -375,7 +375,7 @@ Widget buildExpandableItem(
                   child: Divider(
                     thickness: 0.5,
                     height: 1,
-                    color: Color(ColorCode.black).withValues(alpha: 0.2),
+                    color: context.colors.onSurface.withValues(alpha: 0.2),
                   ),
                 ),
             ],
@@ -402,7 +402,7 @@ Widget buildExpandableListItem(
           style: TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta_medium',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -96,7 +97,7 @@ class CustomTextField extends StatelessWidget {
             style: TextStyle(
               color: isFixed
                   ? Color(ColorCode.black).withValues(alpha: 0.7)
-                  : Color(ColorCode.black),
+                  : context.colors.onSurface,
               fontSize: 16,
               fontFamily: 'Mukta',
               fontWeight: FontWeight.w500,

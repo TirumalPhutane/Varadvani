@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -44,7 +45,7 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
                   fontFamily: 'Mukta_medium',
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0,
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                 ),
               ),
             ),
@@ -81,7 +82,7 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           boxShadow: [
             BoxShadow(
               color: Color(ColorCode.black).withValues(alpha: 0.04),
@@ -103,7 +104,7 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
                 style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'Mukta',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   letterSpacing: 0,
                   height: 1.5,
                 ),
@@ -111,7 +112,7 @@ class _DasganuMaharajScreenState extends State<DasganuMaharajScreen> {
               SvgPicture.asset(
                 'assets/svg/arrow.svg',
                 colorFilter: ColorFilter.mode(
-                  Color(ColorCode.black),
+                  context.colors.onSurface,
                   BlendMode.srcIn,
                 ),
               ),

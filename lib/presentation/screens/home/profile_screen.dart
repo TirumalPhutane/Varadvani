@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/network/dio_client.dart';
 import 'package:varadvani/core/resources/params/profile/update_profile_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
@@ -189,6 +190,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   Widget build(BuildContext context) {
     final profileState = ref.watch(getProfileProvider);
     final isEditing = ref.watch(textFieldVisibilityProvider);
+    final isDark = context.colors.brightness == Brightness.dark;
 
     ref.listen<ProfileState>(getProfileProvider, (previous, next) {
       if (next.data != null) {
@@ -364,7 +366,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                 style: TextStyle(
                                   fontSize: 26,
                                   fontFamily: 'Mukta_medium',
-                                  color: Color(ColorCode.black),
+                                  color: context.colors.onSurface,
                                   letterSpacing: 0,
                                 ),
                               ),
@@ -381,7 +383,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           containerColor: Color(ColorCode.lightGray),
                           borderColor: Color(ColorCode.black),
                           borderWidth: 1,
-                          labelColor: Color(ColorCode.black),
+                          labelColor: context.colors.onSurface,
                         ),
                         SizedBox(height: 30),
                         Row(
@@ -393,7 +395,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                 fontSize: 18,
                                 fontFamily: 'Mukta_semibold',
                                 fontWeight: FontWeight.normal,
-                                color: Color(ColorCode.black),
+                                color: context.colors.onSurface,
                                 letterSpacing: 0,
                               ),
                             ),
@@ -432,10 +434,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                               labelText: AppLocalizations.of(
                                 context,
                               )!.family_id,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _phoneController,
@@ -444,70 +448,84 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                               labelText: AppLocalizations.of(
                                 context,
                               )!.mobile_number,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _emailController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.email,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _addressController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.address,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _cityController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.city,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _stateController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.state,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _countryController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.country,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                             CustomTextField(
                               controller: _pincodeController,
                               hintText: '',
                               readOnly: !isEditing,
                               labelText: AppLocalizations.of(context)!.pincode,
-                              containerColor: Color(ColorCode.white),
-                              borderColor: Color(ColorCode.black),
+                              containerColor: Color(
+                                isDark ? ColorCode.cardDark : ColorCode.white,
+                              ),
+                              borderColor: context.colors.onSurface,
                               borderWidth: 1,
-                              labelColor: Color(ColorCode.black),
+                              labelColor: context.colors.onSurface,
                             ),
                           ],
                         ),

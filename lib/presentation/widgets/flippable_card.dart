@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:varadvani/core/common/models/timeline_item.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class FlippableCard extends StatefulWidget {
@@ -99,7 +100,7 @@ class _FlippableCardState extends State<FlippableCard>
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: isShowingFront
-                          ? Colors.white
+                          ? context.theme.cardColor
                           : Color(ColorCode.orange).withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -122,11 +123,11 @@ class _FlippableCardState extends State<FlippableCard>
         if (isFront)
           Text(
             '${widget.item.year}${widget.item.date != null ? ', (${widget.item.date})' : ''}',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               fontFamily: 'Mukta',
-              color: Color(ColorCode.black),
+              color: context.colors.onSurface,
               letterSpacing: 0,
               height: 1.5,
             ),
@@ -134,10 +135,10 @@ class _FlippableCardState extends State<FlippableCard>
         if (isFront)
           Text(
             widget.item.age,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontFamily: 'Mukta',
-              color: Color(ColorCode.black),
+              color: context.colors.onSurface,
               letterSpacing: 0,
               height: 1.5,
             ),
@@ -147,10 +148,10 @@ class _FlippableCardState extends State<FlippableCard>
           isFront ? widget.item.description : widget.item.backContent,
           overflow: TextOverflow.ellipsis,
           maxLines: isFront ? 1 : 10,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
             height: 1.5,
           ),

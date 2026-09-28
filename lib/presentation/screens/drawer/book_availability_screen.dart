@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/data/data_sources/local/local_datasource.dart';
 import 'package:varadvani/domain/entities/drawer/contact.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
-import 'package:varadvani/theme/color_code.dart';
 
 class BookAvailabilityScreen extends ConsumerWidget {
   const BookAvailabilityScreen({super.key});
@@ -40,7 +40,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
 
                     return Padding(
                       padding: const EdgeInsets.only(top: 20),
-                      child: buildContact(contact),
+                      child: buildContact(context, contact),
                     );
                   },
                 ),
@@ -52,11 +52,11 @@ class BookAvailabilityScreen extends ConsumerWidget {
     );
   }
 
-  Widget buildContact(Contact contact) {
+  Widget buildContact(BuildContext context, Contact contact) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(ColorCode.white),
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Padding(
@@ -75,7 +75,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontFamily: 'Mukta_light',
-                color: Color(ColorCode.black),
+                color: context.colors.onSurface,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0,
               ),
@@ -86,7 +86,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
@@ -97,7 +97,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
@@ -108,7 +108,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
@@ -119,7 +119,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0,
                 ),
@@ -130,7 +130,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
@@ -141,7 +141,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
@@ -152,7 +152,7 @@ class BookAvailabilityScreen extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Mukta_light',
-                  color: Color(ColorCode.black),
+                  color: context.colors.onSurface,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),

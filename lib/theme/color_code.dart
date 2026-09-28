@@ -8,4 +8,7 @@ class ColorCode {
   static const int gray = 0xFFE9E9E9;
   static const int lightOrange = 0xFFFFECDA;
   static const int lightGray = 0xFFDDDDDD;
+  static const int scaffoldBackgroundDark = 0xFF18171B;
+  static const int cardDark = 0xFF202126;
+  static const int lightCard = 0xFF2F2F38;
 }

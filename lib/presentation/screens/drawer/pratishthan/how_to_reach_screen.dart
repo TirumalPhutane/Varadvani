@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
-import 'package:varadvani/theme/color_code.dart';
 
 class HowToReachScreen extends StatelessWidget {
   const HowToReachScreen({super.key});
@@ -25,14 +25,17 @@ class HowToReachScreen extends StatelessWidget {
               children: [
                 WidgetHelper.buildStartText(),
                 _buildMainText(
+                  context,
                   'गोरटे',
                   'अक्षांश - १९.०५४३९७ / रेखांश - ७७.६२४८५५\nभूतल स्थान निर्देशांक (GPS Coordinates) १९° ३’ १५.८२९२” उत्तर / ७७° ३७’ २९.४७८” पूर्व',
                 ),
                 _buildMainText(
+                  context,
                   'उमरी',
                   'अक्षांश - १९.०४२१६६ / रेखांश - ७७.६४३५५६\nभूतल स्थान निर्देशांक (GPS Coordinates) १९° २’ ३१.७९७६” उत्तर / ७७° ३८’ ३६.८०१६” पूर्व',
                 ),
                 _buildMainText(
+                  context,
                   'नांदेड',
                   'अक्षांश - १९.१५९५०० / रेखांश - ७७.३१०९००\nभूतल स्थान निर्देशांक (GPS Coordinates) १९° ९’ ३४.२” उत्तर / ७७° १८’ ३९.२४” पूर्व',
                 ),
@@ -51,7 +54,7 @@ class HowToReachScreen extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -64,7 +67,7 @@ class HowToReachScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMainText(String title, String text) {
+  Widget _buildMainText(BuildContext context, String title, String text) {
     return Column(
       spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +79,7 @@ class HowToReachScreen extends StatelessWidget {
             fontSize: 20,
             fontFamily: 'Mukta',
             fontWeight: FontWeight.bold,
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
             height: 1.5,
           ),
@@ -87,7 +90,7 @@ class HowToReachScreen extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
             height: 1.5,
           ),

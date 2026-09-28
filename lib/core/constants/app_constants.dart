@@ -3,4 +3,6 @@ class AppConstants {
   static const String accessTokenKey = 'access_token';
   static const String refreshTokenKey = 'refresh_token';
   static const String userId = 'user_id';
+  static const String settingsBox = 'settings_box';
+  static const String themeModeKey = 'theme_mode';
 }

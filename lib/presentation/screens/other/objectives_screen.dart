@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/widget_helper.dart';
 import 'package:varadvani/theme/color_code.dart';
@@ -49,6 +50,7 @@ class ObjectivesScreen extends StatelessWidget {
                   spacing: 30,
                   children: [
                     _buildShlokaWithMeaning(
+                      context: context,
                       primaryText: 'सज्जन हो, सप्रेम जयहरि.',
                       shloka:
                           'प्रेरकः सूचकश्वैव वाचको दर्शकस्तथा । \nशिक्षको बोधकश्चैव षडेते गुरवः स्मृताः ॥',
@@ -56,6 +58,7 @@ class ObjectivesScreen extends StatelessWidget {
                           'सत्कर्माची प्रेरणा देणारे, अकर्म टाळण्याची सूचना देणारे, सत्याचा निर्देश करणारे, सन्मार्ग दाखविणारे, उत्तम शिक्षण देणारे व सुबोध करणारे – असे सहा जण मनुष्यासाठी गुरु समान असतात, अशा अर्थाचे एक शास्त्रवचन आहे. यातील एका गुणाने संपन्न असलेला गुरु लाभला तरी मनुष्याचे कल्याण होणे निश्चित आहे.',
                     ),
                     _buildShlokaWithMeaning(
+                      context: context,
                       primaryText: 'नारदभक्तिसूत्र सांगते –',
                       shloka:
                           'मुख्यतस्तु महत्कृपयैवभगवत्कृपालेशाद्वा ॥ महत्सङ्गस्त् दुर्लभोऽगम्योऽमोघश्च । लभ्यतेऽपि तत्कृपयैव ॥',
@@ -63,6 +66,7 @@ class ObjectivesScreen extends StatelessWidget {
                           'प्रेमभक्तीच्या प्राप्तीचे साधन मुख्यत: महापुरुषांच्या कृपेने अथवा भगवंताच्या लवमात्र कृपेने सद्भक्ताला प्राप्त होते. तथापि महापुरुषांचा सङ्ग दुर्लभ, अगम्य आणि अमोघ आहे. भगवंताच्या कृपेनेच महापुरुषांचा संश्रय प्राप्त होतो.',
                     ),
                     _buildShlokaWithMeaning(
+                      context: context,
                       primaryText: 'विवेकचूडामणि यात नमूद केले आहे –',
                       shloka:
                           'दुर्लभं त्रयमेवैतद्देवानुग्रहहेतुकम् । \nमनुष्यत्वं मुमुक्षुत्वं महापुरुषसंश्रयः ॥',
@@ -70,6 +74,7 @@ class ObjectivesScreen extends StatelessWidget {
                           'ज्यामुळे भगवत्कृपा प्राप्त होते, तो मनुष्यजन्म, मुमुक्षुत्व (मुक्त होण्याची इच्छा) व महापुरूषाचा आश्रय या तिन्हीही गोष्टी अत्यंत दुर्लभ आहेत.',
                     ),
                     _buildShlokaWithMeaning(
+                      context: context,
                       primaryText: 'आद्य शंकराचार्य म्हणतात –',
                       shloka:
                           'सत्संगत्वे निःसंगत्वम् निःसंगत्वे निर्मोहत्वम् । \nनिर्मोहत्वे निश्चलत्वम् निश्चलत्वे जीवनमुक्तिः ॥',
@@ -97,6 +102,7 @@ class ObjectivesScreen extends StatelessWidget {
   }
 
   Widget _buildShlokaWithMeaning({
+    required BuildContext context,
     required String primaryText,
     required String shloka,
     required String explanation,
@@ -113,7 +119,7 @@ class ObjectivesScreen extends StatelessWidget {
               fontSize: 18,
               fontFamily: 'Mukta',
               letterSpacing: 0,
-              color: Color(ColorCode.black),
+              color: context.colors.onSurface,
             ),
           ),
         ),
@@ -126,7 +132,7 @@ class ObjectivesScreen extends StatelessWidget {
               fontSize: 18,
               fontFamily: 'Mukta',
               fontWeight: FontWeight.bold,
-              color: Color(ColorCode.black),
+              color: context.colors.onSurface,
             ),
           ),
         ),
@@ -136,7 +142,7 @@ class ObjectivesScreen extends StatelessWidget {
           TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             fontWeight: FontWeight.bold,
             letterSpacing: 0,
             height: 1.5,
@@ -144,7 +150,7 @@ class ObjectivesScreen extends StatelessWidget {
           TextStyle(
             fontSize: 18,
             fontFamily: 'Mukta',
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
             letterSpacing: 0,
             height: 1.5,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -76,7 +77,7 @@ class _CommanDialog extends StatelessWidget {
                 fontSize: 20,
                 fontFamily: 'Mukta',
                 fontWeight: FontWeight.w700,
-                color: Color(ColorCode.black),
+                color: context.colors.onSurface,
                 letterSpacing: 0,
               ),
             ),
@@ -92,7 +93,9 @@ class _CommanDialog extends StatelessWidget {
                 CustomButton(
                   borderColor: negativeButtonColor ?? Color(ColorCode.orange),
                   borderWidth: 1,
-                  color: ColorCode.white,
+                  color: context.colors.brightness == Brightness.dark
+                      ? ColorCode.cardDark
+                      : ColorCode.white,
                   onPressed: onNegativePressed,
                   title: negativeButtonText,
                   titleColor: negativeButtonColor ?? Color(ColorCode.orange),

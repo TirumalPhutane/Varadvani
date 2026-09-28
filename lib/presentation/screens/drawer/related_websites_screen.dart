@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/helper/helper.dart';
 import 'package:varadvani/data/data_sources/local/local_datasource.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
@@ -49,7 +50,7 @@ class RelatedWebsitesScreen extends ConsumerWidget {
                   TextStyle(
                     fontSize: 18,
                     fontFamily: 'Mukta',
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0,
                     height: 1.5,
@@ -57,7 +58,7 @@ class RelatedWebsitesScreen extends ConsumerWidget {
                   TextStyle(
                     fontSize: 18,
                     fontFamily: 'Mukta',
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     letterSpacing: 0,
                     height: 1.5,
                   ),
@@ -71,6 +72,7 @@ class RelatedWebsitesScreen extends ConsumerWidget {
                     return Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: buildCard(
+                        context,
                         link.title,
                         link.duration,
                         link.videoUrl,
@@ -86,7 +88,12 @@ class RelatedWebsitesScreen extends ConsumerWidget {
     );
   }
 
-  Widget buildCard(String title, String duration, String videoUrl) {
+  Widget buildCard(
+    BuildContext context,
+    String title,
+    String duration,
+    String videoUrl,
+  ) {
     return GestureDetector(
       onTap: () {
         Helper.launchUrlFromApp(videoUrl);
@@ -94,7 +101,7 @@ class RelatedWebsitesScreen extends ConsumerWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Padding(
@@ -114,7 +121,7 @@ class RelatedWebsitesScreen extends ConsumerWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Mukta',
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 0,
                   ),
