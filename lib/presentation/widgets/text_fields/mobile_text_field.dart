@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class MobileTextField extends StatelessWidget {
@@ -54,14 +55,16 @@ class MobileTextField extends StatelessWidget {
             fontSize: 14,
             fontFamily: 'Mukta_medium',
             fontWeight: FontWeight.normal,
-            color: Color(ColorCode.black),
+            color: context.colors.onSurface,
           ),
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
           height: 55,
           decoration: BoxDecoration(
-            color: Color(ColorCode.orange).withValues(alpha: 0.2),
+            color: context.colors.brightness == Brightness.dark
+                ? Color(ColorCode.rockGray)
+                : Color(ColorCode.orange).withValues(alpha: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           child: Row(
@@ -70,13 +73,15 @@ class MobileTextField extends StatelessWidget {
               Container(
                 height: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(ColorCode.white),
+                  color: context.theme.cardColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
                   ),
                 ),
                 child: CountryCodePicker(
+                  barrierColor: context.theme.cardColor.withValues(alpha: 0.8),
+                  dialogBackgroundColor: context.theme.cardColor,
                   onChanged: onCountryChanged,
                   initialSelection: initialCountry,
                   favorite: const ['+91', 'IN'],
@@ -100,9 +105,9 @@ class MobileTextField extends StatelessWidget {
                               fontSize: 16,
                               fontFamily: 'Mukta_medium',
                               fontWeight: FontWeight.w500,
-                              color: Color(
-                                ColorCode.black,
-                              ).withValues(alpha: 0.6),
+                              color: context.colors.onSurface.withValues(
+                                alpha: 0.6,
+                              ),
                             ),
                           ),
                         ],
@@ -113,14 +118,14 @@ class MobileTextField extends StatelessWidget {
                     fontSize: 24,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.w600,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                   ),
                   flagWidth: 24,
                   headerTextStyle: TextStyle(
                     fontFamily: 'Mukta',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                   ),
                 ),
               ),
@@ -136,7 +141,7 @@ class MobileTextField extends StatelessWidget {
                   readOnly: readOnly,
                   maxLength: maxLength,
                   style: TextStyle(
-                    color: Color(ColorCode.black),
+                    color: context.colors.onSurface,
                     fontSize: 16,
                     fontFamily: 'Mukta',
                     fontWeight: FontWeight.w500,
@@ -145,7 +150,7 @@ class MobileTextField extends StatelessWidget {
                     border: InputBorder.none,
                     hintText: hintText,
                     hintStyle: TextStyle(
-                      color: Color(ColorCode.black).withValues(alpha: 0.5),
+                      color: context.colors.onSurface.withValues(alpha: 0.5),
                       fontSize: 16,
                       fontFamily: 'Mukta',
                       fontWeight: FontWeight.w500,

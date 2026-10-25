@@ -380,8 +380,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           isFixed: true,
                           readOnly: true,
                           labelText: AppLocalizations.of(context)!.personal_id,
-                          containerColor: Color(ColorCode.lightGray),
-                          borderColor: Color(ColorCode.black),
+                          containerColor:
+                              context.colors.brightness == Brightness.dark
+                              ? Color(ColorCode.rockGray)
+                              : Color(ColorCode.lightGray),
+                          borderColor: context.colors.onSurface,
                           borderWidth: 1,
                           labelColor: context.colors.onSurface,
                         ),

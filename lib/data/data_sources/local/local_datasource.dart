@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/domain/entities/appa/charitra_episode_entity.dart';
 import 'package:varadvani/domain/entities/drawer/contact.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
+import 'package:varadvani/main.dart';
 
 final localDataSourceProvider = Provider<LocalDataSource>(
   (ref) => LocalDataSourceImpl(),
@@ -10,9 +13,11 @@ abstract class LocalDataSource {
   List<CharitraEpisodeEntity> getEpisodes();
   List<CharitraEpisodeEntity> getLinks();
   List<Contact> getContacts();
+  Map<String, String> getAudioCategories();
 }
 
 class LocalDataSourceImpl implements LocalDataSource {
+  final BuildContext context = navigatorKey.currentState!.context;
   @override
   List<CharitraEpisodeEntity> getEpisodes() => const [
     CharitraEpisodeEntity(
@@ -474,4 +479,26 @@ class LocalDataSourceImpl implements LocalDataSource {
       note: '',
     ),
   ];
+
+  @override
+  Map<String, String> getAudioCategories() => {
+    'Bhajanavali': AppLocalizations.of(context)!.bhajanavali,
+    'Sakalchi Prarthana': AppLocalizations.of(context)!.sakalchi_prarthana,
+    'Purvarang Pade': AppLocalizations.of(context)!.purvarang_pade,
+    'Kirtan': AppLocalizations.of(context)!.kirtane,
+    'Itar Rachana': AppLocalizations.of(context)!.itar_rachana,
+    "Bhavarchana": AppLocalizations.of(context)!.bhavarchana,
+    "Shri Vishnu Sahasranama": AppLocalizations.of(
+      context,
+    )!.shri_vishnu_sahasranama,
+    "Pravachane": AppLocalizations.of(context)!.pravachane,
+    "Kirtane": AppLocalizations.of(context)!.kirtane,
+    "Shri Krishna Kathamrut": AppLocalizations.of(
+      context,
+    )!.shri_krishna_kathamrut,
+    "Stotre": AppLocalizations.of(context)!.stotre,
+    "Vividh Masikatil Lekh": AppLocalizations.of(
+      context,
+    )!.vividh_masikatil_lekh,
+  };
 }

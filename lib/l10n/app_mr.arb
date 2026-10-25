@@ -86,6 +86,20 @@
     "anantshri_award" : "अनंतश्री पुरस्कार",
     "no" : "नाही",
     "yes" : "होय",
-    "audio" : "श्राव्य",
-    "other" : "इतर"
+    "audio" : "ध्वनी",
+    "other" : "इतर",
+    "bhajanavali": "भजनावली",
+    "sakalchi_prarthana": "सकाळची प्रार्थना",
+    "purvarang_pade": "पूर्वरंग पदे",
+    "kirtane": "कीर्तने",
+    "povade": "पोवाडे",
+    "bhavarchana": "भावार्चना",
+    "shri_vishnu_sahasranama": "श्रीविष्णुसहस्रनाम",
+    "pravachane": "प्रवचने",
+    "shri_krishna_kathamrut": "श्रीकृष्ण कथामृत",
+    "stotre": "स्तोत्रे",
+    "itar_rachana": "इतर रचना",
+    "vividh_masikatil_lekh": "विविध मासिकांतील लेख",
+    "audio_books": "श्राव्य ग्रंथ",
+    "no_category": "कोणतीही श्रेणी उपलब्ध नाही."
 }

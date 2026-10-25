@@ -16,23 +16,8 @@ class MiniPlayerBar extends ConsumerWidget {
 
     if (audio == null) return const SizedBox.shrink();
 
-    void audioPlayerBottomSheet(BuildContext context) {
-      showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        backgroundColor: Color(ColorCode.white),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height,
-          minHeight: MediaQuery.of(context).size.height,
-        ),
-        builder: (context) {
-          return SafeArea(child: PlayerScreen(audio: audio));
-        },
-      );
+    void openPlayer(BuildContext context) {
+      openFullScreenPlayer(context, PlayerScreen(audio: audio));
     }
 
     return SafeArea(
@@ -47,7 +32,7 @@ class MiniPlayerBar extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: InkWell(
-                      onTap: () => audioPlayerBottomSheet(context),
+                      onTap: () => openPlayer(context),
                       child: Row(
                         children: [
                           ClipRRect(
@@ -98,7 +83,6 @@ class MiniPlayerBar extends ConsumerWidget {
                       playerState.isPlaying
                           ? 'assets/svg/stop.svg'
                           : 'assets/svg/play.svg',
-                      //width: 24,
                       colorFilter: ColorFilter.mode(
                         Color(ColorCode.orange),
                         BlendMode.srcIn,
@@ -119,4 +103,30 @@ class MiniPlayerBar extends ConsumerWidget {
     final seconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
     return '$minutes:$seconds';
   }
+}
+
+void openFullScreenPlayer(BuildContext context, Widget screen) {
+  Navigator.of(context, rootNavigator: true).push(
+    PageRouteBuilder(
+      opaque: true,
+      barrierColor: Colors.transparent,
+      transitionDuration: const Duration(milliseconds: 500),
+      reverseTransitionDuration: const Duration(milliseconds: 700),
+      pageBuilder: (context, animation, secondaryAnimation) => screen,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curved = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutCubic,
+          reverseCurve: Curves.easeInCubic,
+        );
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curved),
+          child: child,
+        );
+      },
+    ),
+  );
 }

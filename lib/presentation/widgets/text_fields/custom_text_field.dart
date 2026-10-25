@@ -62,7 +62,7 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.normal,
             color: labelColor != null
                 ? labelColor!.withValues(alpha: 0.7)
-                : Color(ColorCode.black),
+                : context.colors.onSurface,
           ),
         ),
         Container(
@@ -96,7 +96,7 @@ class CustomTextField extends StatelessWidget {
             readOnly: readOnly,
             style: TextStyle(
               color: isFixed
-                  ? Color(ColorCode.black).withValues(alpha: 0.7)
+                  ? context.colors.onSurface.withValues(alpha: 0.7)
                   : context.colors.onSurface,
               fontSize: 16,
               fontFamily: 'Mukta',
@@ -107,7 +107,7 @@ class CustomTextField extends StatelessWidget {
               border: InputBorder.none,
               hintText: hintText,
               hintStyle: TextStyle(
-                color: Color(ColorCode.black).withValues(alpha: 0.5),
+                color: context.colors.onSurface.withValues(alpha: 0.5),
                 fontSize: 16,
                 fontFamily: 'Mukta',
                 fontWeight: FontWeight.w500,

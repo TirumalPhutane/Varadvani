@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
@@ -71,7 +72,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     return Scaffold(
       bottomNavigationBar: SafeArea(
         child: Container(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           child: Padding(
             padding: const EdgeInsets.only(
               right: 20,
@@ -107,7 +108,9 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     (_) => false,
                   ),
                   title: AppLocalizations.of(context)!.existing_sign_in,
-                  color: ColorCode.white,
+                  color: context.colors.brightness == Brightness.dark
+                      ? ColorCode.cardDark
+                      : ColorCode.white,
                   borderColor: Color(ColorCode.orange),
                   borderWidth: 1.5,
                   titleColor: Color(ColorCode.orange),
@@ -128,6 +131,10 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               child: SvgPicture.asset(
                 'assets/svg/background.svg',
                 fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(
+                  context.theme.cardColor,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
             SafeArea(
@@ -180,7 +187,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                 fontSize: 20,
                                 fontFamily: 'Mukta',
                                 fontWeight: FontWeight.bold,
-                                color: Color(ColorCode.black),
+                                color: context.colors.onSurface,
                               ),
                             ),
                             SizedBox(height: 10),
@@ -190,7 +197,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Mukta',
                                 fontWeight: FontWeight.normal,
-                                color: Color(ColorCode.black),
+                                color: context.colors.onSurface,
                               ),
                             ),
                             SizedBox(height: 20),
@@ -224,6 +231,13 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                     context,
                                   )!.password,
                                   obscureText: !passwordVisible,
+                                  containerColor:
+                                      context.colors.brightness ==
+                                          Brightness.dark
+                                      ? Color(ColorCode.rockGray)
+                                      : Color(
+                                          ColorCode.orange,
+                                        ).withValues(alpha: 0.17),
                                   suffixIcon: Theme(
                                     data: Theme.of(context).copyWith(
                                       splashColor: Colors.transparent,
@@ -246,7 +260,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                         ),
                                         child: SvgPicture.asset(
                                           colorFilter: ColorFilter.mode(
-                                            Color(ColorCode.black),
+                                            context.colors.onSurface,
                                             BlendMode.srcIn,
                                           ),
                                           passwordVisible

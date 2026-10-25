@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
 import 'package:varadvani/domain/entities/audio/shravya_entity.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/providers/audio/audio_player_provider.dart';
 import 'package:varadvani/presentation/providers/audio/get_shravya_list_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
@@ -51,7 +52,7 @@ class _ShravyaListScreenState extends ConsumerState<ShravyaListScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '• ${widget.shravyaData.count} Audios',
+                          '• ${widget.shravyaData.count} ${AppLocalizations.of(context)!.audio}',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Mukta_light',

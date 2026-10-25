@@ -137,10 +137,14 @@ class DioClient {
   }
 
   /// Builds headers — attaches bearer token only when [requiresAuth] is true
-  Map<String, dynamic> _buildHeaders({bool requiresAuth = false}) {
+  Map<String, dynamic> _buildHeaders({
+    bool requiresAuth = false,
+    String? language,
+  }) {
     return {
       if (requiresAuth && _authToken != null)
         'Authorization': 'Bearer $_authToken',
+      if (language != null && language.isNotEmpty) 'x-language': language,
     };
   }
 
@@ -177,12 +181,18 @@ class DioClient {
     String path, {
     Map<String, dynamic>? queryParams,
     bool requiresAuth = false,
+    String? language,
   }) async {
     try {
       return await _dio.get(
         path,
         queryParameters: queryParams,
-        options: Options(headers: _buildHeaders(requiresAuth: requiresAuth)),
+        options: Options(
+          headers: _buildHeaders(
+            requiresAuth: requiresAuth,
+            language: language,
+          ),
+        ),
       );
     } on DioException catch (e) {
       final err = _parseError(e);

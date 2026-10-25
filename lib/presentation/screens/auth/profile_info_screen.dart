@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/resources/params/auth/sign_up_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
@@ -74,6 +75,9 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
   @override
   Widget build(BuildContext context) {
     final signUpState = ref.watch(signUpProvider);
+    final containerColor = context.colors.brightness == Brightness.dark
+        ? Color(ColorCode.rockGray)
+        : Color(ColorCode.orange).withValues(alpha: 0.17);
 
     ref.listen<SignUpState>(signUpProvider, (previous, next) {
       if (next.isLoading) {
@@ -152,7 +156,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                         right: 20,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(ColorCode.white),
+                        color: context.theme.cardColor,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(40),
                           topRight: Radius.circular(40),
@@ -169,7 +173,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 fontSize: 24,
                                 fontFamily: 'Mukta',
                                 fontWeight: FontWeight.bold,
-                                color: Color(ColorCode.black),
+                                color: context.colors.onSurface,
                               ),
                             ),
                             Column(
@@ -184,11 +188,13 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.name_hint,
+                                  containerColor: containerColor,
                                   labelText: AppLocalizations.of(context)!.name,
                                 ),
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _emailController,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.email_hint,
@@ -207,6 +213,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 ),
                                 CustomTextField(
                                   controller: _address1Controller,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.floor_apartment_hint,
@@ -217,6 +224,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _address2Controller,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.street_landmark_hint,
@@ -227,6 +235,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _cityController,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.city_hint,
@@ -235,6 +244,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _stateController,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.state_hint,
@@ -245,6 +255,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _countryController,
+                                  containerColor: containerColor,
                                   hintText: AppLocalizations.of(
                                     context,
                                   )!.country_hint,
@@ -255,6 +266,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                                 SizedBox(height: 5),
                                 CustomTextField(
                                   controller: _pincodeController,
+                                  containerColor: containerColor,
                                   keyboardType: TextInputType.number,
                                   hintText: AppLocalizations.of(
                                     context,
@@ -266,7 +278,10 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 15),
+                              padding: const EdgeInsets.only(
+                                top: 15,
+                                bottom: 15,
+                              ),
                               child: CustomButton(
                                 onPressed: signUpState.isLoading
                                     ? null
@@ -301,7 +316,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
           decorationStyle: TextDecorationStyle.solid,
           decorationThickness: 4,
           fontWeight: FontWeight.normal,
-          color: Color(ColorCode.black),
+          color: context.colors.onSurface,
         ),
       ),
     ],

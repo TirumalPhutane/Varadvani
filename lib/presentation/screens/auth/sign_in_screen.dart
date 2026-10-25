@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/resources/params/auth/sign_in_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
@@ -124,7 +125,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     return Scaffold(
       bottomNavigationBar: SafeArea(
         child: Container(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           child: Padding(
             padding: const EdgeInsets.only(
               right: 20,
@@ -147,7 +148,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     (_) => false,
                   ),
                   title: AppLocalizations.of(context)!.create_account,
-                  color: ColorCode.white,
+                  color: context.colors.brightness == Brightness.dark
+                      ? ColorCode.cardDark
+                      : ColorCode.white,
                   borderColor: Color(ColorCode.orange),
                   borderWidth: 1.5,
                   titleColor: Color(ColorCode.orange),
@@ -170,6 +173,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   child: SvgPicture.asset(
                     'assets/svg/background.svg',
                     fit: BoxFit.fill,
+                    colorFilter: ColorFilter.mode(
+                      context.theme.cardColor,
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
                 SafeArea(
@@ -228,7 +235,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                     fontSize: 20,
                                     fontFamily: 'Mukta',
                                     fontWeight: FontWeight.bold,
-                                    color: Color(ColorCode.black),
+                                    color: context.colors.onSurface,
                                   ),
                                 ),
                                 SizedBox(height: 10),
@@ -238,7 +245,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                     fontSize: 14,
                                     fontFamily: 'Mukta',
                                     fontWeight: FontWeight.normal,
-                                    color: Color(ColorCode.black),
+                                    color: context.colors.onSurface,
                                   ),
                                 ),
                                 SizedBox(height: 20),
@@ -273,6 +280,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                         context,
                                       )!.password,
                                       obscureText: !passwordVisible,
+                                      containerColor:
+                                          context.colors.brightness ==
+                                              Brightness.dark
+                                          ? Color(ColorCode.rockGray)
+                                          : Color(
+                                              ColorCode.orange,
+                                            ).withValues(alpha: 0.17),
                                       suffixIcon: Theme(
                                         data: Theme.of(context).copyWith(
                                           splashColor: Colors.transparent,
@@ -295,7 +309,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                                             ),
                                             child: SvgPicture.asset(
                                               colorFilter: ColorFilter.mode(
-                                                Color(ColorCode.black),
+                                                context.colors.onSurface,
                                                 BlendMode.srcIn,
                                               ),
                                               passwordVisible

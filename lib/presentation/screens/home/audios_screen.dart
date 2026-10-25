@@ -55,9 +55,7 @@ class _AudiosScreenState extends State<AudiosScreen>
                 fontFamily: 'Mukta',
                 fontWeight: FontWeight.w400,
               ),
-              overlayColor: WidgetStatePropertyAll(
-                Color(ColorCode.scaffoldBackground),
-              ),
+              overlayColor: WidgetStatePropertyAll(Colors.transparent),
               dividerColor: Colors.transparent,
               indicatorSize: TabBarIndicatorSize.tab,
               indicator: BoxDecoration(

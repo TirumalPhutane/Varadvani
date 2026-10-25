@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class LoaderDialog {
@@ -60,7 +61,7 @@ class _LoaderDialog extends StatelessWidget {
                       fontSize: 16,
                       fontFamily: 'Mukta',
                       fontWeight: FontWeight.w500,
-                      color: Color(ColorCode.black),
+                      color: context.colors.onSurface,
                     ),
                   ),
                 ],

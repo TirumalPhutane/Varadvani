@@ -11,4 +11,5 @@ class ColorCode {
   static const int scaffoldBackgroundDark = 0xFF18171B;
   static const int cardDark = 0xFF202126;
   static const int lightCard = 0xFF2F2F38;
+  static const int rockGray = 0xFF2E2F2F; //393837;
 }

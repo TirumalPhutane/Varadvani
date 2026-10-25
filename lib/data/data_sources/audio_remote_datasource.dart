@@ -25,6 +25,7 @@ class AudioRemoteDatasourceImpl implements AudioRemoteDatasource {
       ApiConstants.getAudios,
       queryParams: {'category': category},
       requiresAuth: true,
+      language: 'mr',
     );
 
     return AudioResponseModel.fromJson(response.data);
@@ -36,6 +37,7 @@ class AudioRemoteDatasourceImpl implements AudioRemoteDatasource {
       ApiConstants.getShravyaGranth,
       queryParams: {'category': 'Appa'},
       requiresAuth: true,
+      language: 'mr',
     );
 
     return ShravyaResponseModel.fromJson(response.data);
@@ -49,6 +51,7 @@ class AudioRemoteDatasourceImpl implements AudioRemoteDatasource {
       ApiConstants.getShravyaList,
       queryParams: {'category': 'Appa', 'subcategory': subCategory},
       requiresAuth: true,
+      language: 'mr',
     );
 
     return ShravyaListResponseModel.fromJson(response.data);

@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/domain/entities/audio/shravya_entity.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/providers/audio/get_shravya_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/mini_player_bar.dart';
@@ -34,7 +35,7 @@ class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
     final shravyaGranthState = ref.watch(getShravyaProvider);
 
     return Scaffold(
-      appBar: CustomAppBar(title: 'श्राव्य ग्रंथ'),
+      appBar: CustomAppBar(title: context.l10n.audio_books),
       body: Column(
         children: [
           Expanded(
@@ -86,61 +87,59 @@ class _ShravyaGranthScreenState extends ConsumerState<ShravyaGranthScreen> {
             left: 15,
             right: 15,
           ),
-          child: Row(
-            spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      granthData.subCategory,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Mukta',
-                        color: context.colors.onSurface,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0,
-                      ),
-                    ),
-                    Text(
-                      '• ${granthData.count} Audios',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Mukta_light',
-                        color: context.colors.onSurface,
-                        letterSpacing: 0,
-                      ),
-                    ),
-                  ],
+              Text(
+                granthData.subCategory,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Mukta',
+                  color: context.colors.onSurface,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.only(right: 5, left: 5),
-                decoration: BoxDecoration(
-                  color: Color(ColorCode.orange).withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(6),
-                    topRight: Radius.circular(6),
-                    bottomLeft: Radius.circular(6),
-                    bottomRight: Radius.circular(12),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 5,
-                    //horizontal: 2,
-                  ),
-                  child: SvgPicture.asset(
-                    'assets/svg/arrow.svg',
-                    width: 18,
-                    colorFilter: ColorFilter.mode(
-                      Color(ColorCode.orange),
-                      BlendMode.srcIn,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    '• ${granthData.count} ${AppLocalizations.of(context)!.audio}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Mukta_light',
+                      color: context.colors.onSurface,
+                      letterSpacing: 0,
                     ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Container(
+                      padding: EdgeInsets.only(right: 5, left: 5),
+                      decoration: BoxDecoration(
+                        color: Color(ColorCode.orange).withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(6),
+                          topRight: Radius.circular(6),
+                          bottomLeft: Radius.circular(6),
+                          bottomRight: Radius.circular(12),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: SvgPicture.asset(
+                          'assets/svg/arrow.svg',
+                          width: 18,
+                          colorFilter: ColorFilter.mode(
+                            Color(ColorCode.orange),
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:varadvani/core/common/models/table_data.dart';
 import 'package:varadvani/core/extensions/extension.dart';
+import 'package:varadvani/core/routes/app_routes.dart';
+import 'package:varadvani/domain/entities/audio/category_entity.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class WidgetHelper {
@@ -334,6 +337,92 @@ class WidgetHelper {
       indicatorType: Indicator.ballSpinFadeLoader,
       strokeWidth: 2,
       colors: const [Color(ColorCode.orange), Color(ColorCode.red)],
+    ),
+  );
+
+  static Widget buildAudioCategoryCard(
+    BuildContext context,
+    CategoryEntity categoryData,
+    Map<String, String> categories,
+  ) => GestureDetector(
+    onTap: () => Navigator.pushNamed(
+      context,
+      AppRoutes.audioListScreen,
+      arguments: categoryData,
+    ),
+    child: Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: context.theme.cardColor,
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 10,
+          bottom: 10,
+          left: 15,
+          right: 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                categories[categoryData.category]!,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Mukta',
+                  color: context.colors.onSurface,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0,
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  '• ${categoryData.items.length} ${context.l10n.audio}',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Mukta_light',
+                    color: context.colors.onSurface,
+                    letterSpacing: 0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Container(
+                    padding: EdgeInsets.only(right: 5, left: 5),
+                    decoration: BoxDecoration(
+                      color: Color(ColorCode.orange).withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(6),
+                        topRight: Radius.circular(6),
+                        bottomLeft: Radius.circular(6),
+                        bottomRight: Radius.circular(12),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: SvgPicture.asset(
+                        'assets/svg/arrow.svg',
+                        width: 18,
+                        colorFilter: ColorFilter.mode(
+                          Color(ColorCode.orange),
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }

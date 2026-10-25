@@ -628,6 +628,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get other;
+
+  /// Bhajanavali label
+  ///
+  /// In en, this message translates to:
+  /// **'Bhajanavali'**
+  String get bhajanavali;
+
+  /// Sakalchi Prarthana label
+  ///
+  /// In en, this message translates to:
+  /// **'Sakalchi Prarthana'**
+  String get sakalchi_prarthana;
+
+  /// Purvarang Pade label
+  ///
+  /// In en, this message translates to:
+  /// **'Purvarang Pade'**
+  String get purvarang_pade;
+
+  /// Kirtane label
+  ///
+  /// In en, this message translates to:
+  /// **'Kirtane'**
+  String get kirtane;
+
+  /// Povade label
+  ///
+  /// In en, this message translates to:
+  /// **'Povade'**
+  String get povade;
+
+  /// Bhavarchana label
+  ///
+  /// In en, this message translates to:
+  /// **'Bhavarchana'**
+  String get bhavarchana;
+
+  /// Shri Vishnu Sahasranama label
+  ///
+  /// In en, this message translates to:
+  /// **'Shri Vishnu Sahasranama'**
+  String get shri_vishnu_sahasranama;
+
+  /// Pravachane label
+  ///
+  /// In en, this message translates to:
+  /// **'Pravachane'**
+  String get pravachane;
+
+  /// Shri Krishna Kathamrut label
+  ///
+  /// In en, this message translates to:
+  /// **'Shri Krishna Kathamrut'**
+  String get shri_krishna_kathamrut;
+
+  /// Stotras label
+  ///
+  /// In en, this message translates to:
+  /// **'Stotras'**
+  String get stotre;
+
+  /// Other compositions label
+  ///
+  /// In en, this message translates to:
+  /// **'Other Compositions'**
+  String get itar_rachana;
+
+  /// Articles published across various monthly magazines
+  ///
+  /// In en, this message translates to:
+  /// **'Articles from Various Magazines'**
+  String get vividh_masikatil_lekh;
+
+  /// Audio Books label
+  ///
+  /// In en, this message translates to:
+  /// **'Audio Books'**
+  String get audio_books;
+
+  /// Empty state message when no categories are found or available
+  ///
+  /// In en, this message translates to:
+  /// **'No category available.'**
+  String get no_category;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

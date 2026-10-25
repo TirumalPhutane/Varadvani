@@ -270,8 +270,50 @@ class AppLocalizationsMr extends AppLocalizations {
   String get yes => 'होय';
 
   @override
-  String get audio => 'श्राव्य';
+  String get audio => 'ध्वनी';
 
   @override
   String get other => 'इतर';
+
+  @override
+  String get bhajanavali => 'भजनावली';
+
+  @override
+  String get sakalchi_prarthana => 'सकाळची प्रार्थना';
+
+  @override
+  String get purvarang_pade => 'पूर्वरंग पदे';
+
+  @override
+  String get kirtane => 'कीर्तने';
+
+  @override
+  String get povade => 'पोवाडे';
+
+  @override
+  String get bhavarchana => 'भावार्चना';
+
+  @override
+  String get shri_vishnu_sahasranama => 'श्रीविष्णुसहस्रनाम';
+
+  @override
+  String get pravachane => 'प्रवचने';
+
+  @override
+  String get shri_krishna_kathamrut => 'श्रीकृष्ण कथामृत';
+
+  @override
+  String get stotre => 'स्तोत्रे';
+
+  @override
+  String get itar_rachana => 'इतर रचना';
+
+  @override
+  String get vividh_masikatil_lekh => 'विविध मासिकांतील लेख';
+
+  @override
+  String get audio_books => 'श्राव्य ग्रंथ';
+
+  @override
+  String get no_category => 'कोणतीही श्रेणी उपलब्ध नाही.';
 }

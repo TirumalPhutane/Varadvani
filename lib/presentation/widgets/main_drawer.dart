@@ -122,7 +122,7 @@ class MainDrawer extends StatelessWidget {
     ];
 
     return Drawer(
-      backgroundColor: context.theme.scaffoldBackgroundColor,
+      backgroundColor: context.theme.cardColor,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 0, top: 20),

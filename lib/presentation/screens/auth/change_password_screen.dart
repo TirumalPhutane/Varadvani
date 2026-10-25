@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/core/resources/params/auth/sign_in_params.dart';
 import 'package:varadvani/core/routes/app_routes.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
@@ -138,7 +139,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
     return Scaffold(
       bottomNavigationBar: SafeArea(
         child: Container(
-          color: Color(ColorCode.white),
+          color: context.theme.cardColor,
           child: Padding(
             padding: const EdgeInsets.only(
               right: 20,
@@ -203,7 +204,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                         right: 20,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(ColorCode.white),
+                        color: context.theme.cardColor,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(40),
                           topRight: Radius.circular(40),
@@ -219,7 +220,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                               child: SvgPicture.asset(
                                 'assets/svg/left_arrow.svg',
                                 colorFilter: ColorFilter.mode(
-                                  Color(ColorCode.black),
+                                  context.colors.onSurface,
                                   BlendMode.srcIn,
                                 ),
                               ),
@@ -230,7 +231,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                                 fontSize: 24,
                                 fontFamily: 'Mukta',
                                 fontWeight: FontWeight.bold,
-                                color: Color(ColorCode.black),
+                                color: context.colors.onSurface,
                               ),
                             ),
                             Column(
@@ -267,6 +268,13 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                                         context,
                                       )!.password,
                                       obscureText: !passwordVisible,
+                                      containerColor:
+                                          context.colors.brightness ==
+                                              Brightness.dark
+                                          ? Color(ColorCode.rockGray)
+                                          : Color(
+                                              ColorCode.orange,
+                                            ).withValues(alpha: 0.17),
                                       suffixIcon: InkWell(
                                         onTap: () =>
                                             ref
@@ -284,7 +292,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                                           ),
                                           child: SvgPicture.asset(
                                             colorFilter: ColorFilter.mode(
-                                              Color(ColorCode.black),
+                                              context.colors.onSurface,
                                               BlendMode.srcIn,
                                             ),
                                             passwordVisible
@@ -313,6 +321,13 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                                         context,
                                       )!.confirm_password,
                                       obscureText: !confirmPasswordVisible,
+                                      containerColor:
+                                          context.colors.brightness ==
+                                              Brightness.dark
+                                          ? Color(ColorCode.rockGray)
+                                          : Color(
+                                              ColorCode.orange,
+                                            ).withValues(alpha: 0.17),
                                       suffixIcon: InkWell(
                                         onTap: () =>
                                             ref
@@ -330,7 +345,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
                                           ),
                                           child: SvgPicture.asset(
                                             colorFilter: ColorFilter.mode(
-                                              Color(ColorCode.black),
+                                              context.colors.onSurface,
                                               BlendMode.srcIn,
                                             ),
                                             confirmPasswordVisible

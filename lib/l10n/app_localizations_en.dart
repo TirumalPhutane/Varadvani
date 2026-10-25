@@ -274,4 +274,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get other => 'Other';
+
+  @override
+  String get bhajanavali => 'Bhajanavali';
+
+  @override
+  String get sakalchi_prarthana => 'Sakalchi Prarthana';
+
+  @override
+  String get purvarang_pade => 'Purvarang Pade';
+
+  @override
+  String get kirtane => 'Kirtane';
+
+  @override
+  String get povade => 'Povade';
+
+  @override
+  String get bhavarchana => 'Bhavarchana';
+
+  @override
+  String get shri_vishnu_sahasranama => 'Shri Vishnu Sahasranama';
+
+  @override
+  String get pravachane => 'Pravachane';
+
+  @override
+  String get shri_krishna_kathamrut => 'Shri Krishna Kathamrut';
+
+  @override
+  String get stotre => 'Stotras';
+
+  @override
+  String get itar_rachana => 'Other Compositions';
+
+  @override
+  String get vividh_masikatil_lekh => 'Articles from Various Magazines';
+
+  @override
+  String get audio_books => 'Audio Books';
+
+  @override
+  String get no_category => 'No category available.';
 }

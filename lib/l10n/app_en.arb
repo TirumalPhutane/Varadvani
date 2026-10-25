@@ -358,5 +358,61 @@
     "other" : "Other",
     "@other": {
         "description" : "Other label"
+    },
+    "bhajanavali": "Bhajanavali",
+    "@bhajanavali": {
+        "description": "Bhajanavali label"
+    },
+    "sakalchi_prarthana": "Sakalchi Prarthana",
+    "@sakalchi_prarthana": {
+        "description": "Sakalchi Prarthana label"
+    },
+    "purvarang_pade": "Purvarang Pade",
+    "@purvarang_pade": {
+        "description": "Purvarang Pade label"
+    },
+    "kirtane": "Kirtane",
+    "@kirtane": {
+        "description": "Kirtane label"
+    },
+    "povade": "Povade",
+    "@povade": {
+        "description": "Povade label"
+    },
+    "bhavarchana": "Bhavarchana",
+    "@bhavarchana": {
+        "description": "Bhavarchana label"
+    },
+    "shri_vishnu_sahasranama": "Shri Vishnu Sahasranama",
+    "@shri_vishnu_sahasranama": {
+        "description": "Shri Vishnu Sahasranama label"
+    },
+    "pravachane": "Pravachane",
+    "@pravachane": {
+        "description": "Pravachane label"
+    },
+    "shri_krishna_kathamrut": "Shri Krishna Kathamrut",
+    "@shri_krishna_kathamrut": {
+        "description": "Shri Krishna Kathamrut label"
+    },
+    "stotre": "Stotras",
+    "@stotre": {
+        "description": "Stotras label"
+    },
+    "itar_rachana": "Other Compositions",
+    "@itar_rachana": {
+        "description": "Other compositions label"
+    },
+    "vividh_masikatil_lekh": "Articles from Various Magazines",
+    "@vividh_masikatil_lekh": {
+        "description": "Articles published across various monthly magazines"
+    },
+    "audio_books": "Audio Books",
+    "@audio_books": {
+        "description": "Audio Books label"
+    },
+    "no_category": "No category available.",
+    "@no_category": {
+        "description": "Empty state message when no categories are found or available"
     }
 }

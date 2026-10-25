@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/extensions/extension.dart';
+import 'package:varadvani/data/data_sources/local/local_datasource.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
+import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/providers/audio/audio_player_provider.dart';
 import 'package:varadvani/presentation/widgets/custom_app_bar.dart';
 import 'package:varadvani/presentation/widgets/mini_player_bar.dart';
@@ -25,8 +27,12 @@ class AudioListScreen extends ConsumerStatefulWidget {
 class _AudioListScreenState extends ConsumerState<AudioListScreen> {
   @override
   Widget build(BuildContext context) {
+    Map<String, String> categoriesData = ref
+        .watch(localDataSourceProvider)
+        .getAudioCategories();
+
     return Scaffold(
-      appBar: CustomAppBar(title: widget.category),
+      appBar: CustomAppBar(title: categoriesData[widget.category]!),
       body: Column(
         children: [
           Expanded(
@@ -37,7 +43,7 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '• ${widget.items.length} Audios',
+                    '• ${widget.items.length} ${AppLocalizations.of(context)!.audio}',
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Mukta_light',
