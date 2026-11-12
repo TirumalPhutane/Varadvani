@@ -414,5 +414,13 @@
     "no_category": "No category available.",
     "@no_category": {
         "description": "Empty state message when no categories are found or available"
+    },
+    "no_lyrics_available": "Lyrics not available for this audio.",
+    "@no_lyrics_available": {
+        "description": "Message shown when lyrics are missing for an audio file"
+    },
+    "reached_last_audio": "You've reached the last audio in the playlist.",
+    "@reached_last_audio": {
+        "description": "Message shown when the user reaches the end of an audio playlist"
     }
 }

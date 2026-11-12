@@ -96,7 +96,7 @@ class _ShravyaListScreenState extends ConsumerState<ShravyaListScreen> {
       onTap: () async {
         ref
             .read(audioPlayerProvider.notifier)
-            .playAudio(audio, shravyaListState.data!.data);
+            .playAudio(audio, shravyaListState.data!.data.reversed.toList());
       },
       child: Container(
         width: double.infinity,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/domain/entities/appa/charitra_episode_entity.dart';
 import 'package:varadvani/domain/entities/drawer/contact.dart';
-import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/main.dart';
 
 final localDataSourceProvider = Provider<LocalDataSource>(
@@ -388,10 +388,10 @@ class LocalDataSourceImpl implements LocalDataSource {
       address: 'मु.पो. गोरटे, ता. उमरी, जिल्हा नांदेड - 431807',
       landline: '',
       mobile: '09421901098',
-      contactPerson: 'श्री. शिवा गोडगे',
-      contactPersonMobile: '9637950619, 9850398643',
+      contactPerson: 'श्री. उमेश हमनद',
+      contactPersonMobile: '9370105601',
       note:
-          'श्री. शिवा गोडगे आपणास हवी असलेली पुस्तके कुरियर अथवा पोस्टाने पाठविण्याची व्यवस्था करतील. Online Payment चा पर्याय उपलब्ध आहे.',
+          'श्री. उमेश हमनद आपणास हवी असलेली पुस्तके कुरियर अथवा पोस्टाने पाठविण्याची व्यवस्था करतील. Online Payment चा पर्याय उपलब्ध आहे.',
     ),
     Contact(
       title: 'श्री राधादामोदर प्रतिष्ठान',
@@ -452,15 +452,6 @@ class LocalDataSourceImpl implements LocalDataSource {
       note: '',
     ),
     Contact(
-      title: 'श्री. दिगंबर सीतारामपंत शेंदूरवाडकर',
-      address: 'श्रीसाई गजानन, त्रिमूर्ती नगर, परभणी - 431401',
-      landline: '',
-      mobile: '09423958534',
-      contactPerson: '',
-      contactPersonMobile: '',
-      note: '',
-    ),
-    Contact(
       title: 'मे. देबडवार पुस्तक भांडार',
       address: 'महावीर चौक, नांदेड - 431601',
       landline: '',
@@ -482,23 +473,17 @@ class LocalDataSourceImpl implements LocalDataSource {
 
   @override
   Map<String, String> getAudioCategories() => {
-    'Bhajanavali': AppLocalizations.of(context)!.bhajanavali,
-    'Sakalchi Prarthana': AppLocalizations.of(context)!.sakalchi_prarthana,
-    'Purvarang Pade': AppLocalizations.of(context)!.purvarang_pade,
-    'Kirtan': AppLocalizations.of(context)!.kirtane,
-    'Itar Rachana': AppLocalizations.of(context)!.itar_rachana,
-    "Bhavarchana": AppLocalizations.of(context)!.bhavarchana,
-    "Shri Vishnu Sahasranama": AppLocalizations.of(
-      context,
-    )!.shri_vishnu_sahasranama,
-    "Pravachane": AppLocalizations.of(context)!.pravachane,
-    "Kirtane": AppLocalizations.of(context)!.kirtane,
-    "Shri Krishna Kathamrut": AppLocalizations.of(
-      context,
-    )!.shri_krishna_kathamrut,
-    "Stotre": AppLocalizations.of(context)!.stotre,
-    "Vividh Masikatil Lekh": AppLocalizations.of(
-      context,
-    )!.vividh_masikatil_lekh,
+    'Bhajanavali': context.l10n.bhajanavali,
+    'Sakalchi Prarthana': context.l10n.sakalchi_prarthana,
+    'Purvarang Pade': context.l10n.purvarang_pade,
+    'Kirtan': context.l10n.kirtane,
+    'Itar Rachana': context.l10n.itar_rachana,
+    "Bhavarchana": context.l10n.bhavarchana,
+    "Shri Vishnu Sahasranama": context.l10n.shri_vishnu_sahasranama,
+    "Pravachane": context.l10n.pravachane,
+    "Kirtane": context.l10n.kirtane,
+    "Shri Krishna Kathamrut": context.l10n.shri_krishna_kathamrut,
+    "Stotre": context.l10n.stotre,
+    "Vividh Masikatil Lekh": context.l10n.vividh_masikatil_lekh,
   };
 }

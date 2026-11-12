@@ -712,6 +712,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No category available.'**
   String get no_category;
+
+  /// Message shown when lyrics are missing for an audio file
+  ///
+  /// In en, this message translates to:
+  /// **'Lyrics not available for this audio.'**
+  String get no_lyrics_available;
+
+  /// Message shown when the user reaches the end of an audio playlist
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve reached the last audio in the playlist.'**
+  String get reached_last_audio;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

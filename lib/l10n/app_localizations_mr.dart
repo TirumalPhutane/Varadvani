@@ -316,4 +316,10 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get no_category => 'कोणतीही श्रेणी उपलब्ध नाही.';
+
+  @override
+  String get no_lyrics_available => 'या ध्वनीसाठी बोल उपलब्ध नाहीत.';
+
+  @override
+  String get reached_last_audio => 'तुम्ही प्लेलिस्टवरील शेवटच्या ऑडिओपर्यंत पोहोचला आहात.';
 }

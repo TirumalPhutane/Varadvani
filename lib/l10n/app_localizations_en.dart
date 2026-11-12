@@ -316,4 +316,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_category => 'No category available.';
+
+  @override
+  String get no_lyrics_available => 'Lyrics not available for this audio.';
+
+  @override
+  String get reached_last_audio => 'You\'ve reached the last audio in the playlist.';
 }

@@ -83,7 +83,9 @@ class _AudioListScreenState extends ConsumerState<AudioListScreen> {
 
     return GestureDetector(
       onTap: () async {
-        ref.read(audioPlayerProvider.notifier).playAudio(audio, widget.items);
+        ref
+            .read(audioPlayerProvider.notifier)
+            .playAudio(audio, widget.items.reversed.toList());
       },
       child: Container(
         width: double.infinity,

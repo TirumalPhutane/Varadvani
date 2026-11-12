@@ -11,6 +11,7 @@ class AudioEntity {
     required this.subcategory,
     required this.createdAt,
     required this.updatedAt,
+    required this.lyrics,
   });
 
   AudioEntity.empty();
@@ -26,4 +27,5 @@ class AudioEntity {
   String subcategory = '';
   String createdAt = '';
   String updatedAt = '';
+  String lyrics = '';
 }

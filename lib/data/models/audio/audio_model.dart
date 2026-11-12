@@ -13,6 +13,7 @@ class AudioModel extends AudioEntity {
     required super.subcategory,
     required super.createdAt,
     required super.updatedAt,
+    required super.lyrics,
   });
 
   AudioModel.empty() : super.empty();
@@ -29,5 +30,6 @@ class AudioModel extends AudioEntity {
     subcategory: json['subcategory']?.toString() ?? '',
     createdAt: json['createdAt']?.toString() ?? '',
     updatedAt: json['updatedAt']?.toString() ?? '',
+    lyrics: json['lyrics']?.toString() ?? '',
   );
 }
