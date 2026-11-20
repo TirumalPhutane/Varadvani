@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:varadvani/core/common/screen_arguments/sign_up_data.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
 import 'package:varadvani/domain/entities/audio/category_entity.dart';

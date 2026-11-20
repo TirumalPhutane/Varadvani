@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:varadvani/core/constants/app_constants.dart';
@@ -37,6 +37,12 @@ class _MyAppState extends ConsumerState<MyApp> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    localeManager.removeListener(localeListener);
+    super.dispose();
+  }
+
   void localeListener() {
     if (mounted) {
       setState(() {});
@@ -63,7 +69,10 @@ class _MyAppState extends ConsumerState<MyApp> {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       locale: localeManager.locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: AppRoutes.generateRoute,
       initialRoute: initialRoute,

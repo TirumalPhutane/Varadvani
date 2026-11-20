@@ -1,5 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/material.dart';
+// ignore: deprecated_member_use
+import 'package:flutter/material.dart' as legacy show Material, MaterialType;
+import 'package:material_ui/material_ui.dart';
 import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/theme/color_code.dart';
 
@@ -79,53 +81,58 @@ class MobileTextField extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                   ),
                 ),
-                child: CountryCodePicker(
-                  barrierColor: context.theme.cardColor.withValues(alpha: 0.8),
-                  dialogBackgroundColor: context.theme.cardColor,
-                  onChanged: onCountryChanged,
-                  initialSelection: initialCountry,
-                  favorite: const ['+91', 'IN'],
-                  builder: (CountryCode? code) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        spacing: 5,
-                        children: [
-                          Image.asset(
-                            code?.flagUri ?? 'flags/in.png',
-                            package: 'country_code_picker',
-                            width: 24,
-                            height: 16,
-                            fit: BoxFit.cover,
-                          ),
-                          Text(
-                            code?.dialCode ?? '+91',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'Mukta_medium',
-                              fontWeight: FontWeight.w500,
-                              color: context.colors.onSurface.withValues(
-                                alpha: 0.6,
+                child: legacy.Material(
+                  type: legacy.MaterialType.transparency,
+                  child: CountryCodePicker(
+                    barrierColor: context.theme.cardColor.withValues(
+                      alpha: 0.8,
+                    ),
+                    dialogBackgroundColor: context.theme.cardColor,
+                    onChanged: onCountryChanged,
+                    initialSelection: initialCountry,
+                    favorite: const ['+91', 'IN'],
+                    builder: (CountryCode? code) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 5,
+                          children: [
+                            Image.asset(
+                              code?.flagUri ?? 'flags/in.png',
+                              package: 'country_code_picker',
+                              width: 24,
+                              height: 16,
+                              fit: BoxFit.cover,
+                            ),
+                            Text(
+                              code?.dialCode ?? '+91',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Mukta_medium',
+                                fontWeight: FontWeight.w500,
+                                color: context.colors.onSurface.withValues(
+                                  alpha: 0.6,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  textStyle: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'Mukta',
-                    fontWeight: FontWeight.w600,
-                    color: context.colors.onSurface,
-                  ),
-                  flagWidth: 24,
-                  headerTextStyle: TextStyle(
-                    fontFamily: 'Mukta',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: context.colors.onSurface,
+                          ],
+                        ),
+                      );
+                    },
+                    textStyle: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'Mukta',
+                      fontWeight: FontWeight.w600,
+                      color: context.colors.onSurface,
+                    ),
+                    flagWidth: 24,
+                    headerTextStyle: TextStyle(
+                      fontFamily: 'Mukta',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: context.colors.onSurface,
+                    ),
                   ),
                 ),
               ),
