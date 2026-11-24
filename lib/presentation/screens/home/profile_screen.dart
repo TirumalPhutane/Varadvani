@@ -1,7 +1,8 @@
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
@@ -539,96 +540,147 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             title: AppLocalizations.of(context)!.update,
                           ),
                         SizedBox(height: 40),
-                        Column(
-                          spacing: 30,
-                          children: [
-                            InkWell(
-                              onTap: () => CommanDialog.show(
-                                context,
-                                message: AppLocalizations.of(
-                                  context,
-                                )!.logout_message,
-                                positiveButtonText: AppLocalizations.of(
-                                  context,
-                                )!.logout,
-                                negativeButtonText: AppLocalizations.of(
-                                  context,
-                                )!.cancel,
-                                onPositivePressed: () => ref
-                                    .read(signOutProvider.notifier)
-                                    .signOut(),
-                                onNegativePressed: () => Navigator.pop(context),
+                        Container(
+                          height: 110,
+                          padding: EdgeInsets.only(
+                            left: 15,
+                            top: 7,
+                            bottom: 7,
+                            right: 15,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(
+                              isDark ? ColorCode.cardDark : ColorCode.white,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            border: Border.all(
+                              color: context.colors.onSurface.withValues(
+                                alpha: 0.2,
                               ),
-                              child: Container(
-                                width: double.infinity,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  ),
-                                  border: Border.all(
-                                    color: Color(ColorCode.orange),
-                                    width: 1,
-                                  ),
+                              width: 1,
+                            ),
+                          ),
+                          child: Column(
+                            spacing: 10,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () => CommanDialog.show(
+                                  context,
+                                  message: AppLocalizations.of(
+                                    context,
+                                  )!.logout_message,
+                                  positiveButtonText: AppLocalizations.of(
+                                    context,
+                                  )!.logout,
+                                  negativeButtonText: AppLocalizations.of(
+                                    context,
+                                  )!.cancel,
+                                  onPositivePressed: () => ref
+                                      .read(signOutProvider.notifier)
+                                      .signOut(),
+                                  onNegativePressed: () =>
+                                      Navigator.pop(context),
                                 ),
                                 child: Row(
-                                  spacing: 10,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    SvgPicture.asset('assets/svg/logout.svg'),
-                                    Text(
-                                      AppLocalizations.of(context)!.logout,
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'Mukta_medium',
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(ColorCode.orange),
+                                    Row(
+                                      spacing: 10,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/svg/logout.svg',
+                                        ),
+                                        Text(
+                                          AppLocalizations.of(context)!.logout,
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'Mukta_medium',
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(ColorCode.orange),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Transform.rotate(
+                                      angle: math.pi * 1.5,
+                                      child: SvgPicture.asset(
+                                        'assets/svg/down_arrow.svg',
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              onTap: () => CommanDialog.show(
-                                context,
-                                message: AppLocalizations.of(
-                                  context,
-                                )!.delete_account_message,
-                                positiveButtonText: AppLocalizations.of(
-                                  context,
-                                )!.delete,
-                                negativeButtonText: AppLocalizations.of(
-                                  context,
-                                )!.no,
-                                onPositivePressed: () => ref
-                                    .read(deleteProfileProvider.notifier)
-                                    .deleteProfile(),
-                                onNegativePressed: () => Navigator.pop(context),
-                                positiveButtonColor: ColorCode.red,
-                                negativeButtonColor: Color(ColorCode.red),
+                              Divider(
+                                height: 1,
+                                color: Color(
+                                  context.colors.brightness == Brightness.dark
+                                      ? ColorCode.white
+                                      : ColorCode.darkGray,
+                                ).withValues(alpha: 0.2),
                               ),
-                              child: Row(
-                                spacing: 10,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset('assets/svg/delete.svg'),
-                                  Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.delete_account,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'Mukta_medium',
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(ColorCode.red),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                onTap: () => CommanDialog.show(
+                                  context,
+                                  message: AppLocalizations.of(
+                                    context,
+                                  )!.delete_account_message,
+                                  positiveButtonText: AppLocalizations.of(
+                                    context,
+                                  )!.delete,
+                                  negativeButtonText: AppLocalizations.of(
+                                    context,
+                                  )!.no,
+                                  onPositivePressed: () => ref
+                                      .read(deleteProfileProvider.notifier)
+                                      .deleteProfile(),
+                                  onNegativePressed: () =>
+                                      Navigator.pop(context),
+                                  positiveButtonColor: ColorCode.red,
+                                  negativeButtonColor: Color(ColorCode.red),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      spacing: 10,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/svg/delete.svg',
+                                        ),
+                                        Text(
+                                          AppLocalizations.of(
+                                            context,
+                                          )!.delete_account,
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'Mukta_medium',
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(ColorCode.red),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                    Transform.rotate(
+                                      angle: math.pi * 1.5,
+                                      child: SvgPicture.asset(
+                                        'assets/svg/down_arrow.svg',
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
