@@ -322,4 +322,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reached_last_audio => 'You\'ve reached the last audio in the playlist.';
+
+  @override
+  String get guide_menu_desc => 'Open the side menu for literature, exams, settings, and more.';
+
+  @override
+  String get guide_home_desc => 'View daily Varadvani, updates, and other information.';
+
+  @override
+  String get guide_dada_desc => 'Read about Dasganu Maharaj.';
+
+  @override
+  String get guide_appa_desc => 'Read about Swami Varadanand Bharati.';
+
+  @override
+  String get guide_audio_desc => 'Listen to compositions, kirtans, discourses, and other recorded audio by P.P. Dada and P.P. Appa.';
+
+  @override
+  String get guide_profile_desc => 'View and update your personal profile information.';
+
+  @override
+  String get menu => 'Menu';
 }

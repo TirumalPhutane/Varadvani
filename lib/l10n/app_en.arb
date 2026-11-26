@@ -422,5 +422,33 @@
     "reached_last_audio": "You've reached the last audio in the playlist.",
     "@reached_last_audio": {
         "description": "Message shown when the user reaches the end of an audio playlist"
+    },
+    "guide_menu_desc": "Open the side menu for literature, exams, settings, and more.",
+    "@guide_menu_desc": {
+        "description": "Description for the app guide step pointing to the menu button"
+    },
+    "guide_home_desc": "View daily Varadvani, updates, and other information.",
+    "@guide_home_desc": {
+        "description": "Description for the app guide step pointing to the home section"
+    },
+    "guide_dada_desc": "Read about Dasganu Maharaj.",
+    "@guide_dada_desc": {
+        "description": "Description for the app guide step highlighting Dasganu Maharaj content"
+    },
+    "guide_appa_desc": "Read about Swami Varadanand Bharati.",
+    "@guide_appa_desc": {
+        "description": "Description for the app guide step highlighting Varadanand Bharati content"
+    },
+    "guide_audio_desc": "Listen to compositions, kirtans, discourses, and other recorded audio by P.P. Dada and P.P. Appa.",
+    "@guide_audio_desc": {
+        "description": "Description for the app guide step pointing to the audio section"
+    },
+    "guide_profile_desc": "View and update your personal profile information.",
+    "@guide_profile_desc": {
+        "description": "Description for the app guide step pointing to the profile section"
+    },
+    "menu" : "Menu",
+    "@menu": {
+        "description" : "Menu label"
     }
 }

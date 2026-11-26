@@ -724,6 +724,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You\'ve reached the last audio in the playlist.'**
   String get reached_last_audio;
+
+  /// Description for the app guide step pointing to the menu button
+  ///
+  /// In en, this message translates to:
+  /// **'Open the side menu for literature, exams, settings, and more.'**
+  String get guide_menu_desc;
+
+  /// Description for the app guide step pointing to the home section
+  ///
+  /// In en, this message translates to:
+  /// **'View daily Varadvani, updates, and other information.'**
+  String get guide_home_desc;
+
+  /// Description for the app guide step highlighting Dasganu Maharaj content
+  ///
+  /// In en, this message translates to:
+  /// **'Read about Dasganu Maharaj.'**
+  String get guide_dada_desc;
+
+  /// Description for the app guide step highlighting Varadanand Bharati content
+  ///
+  /// In en, this message translates to:
+  /// **'Read about Swami Varadanand Bharati.'**
+  String get guide_appa_desc;
+
+  /// Description for the app guide step pointing to the audio section
+  ///
+  /// In en, this message translates to:
+  /// **'Listen to compositions, kirtans, discourses, and other recorded audio by P.P. Dada and P.P. Appa.'**
+  String get guide_audio_desc;
+
+  /// Description for the app guide step pointing to the profile section
+  ///
+  /// In en, this message translates to:
+  /// **'View and update your personal profile information.'**
+  String get guide_profile_desc;
+
+  /// Menu label
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menu;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

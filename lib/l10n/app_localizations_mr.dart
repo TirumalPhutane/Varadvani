@@ -322,4 +322,25 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get reached_last_audio => 'तुम्ही प्लेलिस्टवरील शेवटच्या ऑडिओपर्यंत पोहोचला आहात.';
+
+  @override
+  String get guide_menu_desc => 'ग्रंथसंपदा, परीक्षा, सेटिंग्ज आणि अधिक माहितीसाठी साइड मेनू उघडा.';
+
+  @override
+  String get guide_home_desc => 'दैनंदिन वरदवाणी, अपडेट्स तसेच इतर माहिती पहा.';
+
+  @override
+  String get guide_dada_desc => 'दासगणू महाराजांबद्दल वाचा.';
+
+  @override
+  String get guide_appa_desc => 'स्वामी वरदानंद भारती यांच्याबद्दल वाचा.';
+
+  @override
+  String get guide_audio_desc => 'पू. दादा व पू. अप्पा यांच्या रचना, कीर्तने, प्रवचने तसेच इतर ध्वनिमुद्रित साहित्य ऐका.';
+
+  @override
+  String get guide_profile_desc => 'तुमची वैयक्तिक माहिती पहा तसेच बदल करा.';
+
+  @override
+  String get menu => 'मेनू';
 }

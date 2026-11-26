@@ -1,3 +1,4 @@
+import 'package:feature_discovery/feature_discovery.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -62,22 +63,24 @@ class _MyAppState extends ConsumerState<MyApp> {
         ? AppRoutes.mainScreen
         : AppRoutes.signInScreen;
 
-    return MaterialApp(
-      title: 'Varadvani',
-      debugShowCheckedModeBanner: false,
-      themeMode: themeMode,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      locale: localeManager.locale,
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        ...GlobalMaterialLocalizations.delegates,
-      ],
-      supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateRoute: AppRoutes.generateRoute,
-      initialRoute: initialRoute,
-      navigatorKey: navigatorKey,
-      //home: const MyHomePage(title: 'Varadvani'),
+    return FeatureDiscovery(
+      child: MaterialApp(
+        title: 'Varadvani',
+        debugShowCheckedModeBanner: false,
+        themeMode: themeMode,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        locale: localeManager.locale,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          ...GlobalMaterialLocalizations.delegates,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateRoute: AppRoutes.generateRoute,
+        initialRoute: initialRoute,
+        navigatorKey: navigatorKey,
+        //home: const MyHomePage(title: 'Varadvani'),
+      ),
     );
   }
 }

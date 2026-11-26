@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:varadvani/core/extensions/extension.dart';
+import 'package:varadvani/core/helper/guide_ids.dart';
+import 'package:varadvani/presentation/widgets/guide_overlay.dart';
 import 'package:varadvani/theme/color_code.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -43,11 +45,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15),
-                  child: SvgPicture.asset(
-                    'assets/svg/menu.svg',
-                    colorFilter: ColorFilter.mode(
-                      context.colors.onSurface,
-                      BlendMode.srcIn,
+                  child: GuideOverlay(
+                    featureId: GuideIds.menu,
+                    title: context.l10n.menu,
+                    description: context.l10n.guide_menu_desc,
+                    tapTarget: SvgPicture.asset(
+                      'assets/svg/menu.svg',
+                      colorFilter: ColorFilter.mode(
+                        context.colors.primary,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/svg/menu.svg',
+                      colorFilter: ColorFilter.mode(
+                        context.colors.onSurface,
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
