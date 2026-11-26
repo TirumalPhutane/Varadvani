@@ -1,5 +1,7 @@
+import 'package:feature_discovery/feature_discovery.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
+import 'package:varadvani/core/helper/guide_ids.dart';
 import 'package:varadvani/l10n/app_localizations.dart';
 import 'package:varadvani/presentation/screens/home/dasganu_maharaj_screen.dart';
 import 'package:varadvani/presentation/screens/home/home_screen.dart';
@@ -37,6 +39,24 @@ class _MainScreenState extends State<MainScreen> {
       AppLocalizations.of(context)!.profile,
     ];
   }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FeatureDiscovery.discoverFeatures(context, GuideIds.all);
+    });
+  }
+
+  // Future<void> restartGuide(BuildContext context) async {
+  //   // Navigator.pop(context); // close the drawer first
+  //   await FeatureDiscovery.clearPreferences(context, GuideIds.all);
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     if (context.mounted) {
+  //       FeatureDiscovery.discoverFeatures(context, GuideIds.all);
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

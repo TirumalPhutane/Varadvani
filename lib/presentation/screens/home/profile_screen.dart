@@ -23,7 +23,7 @@ import 'package:varadvani/presentation/providers/profile/delete_profile_provider
 import 'package:varadvani/presentation/providers/profile/get_profile_provider.dart';
 import 'package:varadvani/presentation/providers/profile/update_profile_image_provider.dart';
 import 'package:varadvani/presentation/providers/profile/update_profile_provider.dart';
-import 'package:varadvani/presentation/widgets/comman_dialog.dart';
+import 'package:varadvani/presentation/widgets/comman_bottom_sheet.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
 import 'package:varadvani/presentation/widgets/loader_dialog.dart';
 import 'package:varadvani/presentation/widgets/snackbar_helper.dart';
@@ -565,7 +565,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               InkWell(
-                                onTap: () => CommanDialog.show(
+                                onTap: () => CommonBottomSheet.show(
                                   context,
                                   message: AppLocalizations.of(
                                     context,
@@ -624,7 +624,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                               ),
                               InkWell(
                                 splashColor: Colors.transparent,
-                                onTap: () => CommanDialog.show(
+                                onTap: () => CommonBottomSheet.show(
                                   context,
                                   message: AppLocalizations.of(
                                     context,

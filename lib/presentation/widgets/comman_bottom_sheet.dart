@@ -3,7 +3,7 @@ import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/presentation/widgets/custom_button.dart';
 import 'package:varadvani/theme/color_code.dart';
 
-class CommanDialog {
+class CommonBottomSheet {
   static void show(
     BuildContext context, {
     required String message,
@@ -19,7 +19,7 @@ class CommanDialog {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
       ),
-      builder: (context) => _CommanDialog(
+      builder: (context) => _CommonBottomSheet(
         message: message,
         positiveButtonText: positiveButtonText,
         negativeButtonText: negativeButtonText,
@@ -36,8 +36,8 @@ class CommanDialog {
   }
 }
 
-class _CommanDialog extends StatelessWidget {
-  const _CommanDialog({
+class _CommonBottomSheet extends StatelessWidget {
+  const _CommonBottomSheet({
     required this.message,
     required this.positiveButtonText,
     required this.negativeButtonText,

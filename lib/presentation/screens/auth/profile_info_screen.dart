@@ -100,7 +100,7 @@ class _ProfileInfoScreenState extends ConsumerState<ProfileInfoScreen> {
         if (next.data!.success) {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            AppRoutes.signInScreen,
+            AppRoutes.mainScreen,
             (_) => false,
           );
         }
