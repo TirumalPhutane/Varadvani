@@ -10,3 +10,12 @@ extension ThemeContext on BuildContext {
 extension AppLocalizationsExtension on BuildContext {
   AppLocalizations get l10n => AppLocalizations.of(this)!;
 }
+
+extension DropCapSplit on String {
+  (String, String) splitFirstGrapheme() {
+    final t = trimLeft();
+    if (t.isEmpty) return ('', '');
+    final chars = t.characters;
+    return (chars.first, chars.skip(1).toString());
+  }
+}
