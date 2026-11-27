@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:varadvani/core/extensions/extension.dart';
 import 'package:varadvani/domain/entities/audio/audio_entity.dart';
 import 'package:varadvani/presentation/providers/audio/audio_player_provider.dart';
@@ -48,12 +47,12 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen>
     _showLyrics ? _controller.forward() : _controller.reverse();
   }
 
-  Future<void> _shareAudio(AudioEntity audio) async {
-    final text = '${audio.title}\n${audio.description}\n\n${audio.file}';
-    await SharePlus.instance.share(
-      ShareParams(text: text, subject: audio.title),
-    );
-  }
+  // Future<void> _shareAudio(AudioEntity audio) async {
+  //   final text = '${audio.title}\n${audio.description}\n\n${audio.file}';
+  //   await SharePlus.instance.share(
+  //     ShareParams(text: text, subject: audio.title),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -332,10 +331,10 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen>
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _actionIcon('assets/svg/favourite.svg', () {}),
-              _actionIcon(
-                'assets/svg/share.svg',
-                () => _shareAudio(currentAudio),
-              ),
+              // _actionIcon(
+              //   'assets/svg/share.svg',
+              //   () => _shareAudio(currentAudio),
+              // ),
               _actionIcon('assets/svg/replay.svg', notifier.replay),
               _actionIcon(
                 'assets/svg/lyrics.svg',

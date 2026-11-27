@@ -142,7 +142,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   selectedIndex == 3
-                      ? 'assets/svg/music.svg'
+                      ? 'assets/svg/music_fill.svg'
                       : 'assets/svg/music.svg',
                   colorFilter: ColorFilter.mode(
                     selectedIndex == 3
