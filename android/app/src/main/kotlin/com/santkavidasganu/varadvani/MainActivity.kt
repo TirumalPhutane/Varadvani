@@ -1,4 +1,4 @@
-package com.dasganupratishthan.varadvani
+package com.santkavidasganu.varadvani
 
 import io.flutter.embedding.android.FlutterActivity
 
